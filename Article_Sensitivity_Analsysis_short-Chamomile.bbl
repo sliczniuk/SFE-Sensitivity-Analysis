@@ -1,0 +1,171 @@
+\begin{thebibliography}{21}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Singh et~al.(2011)Singh, Khanam, Misra, and Srivastava]{Singh2011}
+Ompal Singh, Zakia Khanam, Neelam Misra, and Manoj~Kumar Srivastava.
+\newblock Chamomile (matricaria chamomilla l.): An overview.
+\newblock \emph{Pharmacognosy Reviews}, 5\penalty0 (9):\penalty0 82, 2011.
+\newblock ISSN 0973-7847.
+\newblock \doi{10.4103/0973-7847.79103}.
+
+\bibitem[Srivastava(2009)]{Srivastava2009}
+Janmejai Srivastava.
+\newblock Extraction, characterization, stability and biological activity of
+  flavonoids isolated from chamomile flowers.
+\newblock \emph{Molecular and Cellular Pharmacology}, 1\penalty0 (3):\penalty0
+  138--147, August 2009.
+\newblock ISSN 1938-1247.
+\newblock \doi{10.4255/mcpharmacol.09.18}.
+
+\bibitem[Orav et~al.(2010)Orav, Raal, and Arak]{Orav2010}
+Anne Orav, Ain Raal, and Elmar Arak.
+\newblock Content and composition of the essential oil ofchamomilla
+  recutita(l.) rauschert from some european countries.
+\newblock \emph{Natural Product Research}, 24\penalty0 (1):\penalty0 48--55,
+  January 2010.
+\newblock ISSN 1478-6427.
+\newblock \doi{10.1080/14786410802560690}.
+
+\bibitem[Reverchon et~al.(1993)Reverchon, Donsi, and Osseo]{Reverchon1993}
+Ernesto Reverchon, Giorgio Donsi, and Libero~Sesti Osseo.
+\newblock Modeling of supercritical fluid extraction from herbaceous matrices.
+\newblock \emph{Industrial {\&} Engineering Chemistry Research}, 32\penalty0
+  (11):\penalty0 2721--2726, nov 1993.
+\newblock \doi{10.1021/ie00023a039}.
+
+\bibitem[Sovova(1994)]{Sovova1994}
+H.~Sovova.
+\newblock Rate of the vegetable oil extraction with supercritical co2.
+  modelling of extraction curves.
+\newblock \emph{Chemical Engineering Science}, 49\penalty0 (3):\penalty0
+  409--414, 1994.
+\newblock \doi{10.1016/0009-2509(94)87012-8}.
+
+\bibitem[Reverchon(1996)]{Reverchon1996}
+E.~Reverchon.
+\newblock Mathematical modeling of supercritical extraction of sage oil.
+\newblock \emph{AIChE Journal}, 42\penalty0 (6):\penalty0 1765--1771, June
+  1996.
+\newblock ISSN 1547-5905.
+\newblock \doi{10.1002/aic.690420627}.
+
+\bibitem[Fiori et~al.(2007)Fiori, Calcagno, and Costa]{Fiori_2007}
+L.~Fiori, D.~Calcagno, and P.~Costa.
+\newblock Sensitivity analysis and operative conditions of a supercritical
+  fluid extractor.
+\newblock \emph{The Journal of Supercritical Fluids}, 41\penalty0 (1):\penalty0
+  31--42, may 2007.
+\newblock \doi{10.1016/j.supflu.2006.09.005}.
+
+\bibitem[Santos et~al.(2000)Santos, Boss, and Maciel~Filho]{Santos2000}
+M.M. Santos, E.A. Boss, and R.~Maciel~Filho.
+\newblock Supercritical extraction of oleaginous: parametric sensitivity
+  analysis.
+\newblock \emph{Brazilian Journal of Chemical Engineering}, 17\penalty0
+  (4–7):\penalty0 713--720, December 2000.
+\newblock ISSN 0104-6632.
+\newblock \doi{10.1590/s0104-66322000000400035}.
+
+\bibitem[Hatami and Ciftci(2024)]{Hatami2024}
+Tahmasb Hatami and Ozan~N. Ciftci.
+\newblock Techno-economic sensitivity assessment for supercritical co2
+  extraction of lycopene from tomato processing waste.
+\newblock \emph{The Journal of Supercritical Fluids}, 204:\penalty0 106109,
+  January 2024.
+\newblock ISSN 0896-8446.
+\newblock \doi{10.1016/j.supflu.2023.106109}.
+
+\bibitem[Poletto and Reverchon(1996)]{Poletto1996}
+Massimo Poletto and Ernesto Reverchon.
+\newblock Comparison of models for supercritical fluid extraction of seed and
+  essential oils in relation to the mass-transfer rate.
+\newblock \emph{Industrial {\&} Engineering Chemistry Research}, 35\penalty0
+  (10):\penalty0 3680--3686, January 1996.
+\newblock ISSN 1520-5045.
+\newblock \doi{10.1021/ie9600093}.
+
+\bibitem[Anderson(1995)]{Anderson1995}
+John~D. Anderson.
+\newblock \emph{Computational fluid dynamics the basic with applications}.
+\newblock McGraw-Hill, 1995.
+\newblock ISBN 9780071132107.
+
+\bibitem[Anderson(2023)]{Anderson2023}
+J.~D.~Jr Anderson.
+\newblock \emph{Fundamentals of Aerodynamics}.
+\newblock McGraw-Hill Education, 2023.
+\newblock ISBN 9781264151929.
+
+\bibitem[Bulley et~al.(1984)Bulley, Fattori, Meisen, and Moyls]{Bulley1984}
+N.~R. Bulley, M.~Fattori, A.~Meisen, and L.~Moyls.
+\newblock Supercritical fluid extraction of vegetable oil seeds.
+\newblock \emph{Journal of the American Oil Chemists{\textquotesingle}
+  Society}, 61\penalty0 (8):\penalty0 1362--1365, aug 1984.
+\newblock \doi{10.1007/bf02542243}.
+
+\bibitem[Spiro and Kandiah(2007)]{Spiro2007}
+M.~Spiro and M.~Kandiah.
+\newblock Extraction of ginger rhizome: partition constants and other
+  equilibrium properties in organic solvents and in supercritical carbon
+  dioxide.
+\newblock \emph{International Journal of Food Science {\&} Technology},
+  25\penalty0 (5):\penalty0 566--575, jun 2007.
+\newblock \doi{10.1111/j.1365-2621.1990.tb01116.x}.
+
+\bibitem[Sovova(2017)]{Sovova2017}
+Helena Sovova.
+\newblock Broken-and-intact cell model for supercritical fluid extraction: Its
+  origin and limits.
+\newblock \emph{The Journal of Supercritical Fluids}, 129:\penalty0 3--8, nov
+  2017.
+\newblock \doi{10.1016/j.supflu.2017.02.014}.
+
+\bibitem[Goto et~al.(1996)Goto, Roy, and Hirose]{Goto1996}
+Motonobu Goto, Bhupesh~C. Roy, and Tsutomu Hirose.
+\newblock Shrinking-core leaching model for supercritical-fluid extraction.
+\newblock \emph{The Journal of Supercritical Fluids}, 9\penalty0 (2):\penalty0
+  128--133, jun 1996.
+\newblock \doi{10.1016/s0896-8446(96)90009-1}.
+
+\bibitem[Gmehling et~al.(2019)Gmehling, Kleiber, Kolbe, and
+  Rarey]{Gmehling2019}
+Jürgen Gmehling, Michael Kleiber, Bärbel Kolbe, and Jürgen Rarey.
+\newblock \emph{Chemical Thermodynamics for Process Simulation}.
+\newblock Wiley, mar 2019.
+\newblock \doi{10.1002/9783527809479}.
+
+\bibitem[Sovova et~al.(1994)Sovova, Komers, Kucuera, and Jezu]{Sovova1994a}
+H.~Sovova, R.~Komers, J.~Kucuera, and J.~Jezu.
+\newblock Supercritical carbon dioxide extraction of caraway essential oil.
+\newblock \emph{Chemical Engineering Science}, 49\penalty0 (15):\penalty0
+  2499--2505, aug 1994.
+\newblock \doi{10.1016/0009-2509(94)e0058-x}.
+
+\bibitem[Dickinson and Gelinas(1976)]{Dickinson1976}
+Robert~P. Dickinson and Robert~J. Gelinas.
+\newblock Sensitivity analysis of ordinary differential equation
+  systems{\textemdash}a direct method.
+\newblock \emph{Journal of Computational Physics}, 21\penalty0 (2):\penalty0
+  123--143, jun 1976.
+\newblock \doi{10.1016/0021-9991(76)90007-3}.
+
+\bibitem[Maly and Petzold(1996)]{Maly1996}
+Timothy Maly and Linda~R. Petzold.
+\newblock Numerical methods and software for sensitivity analysis of
+  differential-algebraic systems.
+\newblock \emph{Applied Numerical Mathematics}, 20\penalty0 (1-2):\penalty0
+  57--79, feb 1996.
+\newblock \doi{10.1016/0168-9274(95)00117-4}.
+
+\bibitem[Peng and Robinson(1976)]{Peng1976}
+Ding-Yu Peng and Donald~B. Robinson.
+\newblock A new two-constant equation of state.
+\newblock \emph{Industrial {\&} Engineering Chemistry Fundamentals},
+  15\penalty0 (1):\penalty0 59--64, feb 1976.
+\newblock \doi{10.1021/i160057a011}.
+
+\end{thebibliography}

@@ -1,0 +1,113 @@
+\documentclass[../Article_Sensitivity_Analsysis.tex]{subfiles}
+\graphicspath{{\subfix{../Figures/}}}
+\begin{document}
+	
+	\subsection{Inlet temperature}
+	
+	The sensitivity analysis of the inlet temperature differs from the two cases presented earlier because the perturbation does not affect the entire system instantaneously; instead, it propagates through it.
+	
+	Figure \ref{fig:Sensitivty_P_T} presents the sensitivity of the system's pressure response to changes in the inlet temperature over time during a supercritical fluid extraction process. The flat curve, hovering at zero, indicates a system where the pressure does not exhibit any response to changes in the inlet temperature throughout the entire operation period. In other words, the extraction system maintains a constant pressure regardless of any fluctuations in the temperature of the fluid entering the system. The invariance in pressure displayed in the Figure \ref{fig:Sensitivty_P_T} corroborates the model assumptions discussed in the Chapter X, where the pressure is assumed to be a control variable.
+	
+	%The Figure \ref{fig:Sensitivty_P_T} shows the system pressure response. A flat curve indicates an invariant behavior of pressure in response to inlet temperature changes throughout the time. The pressure in the modelled system is controlled and maintained independently of the inlet temperature variations as a results of the assumptions as explained in the Chapter X.
+	
+	%The sensitivity analysis of the inlet temperature differs from the two cases presented earlier because the perturbation does not affect the entire system instantaneously; instead, it propagates through the system. As the fluid with the modified temperature flows along the system, it gradually modifies the mass transfer parameters. One important assumption is that the inlet temperature change does not affect the pressure, which explains a horizontal line in Figure \ref{fig:Sensitivty_P_T}.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[trim = 0.0cm 0.0cm 0.0cm 0.0cm,clip,width=\columnwidth]{/Results_sensitivity/P_T_{in}.png}
+		\caption{The effect of $T_{in}$ change on $P$ in the system}
+		\label{fig:Sensitivty_P_T}
+	\end{figure}
+	
+	Figure \ref{fig:Sensitivty_T_H} displays the sensitivity of the fluid enthalpy density to changes in the inlet temperature across the extraction bed over time. Given that the Dirichlet boundary conditions are applied to the system, any alteration in inlet temperature will have an immediate and localized effect on the enthalpy density at the entrance of the extraction column on the fluids enthalpy. This alteration results in a heat front propagation from the inlet to the outlet of the extractor as presented on the Figure \ref{fig:Sensitivty_T_H}. As time progresses, the impact of the inlet temperature on enthalpy diminish and the sensitivities converging towards zero. This convergence suggests that the system is reaching a new thermal equilibrium. The uniformity of the enthalpy at later times implies that the initial temperature perturbations have equilibrated throughout the bed, and the system has adapted to the new inlet temperature condition.
+	
+	%The inlet enthalpy is characterized by the Dirichlet boundary condition. The boundary value of $(h\times \rho)$ is calculated based on two controls which can be manipulated: inlet temperature and given pressure. Any deviation in $T_{in}$ affects $(h\times \rho)$ at the inlet, propagating according to the governing equations.
+	%Figure \ref{fig:Sensitivty_T_H} showcases the sensitivity of the fluid enthalpy to the inlet temperature over both time and the length of the extraction bed. The fluid entering the extraction bed will have its enthalpy directly influenced by the boundary conditions. The heat front propagation from the inlet of the extractor to its outlet. As the fluid progresses through the bed, the enthalpy change affects the whole system gradually. Over time, the system's approach to a new thermal steady state and the sensitivities becomes zero.
+	
+	%The heat front propagation is presented in Figure \ref{fig:Sensitivty_T_H}. The initial system had constant temperature along the whole spatial domain. 
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[trim = 0.0cm 0.0cm 0.0cm 0.0cm,clip,width=\columnwidth]{/Results_sensitivity/H_T_{in}.png}
+		\caption{The effect of $T_{in}$ change on $(h \times \rho)$ in the system}
+		\label{fig:Sensitivty_T_H}
+	\end{figure}
+	
+	Figure \ref{fig:Sensitivty_T_CS} shows the temporal and spatial sensitivity of the solute concentration in the solid phase to changes in the inlet temperature during a supercritical fluid extraction process. The positive sensitivities observed suggest that the solute concentration in the solid phase increases with rising inlet temperature. This initial increase could be attributed to a reduction in solute solubility in the supercritical fluid at higher temperatures or a slowdown in mass transfer kinetics. As presented in {\color{red}article 1}, a rise in temperature at constant pressure would increase solute diffusivity $D_i^R$ in supercritical fluids; however, the increase in concentration in the solid phase indicates other dominating factors, such as changes in solubility described by the solubility parameter ($\Upsilon$), which might decrease, thereby reducing the extraction rate.
+	
+	As the extraction progresses, the sensitivities flatten out and then decrease. Towards the end of the extraction period, the sensitivities approach a positive constant, implying that the effect of inlet temperature on the concentration of the solute in the solid phase becomes negligible. This behaviour can be explained if it assumed that the extraction kinetic slowed because at the high temperature, which leads to higher concentration gradient in the later part of the process. The reduced availability of extractable solute in the later part of the process corresponds to the diminishing of the sensitivity.
+	
+	%Figure \ref{fig:Sensitivty_T_CS} shows the curve depicts an initial increase (the positive sign of the sensitivities) in the solute concentration in the solid phase as a function of time, which later asymptotically approaches a stable value before decreasing again towards the end of the period. Although $D_i^R$ decreases with the fluid's density, the $\Upsilon$ increases, which explains the system responses. This suggests that an increase in temperature slows the mass transfer of solutes from the solid phase to the supercritical fluid; hence, the solute concentration in the solid phase increases. Over time, this effect stabilizes, which could indicate the exhaustion of easily extractable solutes.
+	
+	%Figure \ref{fig:Sensitivty_T_CS} illustrates how the change in inlet temperature affects the concentration of solute in the solid phase. As presented in {\color{red}article 1}, the value of $D_i^R$ decreases as density decreases. Therefore, it is expected to observe positive sensitivities in Figure \ref{fig:Sensitivty_T_CS}, indicating a slower extraction rate. Initially, the sensitivities are zero along the fixed bed because the heat front requires time to reach the fixed bed. Since this propagation is not instantaneous, a non-uniform distribution of sensitivities along the fixed bed becomes evident. All the sensitivities gradually increase until they reach their maximum. When the concentration gradient becomes the limiting factor, the sensitivities decrease.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[trim = 0.0cm 0.0cm 0.0cm 0.0cm,clip,width=\columnwidth]{/Results_sensitivity/CS_T_{in}.png}
+		\caption{The effect of $T_{in}$ change on $C_s$ in the system}
+		\label{fig:Sensitivty_T_CS}
+	\end{figure}
+	
+	The Figure \ref{fig:Sensitivty_T_CF} represents the sensitivity of the concentration of solutes in the fluid phase over a period of 600 minutes as a result of changes in the inlet temperature. In the initial phase of the process, indicated by the area where sensitivities are at or near zero, there is a lack of response, likely reflecting an idle period or delay as the system adjusts to the new inlet temperature. This could represent the time needed for the thermal front to propagate through the system and influence the solubility and mass transfer rates of the solutes. As the warmer fluid begins to interact with the solid phase, the negative sensitivities are observed. These negative values imply a decrease in solute concentration within the fluid phase, which might be attributed to a reduced diffusion coefficient ($D_i^R$) due to increased fluid viscosity at higher temperatures, or possibly due to a change in the solubility ($\Upsilon$) of the solute with temperature. If the solubility decreases with temperature for the given solute, an increase in temperature could indeed result in a lower solute concentration in the fluid phase. Later the sensitivities starts to increase due higher concentration gradient if compared to before the temperature change. Towards the end of the time period, the figure shows the sensitivities stabilizing at a constant value. Eventually, the system response stabilize around a constant value when the extraction kinetics become a limiting factor.
+	
+	%The Figure \ref{fig:Sensitivty_T_CF} represents the sensitivity of the concentration of solutes in the fluid phase over a period of 600 minutes as a result of changes in the inlet temperature. Initially, all the sensitivities remain at zero due to the idle period. As the fluid with elevated temperature flows through the fixed bed, the internal mass transfer slows down (the $D_i^R$ is proportional to density as presented in {\color{red}article 1}), resulting in negative sensitivities. The negative sensitivities can be explained by considering that the heat front slowed mass transfer, causing more solute to remain in the solid phase. After reaching their minima, the sensitivities increase and reach positive values. Later the sensitivities starts to increase due higher concentration gradient if compared to before the temperature change. Eventually, the system response stabilize around a constant value when the extraction kinetics become a limiting factor.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[trim = 0.0cm 0.0cm 0.0cm 0.0cm,clip,width=\columnwidth]{/Results_sensitivity/CF_T_{in}.png}
+		\caption{The effect of $T_{in}$ change on $C_f$ in the system}
+		\label{fig:Sensitivty_T_CF}
+	\end{figure}
+	
+	Figure \ref{fig:Sensitivty_T_y} shows the time-dependent response of the extraction yield's sensitivity to changes in the inlet temperature. Initially, there is no change in yield as the heat front needs to propagate the along the system. That delayed response, cause the yield sensitivity to stay flat at the beginning of the extraction.
+	
+	As the system starts responding, a small increase in sensitivity can be observed, which indicates a transient enhancement in yield. This is due to the velocity of the fluid, which is inversely proportional to density. The sensitivity peak comes from the fact that the fluid moves faster across the system, while the mass transfer kinetic is mainly driven by high concentration gradient.
+	
+	Subsequently, the sensitivity curve descends into negative territory, suggesting that the increased inlet temperature eventually reduces the extraction efficiency. As explained above, due to complex relation between temperature and various mass transfer parameters, including the solubility of different compounds and the diffusivity within the supercritical fluid, the temperature increase might have a negatively affected on the extraction efficiency. The minimum point reached by the sensitivity curve implies a period where the yield is affected the most by the temperature increase.
+	
+	Afterward, the curve's gradual ascent towards zero reflects a stabilizing effect. The curve eventually flattens out, maintaining a slightly negative sensitivity, suggesting that while the system has reached a new quasi-steady state. The overall yield remains slightly compromised compared to the baseline. At this point, the extraction process is limited by availability of the solute in the solid particles.	This extended simulation offers a comprehensive view of how inlet temperature variations can impact the extraction yield over time. 
+	
+	%Figure \ref{fig:Sensitivty_T_y} depicts how an increase in inlet temperature alters the extraction yield. Initially, the sensitivity curve remains flat due to the idle time. The first observed response of the system is a small increment of the $dy/dT_{in}$ caused by an increment of the velocity( which is inversely proportional to the fluid density). After the small positive peak, the sensitivity curve begins to decrease. The negative value of the sensitivity indicates a lower process efficiency. Over time, the sensitivity reaches its minimum and then increases due to a higher concentration gradient than in the case without the disturbance. Eventually, the $dy/dT_{in}$ curve flattens around a negative value. The flattening of the yield curve suggests that the mass transfer parameters limit the extraction rate, and the residual solute in the solid phase becomes difficult to obtain. The simulation time was extended to show how the sensitivity plot flattened.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[trim = 0.0cm 0.0cm 0.0cm 0.0cm,clip,width=\columnwidth]{/Results_sensitivity/Y_T_{in}.png}
+		\caption{The effect of $T_{in}$ change on $y(t)$ in the system}
+		\label{fig:Sensitivty_T_y}
+	\end{figure}
+	
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
