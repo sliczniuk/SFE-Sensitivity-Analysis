@@ -1,0 +1,93 @@
+\documentclass[../Article_Model_Parameters.tex]{subfiles}
+\graphicspath{{\subfix{../Figures/}}}
+\begin{document}
+
+	Only some of the parameters in a process model can be estimated from the theoretical considerations. The goal of parameter estimation is to obtain the "best" estimate of unknown parameters $\theta$ (which is a subset of the parameter space ${\color{black}\Theta}$ containing all model's parameters) based on the continuous observations or the discrete. The unobservable error $\epsilon(t)$ is added to the deterministic model output, $y(t)$, to give the observable dependent variable $Y(t)$. For discrete observations, this can be expressed as:
+	
+	{\footnotesize
+		\begin{equation*}
+			Y(t_i) = y(\theta, t_i) + \epsilon(t_i)
+	\end{equation*} }
+	
+	For continuous variables, the equation is:
+	
+	{\footnotesize
+		\begin{equation*}
+			Y(t) = y(\theta, t) + \epsilon(t)
+	\end{equation*} }
+	
+	However, obtaining analytical solutions for a deterministic process model can be challenging, so experiments are often conducted where the vector of derivatives $\frac{dY(t_i)}{dt}$ is measured instead of $Y(t_i)$ itself. In such cases, it is assumed that the unobservable error is added to the deterministic derivative $\frac{dy(\theta, t_i)}{dt}$ as shown below
+	
+	{\footnotesize
+		\begin{equation}  \label{EQ: Measurment_noise}
+			\cfrac{d Y(t_i)}{dt} = \cfrac{dy(\theta, t_i)}{dt} + \epsilon(t_i)
+	\end{equation} }
+	
+	In the case where the error in the first observation is denoted as $\epsilon_1$, the error in the second observation $\epsilon_2'$ incorporates $\epsilon_1$ as well as an independent random component, given by $\epsilon_2' = \epsilon_1 + \epsilon_2$. Similarly, the error in the third observation is $\epsilon_3' = \epsilon_1 + \epsilon_2 + \epsilon_3$, etc. \citet{Mandel1957}  made a distinction between the typically assumed independent measurement error in the dependent variable and a "cumulative" or interval error, in which each new observation encompasses the error of the previous ones. Cumulative errors arise from fluctuations in the process due to small variations in operating conditions and are not independent; only the differences in measurement from one period to the next are independent.
+	
+	Maximum likelihood estimation (MLE) is a statistical method used to estimate the parameters of a probability distribution based on observed data. The MLE works by finding the values of the parameters that maximize the likelihood function, which is the probability of observing the given data for a given set of parameter values. The MLE has desirable properties such as asymptotic efficiency and normality. Although the MLE has often been associated with the normal distribution for mathematical convenience, it can be applied to a wide range of probability distributions. The derivation of the likelihood function under the assumption of the Gaussian distribution is discussed by \citet{Himmelblau1970}. The objective function is presented by Equation \ref{EQ: Objective_function}:
+	
+	{\footnotesize
+		\begin{equation} \label{EQ: Objective_function}
+			\ln L = -\cfrac{n}{2}  \ln \left(2 \pi \sigma^2\right) 
+			- \cfrac{ \sum_{i=1}^{n} \left[  \cfrac{d {Y}(t_i)}{dt} - \cfrac{dy(\theta, t_i)}{dt} \right]^2 }{2 \sigma^2}
+		\end{equation}
+	}
+	
+	The parameter estimation problem can be formulated as follow:
+	
+	{\footnotesize
+		\begin{equation}
+			\begin{aligned} \label{EQ: Optimization_formulation_MLE}
+				&\hat{\theta}_{MLE} &= \arg \max_{\sigma, \theta \in \Theta} \ln L = \arg \max_{\sigma,\theta \in \Theta} p(\theta|y) \\
+				&\text{subject to}
+				& \dot{ x } = G({\color{black} x};\Theta(\theta)) \\
+				&& \dot{\theta} = 0 \\
+				&& y = y(t) \\
+				&& \theta^{lb} \leq \theta \leq \theta^{ub}
+			\end{aligned}
+	\end{equation} } 
+	
+	where $\hat{\theta}$ is as maximum likelihood estimator, $\theta^{lb}$ define the minimal value of $\theta$, $\theta^{ub}$ is the maximum value of $\theta$ and $\sigma$ represents the standard deviation of the residuals (errors) between the observed data points and the model outputs.
+	
+	The initial guess for each decision variable, as well as the lower and upper bounds are given in Table \ref{tab:Constraints}. 
+	
+	\begin{table}[h]
+		\centering
+		\adjustbox{max width=\columnwidth}{%
+			%\small{
+			\begin{tabular}{ lccccccc }
+				\hline 
+				Parameter		&$k_m$[-] 	& $D_i^R\cdot10^{-13}$[$m^2/s$] 	& $\Upsilon$ [-] & $\sigma$		\\  \hline
+				Lower bound		&0	  		& 0 	  							& 0 		  	 & 0			\\ 
+				Upper bound		&$+\infty$	& $+\infty$ 						& $+\infty$		 & $+\infty$ 	\\ 
+				Initial guesses	&0.1-10		& $0.1-10$ 							& 0.1-10    	 & 0.1-10		\\  \hline
+		\end{tabular} }
+		\caption{Constraints and initial guess}
+		\label{tab:Constraints}
+	\end{table}
+		
+	%Based on the first order optimality condition, the $\ln L$ can be maximized with respect to the vector $\theta$ and equating to zero the partial derivatives of $\ln L$:
+	
+	%{\footnotesize
+	%	\begin{align}\label{EQ: MLE_Basic_Solution}
+	%		\cfrac{\partial \ln L}{\partial \theta} &= \cfrac{\partial \sum_{i=1}^{n} \ln p\left( y(t_i) | \theta \right) }{\partial \theta} = 0 
+	%\end{align} }
+	
+	Solution of Equations \ref{EQ: Optimization_formulation_MLE} yield the desired estimates $\hat{\theta}$. For some models, these equations can be explicitly solved for $\hat{\theta}$ but in general, no closed-form solution to the maximization problem is known or available, and a maximum likelihood estimator can only be found via numerical optimization.
+	
+	%The decision variables are:
+	
+	%\begin{itemize}
+	%	\item Partition coefficient:\qquad\quad\qquad$k_m$
+	%	\item Internal diffusion coefficient: \quad$D_i^R$
+	%	\item Axial diffusion coefficient: \qquad$D_e^M$
+	%	\item Decay coefficient:\qquad\qquad\qquad$\Upsilon$
+	%	%\item Standard deviation:\qquad\qquad\quad~$\sigma^2$
+	%\end{itemize}
+	
+	%To ensure that parameters found by the optimizer do not reach unrealistic values, an additional set of inequality constraints is introduced. The initial guess for each optimization, the lower and upper bounds for each parameter are given in Table \ref{tab:Constraints}. 
+	
+	
+	
+\end{document}

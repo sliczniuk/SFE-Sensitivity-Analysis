@@ -1,0 +1,84 @@
+\documentclass[../Article_Model_Parameters.tex]{subfiles}
+\graphicspath{{\subfix{../Figures/}}}
+\begin{document}
+	
+	A supercritical fluid (SCF) is a substance at a temperature and pressure above its critical point, where there are no distinct liquid and gas phases but below the pressure required to compress it into a solid. SCFs can move through porous solids like gases, which is faster than liquid transport through such materials. SCFs have a higher ability to dissolve materials like liquids or solids compared to gases. Near the critical point, small changes in pressure or temperature result in significant changes in density, allowing many properties of an SCF to be fine-tuned. By changing the pressure and temperature, the properties of carbon dioxide can be tuned to be more liquid-like or gas-like.
+
+	Fluid properties can be divided into two kinds: equilibrium properties and transport properties. The equation of state can be used accurately to predict the equilibrium properties, such as fluid density, enthalpy, vapour pressure, fugacity and fugacity coefficient, vapour-liquid equilibrium, and all kinds of excess properties.
+	
+	Supercritical $CO_2$'s thermodynamic properties, such as density or specific heat capacity, vary significantly with slight changes in temperature and pressure due to real gas effects. The Peng-Robinson equation of state (P-R EOS) is used to calculate the thermodynamic properties by accounting for these real gas effects are presented in Appendix \ref{subsubsec: Equation of state}. The P-R EOS belongs to a specific class of thermodynamic models for modelling the pressure of a solvent as a function of temperature and density and which can be rewritten as a cubic function of the molar volume.
+	
+	To determine the thermodynamic properties of a real gas, it is necessary to evaluate the departure function of the chosen equation of state for that property. As explained by \citet{Elliott2011}, the departure function describe the difference between the actual value of a thermodynamic property of a real gas and its value if the gas were ideal under the same temperature and pressure conditions. The ideal gas serves as a reference state to which the properties of real gases are compared. The departure function measures the extent to which a real gas deviates from ideal gas behaviour. The departure functions allow for the accurate calculation of thermodynamic properties for real gases. %(10.1007/s10494-017-9872-4)
+	
+	The properties of $CO_2$ are presented as a function of operating conditions (temperature and pressure) in Figure \ref{fig: SFE_Properties}. At standard atmospheric pressure and temperature, $CO_2$  behaves as an ideal gas, and its compressibility factor equals unity. However, at high pressures and/or low temperatures, intermolecular forces between gas molecules become more significant, causing them to deviate from ideal behaviour. As a result, the compressibility factor can be greater than or less than unity, depending on the magnitude of these forces. As presented in Figure \ref{fig: SFE_Properties_Compressibility}, the compressibility factor obtained from the Peng-Robinson equation of state varies strongly depending on the operating conditions. 
+	
+	The real gas effects are also visible on the density plot presented in Figure \ref{fig: SFE_Properties_Density}. The density calculations are based on the compressibility factor, and its value depends on the operating conditions. The fluid properties near the critical point are unique and combine gas-like and liquid-like properties. The details of calculations are explained in Appendix \ref{subsubsec: Fluid density}.
+	
+	Figure \ref{fig: SFE_Properties_CP} show the behaviour of the heat capacity of a supercritical fluid at constant pressure ($C_p$). The details of the calculations can be found in Appendix \ref{subsubsec: Fluid heat capacity}. Contrary to the density, which varies monotonically, the specific heat shows very high levels in a narrow region. In the subcritical region, the phase transition is associated with an effective spike in the heat capacity (i.e., the latent heat). Approaching the critical point, the latent heat falls to zero, which is accompanied by a gradual rise in heat capacity in the pure phases near phase transition. At the critical point, the latent heat is zero, but the heat capacity shows a diverging singularity. Beyond the critical point, there is no divergence, but rather a peak in the heat capacity; the highest point of this peak identifies the Widom line (as discussed by \citet{Simeoni2010} and \citet{Banuti2019}).
+	
+	Figure \ref{fig: SFE_Properties_h} represent how the specific enthalpy change with the operating conditions. The details of calculations are discussed in Appendix \ref{CH:Enthalpy}.
+		
+	\begin{figure*}[H]
+		\begin{subfigure}[b]{0.32\textwidth}
+			\centering
+			\includegraphics[trim = 3.5cm 0cm 1.5cm 0cm,clip,width=\textwidth]{Figures/Compressibility.pdf}	
+			\caption{Compressibility factor}
+			\label{fig: SFE_Properties_Compressibility}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.32\textwidth}
+			\centering
+			\includegraphics[trim = 3.5cm 0cm 1.5cm 0cm,clip,width=\textwidth]{Figures/RHO.pdf}	
+			\caption{Density}
+			\label{fig: SFE_Properties_Density}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.32\textwidth}
+			\centering
+			\includegraphics[trim = 3.5cm 0cm 1.5cm 0cm,clip,width=\textwidth]{Figures/CP.pdf}	
+			\caption{Specific heat}
+			\label{fig: SFE_Properties_CP}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.32\textwidth}
+			\centering
+			\includegraphics[trim = 3.5cm 0cm 1.5cm 0cm,clip,width=\textwidth]{Figures/Enthalpy.pdf}	
+			\caption{Enthalpy}
+			\label{fig: SFE_Properties_h}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.32\textwidth}
+			\centering
+			\includegraphics[trim = 3.5cm 0cm 1.5cm 0cm,clip,width=\textwidth]{Figures/MU.pdf}
+			\caption{Viscosity}
+			\label{fig: SFE_Properties_Viscosity}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.32\textwidth}
+			\centering
+			\includegraphics[trim = 3.5cm 0cm 1.5cm 0cm,clip,width=\textwidth]{Figures/KT.pdf}	
+			\caption{Thermal conductivity}
+			\label{fig: SFE_Properties_Thermal}
+		\end{subfigure}
+		\caption{Properties of $CO_2$ based on the equation of state and correlations}
+		\label{fig: SFE_Properties}
+	\end{figure*}    
+	
+	%Transport properties such as viscosity and conductivity play a crucial role in engineering design for production, fluid transportation, and processing. However, as highlighted by \citet{Sheng1989}, developing a satisfactory theory for transport properties of real dense gases and liquids is a challenging task. This is due to the inherent difficulties involved in accurate measurements and the complexity involved in theoretical treatments.
+	
+	%To address this issue, the correlations of transport coefficients are either empirical or based on some theoretical foundation. Chapman-Enskog's theory (presented in \citet{Chapman1991}) for transport properties of dense gases based on the distribution function is a popular theoretical approach. However, the Chapman-Enskog theory was developed for rigid spherical molecules and modifications are required to apply it to real gases. Many correlations have been proposed following the Chapman-Enskog theory in the form of reduced density and reduced temperature, such as those developed by \citet{Fenghour1998}, and \citet{Laesecke2017} from the National Institute of Standards and Technology (NIST). The correlation of \citet{Laesecke2017} is presented in Figure \ref{fig: SFE_Properties_Viscosity}.
+	
+	%NIST has developed a viscosity formulation consisting of four contributions: (i) for the limit of zero density, (ii) for the initial density dependence, (iii) for the residual viscosity, and (iv) for the singularity of the viscosity at the critical point. The NIST correlation covers temperatures from 100 to 2000 K for gaseous $CO_2$, and from 220 to 700 K with pressures along the melting line up to 8000 MPa for compressed and supercritical liquid states. These correlations and theories are essential in predicting transport properties for real gases and liquids and can assist in engineering design and analysis.
+	
+	Transport properties, including viscosity and thermal conductivity, are fundamental to the engineering design process for production, fluid transport, and processing operations. However, as \citet{Sheng1989} notes, formulating a comprehensive theory for the transport properties of real dense gases and liquids remains a formidable challenge. This difficulty stems from the obstacles in making precise measurements and the complexities of theoretical analysis.
+	
+	To tackle these challenges, the correlations used to estimate transport coefficients are typically empirical or rooted in theoretical principles. A well-regarded theoretical framework is the Chapman-Enskog theory, as discussed in \citet{Chapman1991}, which addresses the transport properties of dense gases using the distribution function. Originally designed for rigid spherical molecules, the Chapman-Enskog theory requires adaptations to be applicable to real gases. Following this theoretical approach, numerous correlations have been proposed, such as those by \citet{Fenghour1998}, and \citet{Laesecke2017} from the National Institute of Standards and Technology (NIST), which utilize reduced density and temperature. The viscosity correlation from \citet{Laesecke2017} is detailed in Figure \ref{fig: SFE_Properties_Viscosity}.
+	
+	NIST has formulated a viscosity model that comprises four distinct components: (i) the zero-density limit, (ii) the initial density dependence, (iii) the residual viscosity, and (iv) the critical point viscosity singularity. This NIST viscosity correlation spans temperatures from 100 to 2000 K for gaseous $CO_2$, and from 220 to 700 K under pressures up to 8000 MPa along the melting line for both compressed and supercritical liquid states. Such correlations and theoretical models are invaluable for accurately predicting the transport properties of real gases and liquids, thereby facilitating engineering design and analytical processes.
+	
+%	Similarly, several correlations for thermal conductivity of $CO_2$ were compared in Figure \ref{fig: SFE_Properties_Thermal}. The presented figures show regions around the critical point where the singularity is present. Similarities between specific heat and thermal conductivity can be observed. The NIST correlation (\citet{Huber2016}) captures the singular behaviour of thermal conductivity around the critical point. The correlations are applicable for the temperature range from the triple point to 1100 $K$ and pressures up to 200 $MPa$. 
+	
+	Similarly, NIST has formulated a correlation that characterizes the thermal diffusivity behavior of carbon dioxide ($CO_2$). The study by \citet{Huber2016} highlights the unique behavior of thermal conductivity in the vicinity of the critical point. This correlation is valid for temperatures spanning from the triple point to 1100 K and for pressures reaching up to 200 MPa. Figure \ref{fig: SFE_Properties_Thermal} illustrates the variation in thermal conductivity of carbon dioxide under different operating conditions, demonstrating how it adapts to changes in temperature and pressure.
+	
+	
+\end{document}

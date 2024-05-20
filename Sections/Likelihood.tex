@@ -1,0 +1,349 @@
+\documentclass[../Article_Model_Parameters.tex]{subfiles}
+\graphicspath{{\subfix{../Figures/}}}
+\begin{document}
+	
+	Maximum likelihood estimation (MLE) is a statistical method used to estimate the parameters of a probability distribution based on observed data. The MLE works by finding the values of the parameters that maximize the likelihood function, which is the probability of observing the given data for a given set of parameter values. The MLE has desirable properties such as asymptotic efficiency and normality. Although the MLE has often been associated with the normal distribution for mathematical convenience, it can be applied to a wide range of probability distributions.
+	
+	To find the maximum likelihood estimates, we maximize the joint probability density function, or likelihood function, denoted as $p(\theta | y(t_1),y(t_2),...,y(t_n))$, where $\theta$ represents the parameters and $y(t_1),y(t_2),...,y(t_n)$ represent the observed data. The conditions at the maximum can be refined by incorporating prior information. The posterior probability density function $p(\theta|y)$ can be expressed as the ratio of two probability densities %(\ref{EQ: Probabiltiy_independet_b})
+	 using the continuous variable analogue of Bayes' theorem %(details in Appendix \ref{CH: Bayes})
+	 . In such a case the posteriori distribution is given by Equation \ref{EQ: Posterior_distribution}.
+	
+	{\footnotesize
+		\begin{align} \label{EQ: Posterior_distribution}
+			p\left( \theta| y(t_n),...,y(t_1) \right) = \cfrac{p\left( \theta, y(t_n),...,y(t_1) \right)}{p\left( y(t_n),...,y(t_1) \right)}
+	\end{align} }
+	
+	The numerator of the right-hand side od Equation \ref{EQ: Posterior_distribution} becomes %using Equation \ref{EQ: Probabiltiy_dependet_a} becomes 
+	
+	{\footnotesize
+		\begin{equation}
+			\begin{split}
+				p\left( \theta,y(t_n),...,y(t_1) \right) &= p\left( y(t_n)|\theta,y(t_{n-1}),...,y(t_1) \right) \\ &\cdot p\left( \theta,y(t_{n-1}),...,y(t_1) \right)
+			\end{split}
+	\end{equation} }
+	
+	These operations can be continued repetitively until we get
+	
+	{\footnotesize
+		\begin{equation}
+			p\left( \theta, y(t_n),...,y(t_1) \right) = p\left( \theta \right) \prod_{i=1}^{n} p\left( y(t_i)|\theta, y(t_{i-1}),...,y(t_1) \right)
+	\end{equation} }
+	
+	Examination of Equation \ref{EQ: Measurment_noise} shows that $ d Y(t_i) / dt$ depends only on $t_i$, $\theta$ and $\epsilon(t_i)$ and is not conditioned by any previous measurement. Consequently, we can write 
+	
+	{\footnotesize
+		\begin{equation}
+			p\left( y(t_i)|\theta, y(t_{i-1}),...,y(t_1) \right) = p\left( y(t_i)|\theta \right)
+	\end{equation} }
+	
+	provided Equation \ref{EQ: Measurment_noise} is observed as a constraint. The desired joint conditional probability function is thus
+	
+	{\footnotesize
+		\begin{equation}
+			p\left( \theta| y(t_n),...,y(t_1) \right) = \cfrac{p\left( \theta \right) \prod_{i=1}^{n} p\left( y(t_i)|\theta \right) }{p\left( y(t_n),...,y(t_1) \right)}
+	\end{equation} }
+	
+	We can get rid of the evidence term $p\left( y(t_n),...,y(t_1) \right)$ because it's constant with respect to the maximization. Moreover, if we are lacking a prior distribution over the quantity we want to estimate, then $p(\theta)$ can be omitted. In such a case:
+	
+	{\footnotesize
+		\begin{equation}
+			p\left( \theta| y(t_n),...,y(t_1) \right) = \prod_{i=1}^{n} p\left( y(t_i)|\theta \right) = \prod_{i=1}^{n} L\left( \theta|y(t_i) \right) 
+	\end{equation} }
+	
+
+	The likelihood function $L\left( \theta | y \right)$ for the parameters based on several observations is the product of the individual functions if the observations are independent.
+			
+	{\footnotesize 
+		\begin{multline}
+			L\left( \theta|y(t_n),...,y(t_1) \right) = \prod_{i=1}^{n} L\left( \theta|y(t_i) \right) \\
+			= p\left( y(t_1)| \theta \right)p\left( y(t_2)| \theta \right) ... p\left( y(t_n)| \theta \right)
+	\end{multline} }
+			
+	In choosing as estimates of $\theta$ the values that maximize $L$ for the given values $\left( y(t_i) \right)$, it turns out that it is more convenient to work with the $\ln L$ than with $L$ itself:
+			
+	{\footnotesize 
+		\begin{equation}
+			\ln L = \ln p \left( y(t_1)| \theta \right) + \ln p\left( y(t_2)| \theta \right) + ... + \ln p \left( y(t_n)| \theta \right) = \sum_{i=1}^{n} \ln p\left( y(t_i); \theta \right)
+	\end{equation} }
+			
+	By assuming that the conditional distribution of $\bar{Y}_i$, given $y_i$, is normal, then we form the likelihood function based on the probability density:
+			
+	{\footnotesize
+		\begin{align} \label{EQ: MLE_Norm}
+			p\left(  \theta, \sigma | y(t_n),...,y(t_1) \right) &= \prod_{i=1}^{n} \cfrac{1}{\sqrt{2 \pi} \sigma } \exp \left[ \cfrac{1}{2  \sigma } \left( Y(t_i) - y(\theta , t_i) \right)^2 \right] \nonumber \\
+			L\left( \theta, \sigma | y(t_n),...,y(t_1) \right) &= \prod_{i=1}^{n} \cfrac{1}{\sqrt{2 \pi} \sigma } \exp \left[ \cfrac{1}{2  \sigma } \left( Y(t_i) - y(\theta , t_i) \right)^2 \right]
+	\end{align}}
+	where $\sigma$ is the variance
+			
+			%In Equation \ref{EQ: MLE_Norm} the parameters are the variables, and the values of $Y$ and $x$ are given. Then
+	By taking the natural logarithm of the Equation \ref{EQ: MLE_Norm}, the final form of the objective function can be obtained:
+			
+	{\footnotesize
+		\begin{equation}
+			\ln L = -\cfrac{n}{2} \left( \ln \left(2 \pi \right) + \ln \sigma^2 \right)
+			- \cfrac{ \sum_{i=1}^{n} \left[  Y(t_i) - y(\theta , t_i) \right]^2 }{2 \sigma^2}
+			\end{equation}
+	}
+
+	\iffalse
+			
+	The parameter estimation problem can be formulated as follow:
+			
+	{\footnotesize
+		\begin{equation}
+			\begin{aligned} \label{EQ: Optimization_formulation_MLE}
+				&\hat{\theta}_{MLE} &= \arg \max_{\sigma, \theta \in \Theta} \ln L = \arg \max_{\sigma,\theta \in \Theta} p(\theta|y) \\
+				&\text{subject to}
+				& \dot{x} = f(t,x,\theta) \\
+				&& \dot{\theta} = 0 \\
+				&& y = y(x) \\
+				&& \theta^{lb} \leq \theta \leq \theta^{ub}
+			\end{aligned}
+	\end{equation} } 
+			
+	where $\hat{\theta}$ is as maximum likelihood estimator, $\theta^{lb}$ define the minimal value of $\theta$ and $\theta^{ub}$ is the maximum value of $\theta$.
+			
+	Based on the first order optimality condition, the $\ln L$ can be maximized with respect to the vector $\theta$ by equating to zero the partial derivatives of $\ln L$ with respect to each of the parameters:
+			
+	{\footnotesize
+		\begin{align}\label{EQ: MLE_Basic_Solution}
+			\cfrac{\partial \ln L}{\partial \theta} &= \cfrac{\partial \sum_{i=1}^{n} \ln p\left( y(t_i) | \theta \right) }{\partial \theta} = 0 
+		\end{align} }
+			
+	Solution of Equations \ref{EQ: MLE_Basic_Solution} yield the desired estimates $\hat{\theta}$. For some models, these equations can be explicitly solved for $\hat{\theta}$ but in general no closed-form solution to the maximization problem is known or available, and an maximum likelihood estimator can only be found via numerical optimization.
+						
+			It can be shown that as $n$ approaches infinity the maximum likelihood estimates have the desirable asymptotic properties:
+			
+			\begin{enumerate}[label=(\arabic*)]
+				\item {\footnotesize $\lim\limits_{n \rightarrow \infty} \mathbb{E}\{\hat{\theta}\} = \theta$ }
+				\item {\footnotesize $\left[ \sqrt{n}\left( \hat{\theta} - \theta \right) \right]$ } is normally distributed
+			\end{enumerate}
+			and for the case of two parameters:
+			
+			\begin{enumerate}[resume,label=(\arabic*)]
+				\item {\footnotesize $\lim\limits_{n \rightarrow \infty} \text{Var}\{\hat{\theta}\} = \cfrac{1}{n} \left[ \mathbb{E} \left\{ \left( \cfrac{\partial \ln p}{\partial \theta} \right)^2 \right\} \right]^{-1} \cfrac{1}{1-\rho^2_{\hat{\theta}}} $ } \label{Assumption_MLE}
+			\end{enumerate}
+			
+			where $\rho^2_{\hat{\theta}}$ is the matrix of correlation coefficients.
+			
+			Maximum likelihood estimates are not necessarily unbiased. Maximum likelihood estimates, however are efficient and, hence, consistent estimates. Furthermore, where a sufficient estimate can be obtained, the maximum likelihood method will obtain it. Finally, if $\hat{\theta}$ is a maximum likelihood estimator of $\theta$, the $f\left( \hat{\theta} \right)$ is a maximum likelihood estimator of $f\left( \theta \right)$, a function of $\theta$.
+			
+			
+			
+			\hrule
+			
+			%Under the assumption of normality, the lack of prior knowledge about the parameters $\theta^0$ and known initial conditions $y_0$. Intuitively, this selects the parameter values that make the observed data most probable. The specific value $\hat{\theta}$ that maximizes the likelihood function $L$ is called the maximum likelihood estimate.
+			
+			As already discussed, the prior information about the estimated parameters can be incorporated in to the maximum likelihood estimator to form a maximum a posteriori probability (MAP) estimate. MAP can be used to obtain a point estimate of an unobserved quantity on the basis of empirical data. MAP estimation can therefore be seen as a regularization of maximum likelihood estimation. The relationship between MAP and MLE can be obtained from the Bayes' rule:
+			
+			{\footnotesize
+				\begin{equation} 
+					\begin{split} \label{EQ: MAP_probability}
+						{\bf \hat{\theta}_{\text{MAP}}} &= \arg\max_{\sigma, \theta \in \Theta} p(\theta | y) \\
+						&= \arg\max_{\sigma, \theta \in \Theta} \frac{p(y | \theta) p(\theta)}{p(y)} \\
+						&= \arg\max_{\sigma, \theta \in \Theta} p(y | \theta) p(\theta) \\
+						&= \arg\max_{\sigma, \theta \in \Theta} \ln(p(y | \theta) p(\theta)) \\
+						&= \arg\max_{\sigma, \theta \in \Theta} \ln p(y | \theta) + \ln p(\theta)
+					\end{split}
+			\end{equation} }
+			
+			We assume the normal distribution of random samples, with identical variance and the prior distribution of $\theta$ given by $\mathcal{N}(\theta^0,\,\sigma_\theta^{2})$. The function to be maximized can be written as
+			
+			{\footnotesize
+				\begin{equation} \label{EQ: MAP_L2}
+					\begin{aligned}
+						&\arg\max_{\sigma, \theta \in \Theta} \left[ \ln \prod_{i=1}^{n} \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{ \left( Y(t_i) - y\left( \theta, t_i \right) \right)^2 }{2\sigma^2}}
+						+ \ln \prod_{j=0}^{p} \frac{1}{\sigma_\theta\sqrt{2\pi}}e^{-\frac{ \left( \theta - \theta^0 \right)^2}{2\sigma_\theta^2}} \right]  \\
+						= &\arg\max_{\sigma, \theta \in \Theta} \left[- \sum_{i=1}^{n} {\frac{\left( Y(t_i) - y\left( \theta, t_i \right) \right)^2}{2\sigma^2}}
+						- \sum_{j=0}^{p} {\frac{\left( \theta - \theta^0 \right)^2}{2\sigma_\theta^2}} \right]\\
+						= &\arg\min_{\sigma, \theta \in \Theta} \frac{1}{2\sigma^2} \left[ \sum_{i=1}^{n} \left( Y(t_i) - y\left( \theta, t_i \right) \right)^2
+						+ \frac{\sigma^2}{\sigma_\theta^2} \sum_{j=0}^{p} \left( \theta - \theta^0 \right)^2 \right] \\
+						= &\arg\min_{\sigma, \theta \in \Theta} \left[ \sum_{i=1}^{n} \left( Y(t_i) - y\left( \theta, t_i \right) \right)^2 + \lambda_{L2} \sum_{j=0}^{p} \left( \hat{\theta} - \theta^0 \right)^2 \right]
+					\end{aligned}
+			\end{equation} }
+			
+			In Equation \ref{EQ: MAP_L2} some of the constants (with respect to $\theta$) were dropped and factored to simplify the expression. We can adjust the amount of regularization we want by changing $\lambda_{L2}$. Equivalently, we can adjust how much we want to weight the priors carry on the coefficients ($\theta$). If we have a very small variance (large $\lambda_{L2}$) then the coefficients will be very close to 0; if we have a large variance (small $\lambda_{L2}$) then the coefficients will not be affected much (similar to as if we didn't have any regularization).
+			
+			Let's assume that the prior distribution of parameter $\theta$ is given by the Laplace distribution. The likelihood function can defined as follow:
+			
+			{\footnotesize
+				\begin{equation} \label{EQ: MAP_L1}
+					\begin{aligned}
+						&\arg\max_{\sigma, \theta \in \Theta} \left[ \ln \prod_{i=1}^{n} \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{ \left( Y(t_i) - y\left( \theta, t_i \right) \right)^2 }{2\sigma^2}}
+						+ \ln \prod_{j=0}^{p} \frac{1}{2b}e^{-\frac{ | \theta - \theta^0 | }{\sigma_\theta}} \right]  \\
+						= &\arg\max_{\sigma, \theta \in \Theta} \left[- \sum_{i=1}^{n} {\frac{\left( Y(t_i) - y\left( \theta, t_i \right) \right)^2}{2\sigma^2}}
+						- \sum_{j=0}^{p} {\frac{ | \theta - \theta^0 | }{\sigma_\theta}} \right]\\
+						= &\arg\min_{\sigma, \theta \in \Theta} \frac{1}{2\sigma^2} \left[ \sum_{i=1}^{n} \left( Y(t_i) - y\left( \theta, t_i \right) \right)^2
+						+ \frac{\sigma^2}{\sigma_\theta} \sum_{j=0}^{p} | \theta - \theta^0 | \right] \\
+						= &\arg\min_{\sigma, \theta \in \Theta} \left[ \sum_{i=1}^{n} \left( Y(t_i) - y\left( \theta, t_i \right) \right)^2 + \lambda_{L1} \sum_{j=0}^{p} | \theta - \theta^0 | \right]
+					\end{aligned}
+			\end{equation} }
+			
+			The Laplacean prior act as $L1$-type of regularization on the optimization problem. Instead of preventing any of the coefficients from being too large (due to the squaring), $L1$ promotes sparsity. Due to the sparsity some of the parameters can be zero out, and eventually removed from the model. $L1$ is more robust to outliers than $L2$. 
+			
+			If the cost function is given by Equations \ref{EQ: MAP_L2} or \ref{EQ: MAP_L1}, then the optimization problem can be formulated as follow:
+			
+			{\footnotesize
+				\begin{equation}
+					\begin{aligned}
+						&\hat{\theta}_{MAP} &= \arg\max_{\sigma, \theta \in \Theta} \ln p(y | \theta) + \ln p(\theta) \\
+						&\text{subject to}
+						& \dot{x} = f(t,x,\theta) \\
+						&& \dot{\theta} = 0 \\
+						&& y = g(x)
+					\end{aligned}
+			\end{equation} }
+			
+			\hrule
+			If the cost function to be maximized is given be Equation \ref{EQ: MAP_probability} and constrained by Equation \ref{EQ: Measurment_noise}, then the method of Lagrange multipliers can be used to convert a constrained problem into a form such that the derivative test of an unconstrained problem can be applied. The Lagrange function ($L^*$) can be defined as $\ln(L)$ plus the Lagrangian multipliers $\lambda(t_i)$ times the constraint function
+			
+			{\footnotesize
+				\begin{equation} \label{EQ: MLE_Lagrangian}
+					\begin{split}
+						L^* \equiv \ln p\left( \theta \right) + \sum_{i=1}^{n} \left\{ \ln p(y(t_i)|\theta) \right. \\
+						\left. + \lambda^T \cdot {\color{red} \left[ Y(t_i) - y\left( \theta,t_i \right) - \epsilon(t_i) \right] } \right\} \\ - \ln \left[ p\left( y \right) \right]
+					\end{split}
+			\end{equation}}
+			
+			By assumption of the relation of Equation \ref{EQ: Measurment_noise}
+			
+			{\footnotesize
+				\begin{equation} \label{EQ: Noise_prob}
+					p\left( y(t_i) | \theta,y_0 \right) = p\left( \epsilon(t_i) \right)
+			\end{equation} }
+			
+			and specially
+			
+			{\footnotesize
+				\begin{equation} \label{EQ: Noise_prob_norm}
+					p\left( \epsilon(t_i) \right) = \cfrac{1}{ (2\pi)^{v/2} |\Gamma(t_i)|^{1/2} } \exp \left[ -\cfrac{1}{2}\epsilon^T(t_i) \left( \Gamma(t_i) \right)^{-1} \epsilon(t_i) \right]
+			\end{equation} }
+			where $|\Gamma|$ is the det$~\Gamma$, and $\Gamma$ is the covariance matrix of $\epsilon$, i.e., of the response.
+			
+			After Equation \ref{EQ: Noise_prob} is substituted into Equation \ref{EQ: MLE_Lagrangian}, and $L^*$ can be differentiated with respect to each of the estimates and $\epsilon(t_i)$. {\color{red}Based on the first order optimality conditions}, the resulting expression is equated to zero:
+			
+			{\footnotesize
+				\begin{subequations} \label{EQ: MLE_Lag_diff}
+					\begin{alignat}{2}
+						%\cfrac{\partial L^*}{\partial y_0} &= \cfrac{\partial}{\partial y_0} \ln p(\theta,y_0) - \sum_{i=1}^{n} \lambda^T(t_i) \cfrac{\partial}{\partial y_0} y(\theta ,t_i) = 0^T \\
+						\cfrac{\partial L^*}{\partial \theta} &= \cfrac{\partial}{\partial \theta} \ln p(\theta) - \sum_{i=1}^{n} \lambda^T(t_i) \cfrac{\partial}{\partial \theta} y(\theta,t_i) =0 \\
+						\cfrac{\partial L^*}{\partial \epsilon(t_i)} &= \cfrac{\partial}{\partial \epsilon(t_i)} \ln p(\epsilon(t_i)) - \lambda^T(t_i) = 0^T
+					\end{alignat}
+			\end{subequations} }
+			
+			Substitution of Equation \ref{EQ: Noise_prob_norm} into the last Equation of \ref{EQ: MLE_Lag_diff} makes it possible to solve for $\lambda(t_i)$:
+			
+			{\footnotesize
+				\begin{align}
+					\lambda(t_i) &= -\left( \Gamma(t_i) \right)^{-1} \epsilon(t_i) \nonumber \\
+					&= -\left( \Gamma(t_i) \right)^{-1} \left[ Y(t_i) - y(\theta,t_i) \right]
+			\end{align} }
+			
+			and to eliminate $\lambda(t_i)$ from the first equation of \ref{EQ: MLE_Lag_diff}.
+			
+			For convenience we shall define a new column vector $\theta^*$ in which all the elements of $\theta$ are arranged as follows:
+			
+			{\footnotesize
+				\begin{equation}
+					\theta^* = \begin{bmatrix}
+						\theta_{1,1} & \theta_{1,2} & \cdots & \theta_{1,v} & \theta_{2,1} & \cdots & \theta_{2,v} & \cdots & \theta_{v,v}
+					\end{bmatrix}^T	
+			\end{equation} }
+			
+			Finally, we assume that and $\theta^*$ are distributed by a joint normal distribution and that the prior distribution are, respectively
+			
+			{\footnotesize
+				\begin{subequations} \label{EQ: MLE_Priors}
+					\begin{align}
+						&p\left( \theta^* \right) = \cfrac{1}{ (2\pi)^{v/2} |\Omega_{\theta^*}|^{1/2} } \exp \left[ -\cfrac{1}{2} \left( \theta^* - \theta^{*(0)} \right)^T \Omega_{\theta^*}^{-1} \left( \theta^* - \theta^{*(0)} \right) \right] 
+						%&p\left( y_0 \right) = \cfrac{1}{ (2\pi)^{v/2} |\Omega_{y_0}|^{1/2} } \exp \left[ -\cfrac{1}{2} \left( y_0 - y_0^{(0)} \right)^T \Omega_{y_0}^{-1} \left( y_0 - y_0^{(0)} \right) \right] 
+					\end{align}
+			\end{subequations} }
+			where $\Omega$'s are the respective covariance matrices for $\theta^*$ and $y_0$, and the subscript $(0)$ designates the prior estimated of $\theta^*$ and $y_0$. If we assume that $\theta^*$ and $y_0$ are independent
+			
+			%{\footnotesize
+				%	\begin{equation}
+					%		\ln p(\theta^*,y_0) = \ln p(\theta^*) + \ln p(y_0)
+					%\end{equation} }
+					
+					Introduction of the prior distributions, Equations \ref{EQ: MLE_Priors}, plus the expression for $\lambda(t_i)$ into the first two equations of \ref{EQ: MLE_Lag_diff} gives the final equations from which the estimators of $\theta^*$ and $y_0$ can be obtained:
+					
+					{\footnotesize
+						\begin{subequations} 
+							\begin{flalign}
+								%			&-\left( \hat{y}_0 - y_0^{(0)} \right)^T \Omega_{y_0}^{-1} + \sum_{i=1}^{n}\left[ Y(t_i) - y\left( \hat{\theta}, \hat{y}, t_i \right) \right]^T \Gamma^{-1}(t_i) \cdot \cfrac{\partial}{\partial y_0} y\left( \hat{\theta}, \hat{y}, t_i \right) = 0^T  &&\\
+								&-\left( \hat{\theta}^* - \theta^{*(0)} \right)^T \Omega_{\theta^*}^{-1} + \sum_{i=1}^{n}\left[ Y(t_i) - y\left( \hat{\theta}, t_i \right) \right]^T \Gamma^{-1}(t_i) \cdot \cfrac{\partial}{\partial \theta^*} y\left( \hat{\theta}, t_i \right) = 0^T &&
+							\end{flalign}
+					\end{subequations} }
+					where the overlay caret denotes estimated parameters.
+					
+					Note that under the assumption that the elements of $\Omega$ are essentially infinite (prior knowledge is diffuse), the elements of $\Omega^{-1}$ are zero, the equations for the maximum likelihood estimates coincide with those for the least squares estimates, and the same calculations for precision in the estimates apply.
+					
+					%For some models, these equations can be explicitly solved for $\hat{\theta}^*$ and $\hat{y}$ but in general no closed-form solution to the maximization problem is known or available, and an MLE can only be found via numerical optimization. Under the assumption of normality, the lack of prior knowledge about the parameters $\theta^0$ and known initial conditions $y_0$, the optimization problem is defined as follow:
+					%
+					%{\footnotesize
+						%\begin{equation}
+						%	\hat{\theta}_{MLE} = \arg \max_{\theta \in \Theta} L = \arg \max_{\theta \in \Theta} p(\theta|y)
+						%\end{equation} }
+						%
+						%Intuitively, this selects the parameter values that make the observed data most probable. The specific value $\hat{\theta}$ that maximizes the likelihood function $L$ is called the maximum likelihood estimate. Further, if the function $\hat{\theta}:\mathbb{R}\rightarrow\Theta$ so defined is measurable, then it is called the maximum likelihood estimator.
+						%
+						%If the random samples $y(t_1)$, $y(t_2)$,...,$y(t_n)$ come from a normal distribution with unknown mean $\hat{\theta}$ and variance $\sigma^2$, then the joint probability function can be written as 
+						%
+						%{\footnotesize
+							%\begin{equation}
+							%	p(\theta|y(t_i)) = \cfrac{1}{\sqrt{2\pi\sigma}}\exp\left[-\cfrac{ \left( Y(t_i) - y\left( \hat{\theta}, t_i \right) \right)^2}{2\sigma}\right]
+							%\end{equation} }
+							%
+							%Then the likelihood function is defined as follow:
+							%
+							%{\footnotesize
+								%\begin{equation} 
+								%	L =\prod\limits_{i=1}^n p(\theta|y(t_i)) = (2\pi\sigma)^{-n/2}\exp\left[-\cfrac{1}{2\sigma}\sum\limits_{i=1}^n \left( Y(t_i) - y\left( \hat{\theta}, t_i \right) \right)^2\right]
+								%\end{equation} }
+								%
+								%By taking the ln of the likelihood function, the final form of the cost function is obtained:
+								%
+								%{\footnotesize
+									%\begin{equation} 
+									%	\ln L=-\cfrac{n}{2}\ln\sigma-\cfrac{n}{2}\ln(2\pi)-\cfrac{\sum\limits_{i=1}^n \left( Y(t_i) - y\left( \hat{\theta}, t_i \right) \right)^2}{2\sigma}
+									%\end{equation} }
+									%
+									%\subsection{Maximum a posteriori estimation}
+									%
+									%As already discussed, the prior information about the estimated parameters can be incorporated in to the maximum likelihood estimator to form a maximum a posteriori probability (MAP) estimate. MAP can be used to obtain a point estimate of an unobserved quantity on the basis of empirical data. MAP estimation can therefore be seen as a regularization of maximum likelihood estimation. MLE and MAP can be connected by Bayes' rule:
+									%
+									%{\footnotesize
+										%\begin{equation} 
+										%	\begin{split}
+											%		{\bf \hat{\theta}_{\text{MAP}}} &= \arg\max_{\sigma, \theta \in \Theta} p(\theta | y) \\
+											%		&= \arg\max_{\sigma, \theta \in \Theta} \frac{p(y | \theta) p(\theta)}{p(y)} \\
+											%		&= \arg\max_{\sigma, \theta \in \Theta} p(y | \theta) p(\theta) \\
+											%		&= \arg\max_{\sigma, \theta \in \Theta} \ln(p(y | \theta) p(\theta)) \\
+											%		&= \arg\max_{\sigma, \theta \in \Theta} \ln p(y | \theta) + \ln p(\theta)
+											%	\end{split}
+										%\end{equation} }
+										%
+										%Notice that we can get rid of the evidence term $P(y)$ because it's constant with respect to the maximization and also take the ln of the inner function because it's monotonically increasing.
+										%
+										%We assume the normal distribution of random samples, with identical variance and the prior distribution of $\theta$ given by $\mathcal{N}(\theta^0,\,\sigma_\theta^{2})$. The likelihood function to be maximized can be written as
+										%
+										%{\footnotesize
+											%\begin{equation} \label{EQ: MAP_L2}
+											%	\begin{split}
+												%	&\arg\max_{\sigma, \theta \in \Theta} \left[ \ln \prod_{i=1}^{n} \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{ \left( Y(t_i) - y\left( \hat{\theta}, t_i \right) \right)^2 }{2\sigma^2}}
+												%	+ \ln \prod_{j=0}^{p} \frac{1}{\sigma_\theta\sqrt{2\pi}}e^{-\frac{ \left( \hat{\theta} - \theta^0 \right)^2}{2\sigma_\theta^2}} \right]  \\
+												%	&= \arg\max_{\sigma, \theta \in \Theta} \left[- \sum_{i=1}^{n} {\frac{\left( Y(t_i) - y\left( \hat{\theta}, t_i \right) \right)^2}{2\sigma^2}}
+												%	- \sum_{j=0}^{p} {\frac{\left( \hat{\theta} - \theta^0 \right)^2}{2\sigma_\theta^2}} \right]\\
+												%	&= \arg\min_{\bf \theta} \frac{1}{2\sigma^2} \left[ \sum_{i=1}^{n} \left( Y(t_i) - y\left( \hat{\theta}, t_i \right) \right)^2
+												%	+ \frac{\sigma^2}{\sigma_\theta^2} \sum_{j=0}^{p} \left( \hat{\theta} - \theta^0 \right)^2 \right] \\
+												%	&= \arg\min_{\bf \theta} \left[ \sum_{i=1}^{n} \left( Y(t_i) - y\left( \hat{\theta}, t_i \right) \right)^2 + \lambda_{L2} \sum_{j=0}^{p} \left( \hat{\theta} - \theta^0 \right)^2 \right]
+												%	\end{split}
+											%\end{equation} }
+											%
+											%Notice that we dropped some of the constants (with respect to $\theta$) and factored to simplify the expression. You can see this is the same expression as Equation \ref{EQ: MAP_L2} (L2 Regularization) with $\lambda_{L2}$. We can adjust the amount of regularization we want by changing $\lambda_{L2}$. Equivalently, we can adjust how much we want to weight the priors carry on the coefficients ($\theta$). If we have a very small variance (large $\lambda_{L2}$) then the coefficients will be very close to 0; if we have a large variance (small $\lambda_{L2}$) then the coefficients will not be affected much (similar to as if we didn't have any regularization).
+											
+											
+											\fi
+											
+										\end{document}

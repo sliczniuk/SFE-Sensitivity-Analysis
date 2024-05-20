@@ -1,0 +1,39 @@
+\documentclass[../Article_Model_Parameters.tex]{subfiles}
+\graphicspath{{\subfix{../Figures/}}}
+\begin{document}
+	
+	To calculate the porosity of the solid particles $\phi$, we can use the following formula:
+
+    {\footnotesize
+        \begin{equation}
+            \phi = \dfrac{\text{Volume with pores} - \text{Volume without pores}}{\text{Volume with pores}}
+        \end{equation}
+    }
+
+    We can first calculate the volume, excluding the pore space, using the true density of the material:
+
+    {\footnotesize
+        \begin{equation}
+            \text{Volume excluding pores} = \dfrac{\text{mass}}{\text{true density}} = \dfrac{1\ \text{kg}}{1256.58\ \text{kg/m}^3} 0.0007958\ \text{m}^3
+        \end{equation}
+    }
+    
+    We can then use the volume of the solid particles, including the pore space and the volume excluding the pore space, to calculate the porosity:
+
+    {\footnotesize
+        \begin{equation}
+            \phi = \dfrac{\text{Volume with pores} - \text{Volume without pores}}{\text{Volume with pores}}   
+        \end{equation}
+    }
+    
+    Since 1 kg of solid particles occupies 1.6 L, which is equivalent to 0.0016 m³, we have:
+
+    {\footnotesize
+        \begin{equation}
+            \phi = \dfrac{0.0016\ \text{m}^3 - 0.0007958\ \text{m}^3}{0.0016\ \text{m}^3} = 0.5026
+        \end{equation}
+    }
+    
+    Therefore, the porosity of the solid particles is 0.5026 or 50.26\%. This means that half of the total volume of the solid particles is made up of pore space.
+	
+\end{document}
