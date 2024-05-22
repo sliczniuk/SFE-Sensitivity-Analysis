@@ -131,18 +131,7 @@
 			\end{equation} }
 			
 			\subfile{Saturation}
-		
-			\subsubsection{Pressure term} \label{CH: Pressure}
-			
-			The pressure term in the energy equation, given by Equation \ref{EQ:Enthalpy_equation}, describes the change of the thermodynamic pressure with respect to time. As explained in Chapters \ref{CH:Governing_equations_chapter}, at Low-Mach number conditions, the thermodynamic pressure is nearly constant in space due to the small pressure wave propagation that occurs at the speed of sound. Under such conditions, the term $\partial P/\partial t$ can be approximated by an difference equation, which describes the change of pressure in the whole system. The pressure ($P$) in the system is considered a state variable, while the pressure in the new time-step ($P_{in}$) is considered a control variable.
-			
-			{\footnotesize
-				\begin{equation}
-					\frac{\partial {\color{black}P}(t)}{\partial t} \approx \frac{{\color{black}P_{in}}(t) - {\color{black}P}(t) }{\Delta t}
-			\end{equation}}
-			
-			Such a simplified equation takes into account the pressure change in the energy balance, but the dynamics are simplified and do not consider the effects of pressure losses. In a real system, the dynamics of pressure change would depend on a pump used in an extraction system, as well as a back-pressure regulator used to control an outlet valve.
-						
+							
 			\subsubsection{Heat balance} \label{CH: heat_balance}
 			
 			The heat balance equation describe the evolution of the internal energy in the system and it is given by Equation \ref{EQ:Enthalpy_equation}
@@ -170,10 +159,21 @@
 			
 			{\footnotesize
 				\begin{equation}
-					\underbrace{h\left(t,x\right)}_{\text{Heat balance}}=\underbrace{h\left(T,P,\rho_f\left(T,P\right)\right)}_{\text{Departure function}}
+					\min_T \left( \underbrace{h\left(t,x\right)}_{\text{Heat balance}} - \underbrace{h\left(T,P,\rho_f\left(T,P\right)\right)}_{\text{Departure function}} \right)^2
 					\label{EQ:Enthalpy_root}
 				\end{equation}
 			}
+
+            \subsubsection{Pressure term} \label{CH: Pressure}
+			
+			The pressure term in the energy equation, given by Equation \ref{EQ:Enthalpy_equation}, describes the change of the thermodynamic pressure with respect to time. As explained in Chapters \ref{CH:Governing_equations_chapter}, at Low-Mach number conditions, the thermodynamic pressure is nearly constant in space due to the small pressure wave propagation that occurs at the speed of sound. Under such conditions, the term $\partial P/\partial t$ can be approximated by a difference equation, which describes the pressure change in the whole system. The pressure ($P$) in the system is considered a state variable, while the pressure in the new time-step ($P_{in}$) is considered a control variable.
+			
+			{\footnotesize
+				\begin{equation}
+					\frac{\partial {\color{black}P}(t)}{\partial t} \approx \frac{{\color{black}P_{in}}(t) - {\color{black}P}(t) }{\Delta t}
+			\end{equation}}
+			
+			Such a simplified equation allows for instantaneous pressure change in the system but does not consider a gradual pressure build-up and the effects of pressure losses. In a real system, the dynamics of pressure change would depend on a pump used in an extraction system and a back-pressure regulator used to control an outlet valve.
 			
 			\subsubsection{Extraction yield} \label{CH: Yield}
 			
