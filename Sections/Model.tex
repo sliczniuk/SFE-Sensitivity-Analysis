@@ -188,7 +188,7 @@
 			\end{align}	}
 			
 			\subsubsection{Initial and boundary conditions} 
-			It is assumed that the solvent is free of solute at the beginning of the process $c_{f0}=0$, that all the solid particles have the same initial solute content $c_{s0}$, and that the system is isothermal. The fluid at the inlet is also considered not to contain any solute. As the residence time is much shorter than the sampling time, the initial state estimate for the solute concentration in the fluid phase would be unreliable. The initial and boundary conditions are defined as follows:
+			It is assumed that the solvent is free of solute at the beginning of the process $c_{f0}=0$, that all the solid particles have the same initial solute content $c_{s0}$, and that the system is isothermal, hence the initial state is $h_0$. The fluid at the inlet is considered not to contain any solute. The initial and boundary conditions are defined as follows:
 			
 			{\footnotesize
 				\begin{align*}
@@ -203,47 +203,45 @@
 			
 				{\footnotesize
 					\begin{align*} \label{discretization}
-						\dot{{\color{black}x}}(t) &= \cfrac{d x}{d t} = 
+						\dot{x}(t) &= \cfrac{d x}{d t} = 
 						\begin{bmatrix}
-							\cfrac{d {\color{black}c_{f,1}}(t)}{d t} 	  \\
+							\cfrac{d c_{f,1}(t)}{d t} 	  \\
 							\vdots					  \\
-							\cfrac{d {\color{black}c_{f,N_z}}(t)}{d t} \\
+							\cfrac{d c_{f,N_z}(t)}{d t} \\
 							\\ \hline \\
-							\cfrac{d {\color{black}c_{s,1}}(t)}{d t} 	  \\
+							\cfrac{d c_{s,1}(t)}{d t} 	  \\
 							\vdots					  \\
-							\cfrac{d {\color{black}c_{s,N_z}}(t)}{d t} \\
+							\cfrac{d c_{s,N_z}(t)}{d t} \\
 							\\ \hline \\
-							\cfrac{d {\color{black}h_1}(t)}{d t} 	  \\
+							\cfrac{d h_1(t)}{d t} 	  \\
 							\vdots 					  \\
-							\cfrac{d {\color{black}h_{N_z}}(t)}{d t} \\
+							\cfrac{d h_{N_z}(t)}{d t} \\
 							\\ \hline \\
-							\cfrac{d {\color{black}P}(t)}{d t} \\
+							\cfrac{d P(t)}{d t} \\
 							\\ \hline \\
-							\cfrac{d {\color{black}y}(t)}{d t}
+							\cfrac{d y(t)}{d t}
 						\end{bmatrix}
 						=
 						\underbrace{\begin{bmatrix}
-								{\color{black}G_1} \left( c_f,c_s,{\color{black}h}(t); \Theta \right)\\ 
+								G_1 \left( c_f,c_s,h; \Theta \right)\\ 
 								\vdots\\ 
-								{\color{black}G_{N_z}} \left( c_f,c_s,{\color{black}h}(t); \Theta \right)\\ 
+								G_{N_z} \left( c_f,c_s,h; \Theta \right)\\ 
 								\\ \hline \\ \\
-								{\color{black}G_{N_z+1}} \left( c_f,c_s,{\color{black}h}(t); \Theta \right)\\ 
+								G_{N_z+1} \left( c_f,c_s,h; \Theta \right)\\ 
 								\vdots\\
-								{\color{black}G_{2N_z}} \left( {\color{black}c}(t),c_s,{\color{black}h}(t); \Theta \right)\\ 
+								G_{2N_z} \left( c_f,c_s,h; \Theta \right)\\ 
 								\\ \\ \hline \\ 
-								{\color{black}G_{2N_z+1}} \left( c_f,c_s,{\color{black}h}(t); \Theta \right) \\
+								G_{2N_z+1} \left( c_f,c_s,h; \Theta \right) \\
 								\vdots\\
-								{\color{black}G_{3N_z}} \left( c_f,c_s,{\color{black}h}(t); \Theta \right) \\ 
+								G_{3N_z} \left( c_f,c_s,h; \Theta \right) \\ 
 								\\ \\ \hline \\
-								{\color{black}G_{3N_z+1}} \left( c_f,c_s,{\color{black}h}(t); \Theta \right) \\
+								G_{3N_z+1} \left( c_f,c_s,h; \Theta \right) \\
 								\\ \\ \hline \\
-								{\color{black}G_{3N_z+2}} \left( c_f,c_s,{\color{black}h}(t); \Theta \right) 
-						\end{bmatrix}}_{{\color{black}G} \left( x; \Theta \right)} 
+								G_{3N_z+2} \left( c_f,c_s,h; \Theta \right) 
+						\end{bmatrix}}_{G \left( x; \Theta \right)} 
 				\end{align*} }
 			where ${\color{black}x} \in \mathbb{R}^{N_x = 3N_z+2} $ and $\Theta \in \mathbb{R}^{N_\Theta =  N_{\theta} + N_u } $, $N_{\theta}$ is the number of parameters, $N_{u}$ is the number of control variables.
 			
 			For a derivative to be conservative, it must form a telescoping series. In other words, after the addition of all terms coming from the discretization over a grid, only the boundary terms should remain, and the artificial interior points should cancel out. The discretization is applied to the conservative form of the model to ensure mass conservation.
-
-
 			
 		\end{document}

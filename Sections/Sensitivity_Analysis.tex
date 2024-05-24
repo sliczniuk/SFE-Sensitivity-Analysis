@@ -2,7 +2,7 @@
 \graphicspath{{\subfix{../Figures/}}}
 \begin{document}
 	
-	Local derivative-based methods involve taking the total derivative of the state vector $x$ with respect to parameters $p$, where $p$ is a subset of the parameter space $\theta$. This set of derivatives, known as sensitivity equations, is integrated simultaneously with the process model. The sensitivity analysis investigates how responsive the solution is for the perturbation of the parameter $p$. As discussed by \citet{Dickinson1976}, the sensitivity analysis can be used to determine the influence of the uncertainty on the solution of the original system. A sensitivity analysis can be used to distinguish sensitive parameters from insensitive ones, which might be helpful for model reduction. Finally, from a control engineering point of view, the sensitivity analysis allows sorting the control variables with respect to the level of effort required to change the model's output.
+	Local derivative-based methods involve taking the total derivative of the state vector $x$ with respect to parameters $p$, where $p$ is a subset of the parameter space $\theta$. The set of derivatives, known as sensitivity equations, is integrated simultaneously with the process model. The sensitivity analysis shows how responsive the solution is for changes in the parameter $p$. As discussed by \citet{Dickinson1976}, the sensitivity analysis can be used to determine the influence of the uncertainty on the solution of the original system. A sensitivity analysis can be used to distinguish sensitive parameters from insensitive ones, which might be helpful for model reduction. Finally, from a control engineering point of view, the sensitivity analysis allows sorting the control variables with respect to the level of effort required to change the model's output.
 	
 	Following the work of \citet{Maly1996}, the sensitivity analysis equations(${\dot{Z}}$) can be defined as follow:
 	
@@ -19,14 +19,14 @@
 			{\dot{Z}}(x(t);p)  = \cfrac{dZ(x(t);p)}{d t} = \cfrac{d}{d t} \left( \cfrac{dx(t)}{dp} \right) = \cfrac{d }{dp} \left( \cfrac{dx(t)}{d t} \right) = \cfrac{d {G}(x(t);p)}{dp} 
 	\end{equation} }
 	
-	The sensitivity equation can be obtained by applying the definition of the total derivative to the Equation \ref{SA_dt}.
+	The sensitivity equation can be obtained by applying the definition of the total derivative to Equation \ref{SA_dt}.
 	
 	{\footnotesize
 		\begin{equation} \label{SA_eq_full}
 			\cfrac{dG(x(t);p)}{dp} = \underbrace{ \cfrac{\partial {G}(x(t);p)}{\partial x(t)} }_{{J_x}(x(t);p)} \underbrace{\cfrac{\partial x(t)}{\partial p} }_{S(x(t);p)} + \underbrace{ \cfrac{\partial {G}(x(t);p)}{\partial p} }_{{J_p}(x(t);p)}
 	  \end{equation} }
 	
-	The sensitivity Equation \ref{SA_eq_full} is solved simultaneously with the original system and is made of three terms: Jacobian ${J_x}(x(t);p)$, sensitivity matrix $S(x(t);p)$ and Jacobian ${J_p}(x(t);p)$. The Jacobian ${J_x}(x(t);p)$ represents the matrix of equations of size $N_x \times N_x$, where each equation ${J_x}(n_x,n_x)$ is the derivative of process model equations ${G}_{n_x}(x(t);p)$ with respect to the state variable $x_{n_p}$.
+	Equation \ref{SA_eq_full} is solved simultaneously with the process model and consists of three terms: Jacobian ${J_x}(x(t);p)$, sensitivity matrix $S(x(t);p)$ and Jacobian ${J_p}(x(t);p)$. The Jacobian ${J_x}(x(t);p)$ represents the matrix of equations of size $N_x \times N_x$, where each equation ${J_x}(n_x,n_x)$ is the derivative of ${G}_{n_x}(x(t);p)$ with respect to the state variable $x_{n_p}$.
 	
 	{\footnotesize
 		\begin{align}
@@ -41,7 +41,7 @@
 			\endgroup
 	\end{align} }
 	
-	The sensitivity matrix $S(x(t);p)$ represents the matrix of equations of size $N_x \times N_p$, where each subequation $S(n_x,n_p)$ is the derivative of the state variable $x_{n_x}$ with respect to the parameter $p_{n_p}$.
+	The sensitivity matrix $S(x(t);p)$ represents the matrix of equations of size $N_x \times N_p$, where each subequation $S(n_x,n_p)$ is the derivative of the state variable $x_{n_x}$ with respect to the parameter $p_{n_p}$. Matrix ${J_x}(x(t);p)$ and $S(x(t);p)$ describe indirect influence of $p_{n_p}$ on the model output.
 	
 	{\footnotesize
 		\begin{equation}
@@ -59,7 +59,7 @@
 			\end{split}
 	\end{equation} }
 	
-	The Jacobian ${J_p}(x(t);p)$ represents the matrix of equations of size $N_x \times N_p$, where each subequation ${J_p}(n_x,n_p)$ is the partial derivative of the process model equation $F_{n_x}$ with respect to the parameter $p_{n_p}$.
+	The Jacobian ${J_p}(x(t);p)$ represents the matrix of equations of size $N_x \times N_p$, where each subequation ${J_p}(n_x,n_p)$ is the partial derivative of the process model equation $F_{n_x}$ with respect to the parameter $p_{n_p}$. ${J_p}(n_x,n_p)$ can be defines direct effect of $p_{n_p}$ on the model output.
 	
 	{\footnotesize
 		\begin{align}
@@ -90,12 +90,19 @@
 	
 	{\footnotesize
 		\begin{align}
-			{\textbf{G}}\left(x(t_0);p\right)  = 
-			\begin{bmatrix}x(t_0),						& 
-				\cfrac{ \text{d}x(t_0) }{ d{p_1} },		& 
-				\cdots,					 				&
-				\cfrac{ dx(t_0) }{ d{p_{N_p}} } 
-			\end{bmatrix}^T
+			{\textbf{G}}\left(x(t_0);p\right)  &= 
+			\begin{bmatrix}
+                x(t_0),						               &
+				\cfrac{ \text{d}x(t_0) }{ d{p_1} },		   &
+				\cdots,					 				   &
+				\cfrac{ dx(t_0) }{ d{p_{N_p}} }            
+			\end{bmatrix}^\top = \\ &=
+            \begin{bmatrix} 
+                \quad x_0,	                               &
+				\quad ~0,		                           &
+			    \quad \cdots,			                   &
+				\quad 0 \quad~~
+			\end{bmatrix}^\top
 	\end{align} }
 	
 	The sensitivity analysis of the output function can be performed with respect to parameters $p$. The output function $g(x(t))$ returns ${y}(t)$. By taking a total derivative of ${y}(t)$ with respect to $p$, the new sensitivity equation can be found.
