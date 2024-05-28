@@ -6,7 +6,7 @@
 	
 	\subsection{Equation of state} \label{subsubsec: Equation of state}
 	
-	A cubic equation of state (EoS) serves as a mathematical model to describe the behaviour of real gases and liquids through a third-degree polynomial equation that correlates a substance's pressure, volume, and temperature. These equations constitute tools for comprehending real substances' phase behaviour, properties, and thermodynamic processes across various engineering and scientific applications. The cubic equation of state takes into account deviations from ideal gas behaviour, which are particularly important at high pressures and low temperatures, where real gases do not follow the assumption of an ideal gas.
+	A cubic equation of state (EoS) serves as a mathematical model to describe the behaviour of real gases and liquids through a third-degree polynomial equation that correlates a substance's pressure, volume and temperature. These equations constitute tools for comprehending phase behaviour, properties and thermodynamic processes of real substances across various engineering and scientific applications. The cubic equation of state takes into account deviations from ideal gas behaviour, which are particularly important at high pressures and low temperatures, where real gases do not follow the assumption of an ideal gas.
 	
 	{\footnotesize
 		\begin{equation}
@@ -14,7 +14,7 @@
 		\end{equation}
 	}
 	
-	In this equation, $P$ denotes the pressure of the substance, $v_m$ represents the molar volume of the substance, $T$ stands for the absolute temperature of the substance, $u$ and $w$ are integers that vary from one equation to another, $R$ symbolizes the universal gas constant and $\omega$ denotes an acentric factor and $\Phi=a\alpha$.
+	In this equation, $P$ denotes the pressure of the substance, $v_m$ represents the molar volume of the substance, $T$ stands for the absolute temperature of the substance, $u$ and $w$ are integers that vary from one equation to another, $R$ symbolizes the universal gas constant, $\omega$ denotes an acentric factor and $\Phi=a\alpha$.
 	
 	The Van der Waals constants constitute empirical values contingent upon the particular substance being modelled. These constants factor in molecular interactions (represented by '$a$') and the finite size of gas molecules (indicated by '$b$'). 
 	
@@ -22,7 +22,7 @@
 	
 	\begin{table}[h!]
 		\centering
-		\adjustbox{width=\columnwidth}{%
+		\adjustbox{width=0.9\columnwidth}{%
 			\begin{tabular}{|c| c c c c|} 
 				\hline
 				EoS & u & w & a & b\\
@@ -33,13 +33,13 @@
 				Peng and Robinson \cite{Peng1976} & 2 & -1 & $0.45724 \frac{R^2T_c^2}{P_c}$ & $\frac{0.07780T_c}{P_c}$\\
 				\hline
 		\end{tabular} }
-		\caption{Parameters for Popular Cubic EoS}
+		\caption{Parameters for Popular Cubic EoS.}
 		\label{tab:Popular_Cubic_EoS}
 	\end{table}
 	
 	\begin{table}[h!]
 		\centering
-		\adjustbox{width=\columnwidth}{%
+		\adjustbox{width=0.9\columnwidth}{%
 			\begin{tabular}{|c| c c|} 
 				\hline
 				EoS & $\alpha$ & f($\omega$)\\
@@ -50,11 +50,11 @@
 				Peng and Robinson (\cite{Peng1976}) & $\left[ 1 + f(\omega) \left( 1-\sqrt{T_r} \right) \right]^2$ & 0.37464+1.54226$\omega$-0.26992$\omega^2$ \\
 				\hline
 		\end{tabular} }
-		\caption{Parameters for Popular Cubic EoS}
+		\caption{Parameters for Popular Cubic EoS.}
 		\label{tab:Popular_Cubic_EoS_alpha}
 	\end{table}
 	
-	The general cubic equation of state can be represented as a polynomial, as indicated in Equation \ref{EQ:Compressibility_Polynomial}. In a one-phase region, the fluid is characterized by a single real root corresponding to the gas, liquid, or supercritical phase. In the two-phase region, a gas-liquid mixture exists, and two roots are identified. The larger root corresponds to the gas phase, while the smaller root pertains to the liquid phase.
+	The general cubic equation of state can be represented as a polynomial, as indicated in Equation \ref{EQ:Compressibility_Polynomial}. In a one-phase region, the fluid is characterized by a single real root corresponding to the gas, liquid or supercritical phase. In the two-phase region, a gas-liquid mixture exists, and two roots are identified. The larger root corresponds to the gas phase, while the smaller root pertains to the liquid phase.
 	
 	{\footnotesize
 		\begin{equation}
@@ -72,12 +72,12 @@
 			Z^3 - (1-B)Z^2+(A-2B-3B^2)Z -(AB-B^2-B^3) = 0
 	\end{equation} }
 	
-	For an ideal gas, the compressibility factor is defined as $Z = 1$, but the deviation of Z needs to be considered for real-life cases. The value of $Z$ typically increases with pressure and decreases with temperature. At elevated pressures, molecules collide more frequently, allowing repulsive forces between molecules to influence the molar volume of the real gas ($v_m$) to surpass that of the corresponding ideal gas $\left( \left(v_m\right)_{ideal~gas} = \frac{RT}{P} \right)$, resulting in $Z$ exceeding one. At lower pressures, molecules move freely, with attractive forces predominating, leading to $Z < 1$.
+	For an ideal gas, the compressibility factor is defined as $Z = 1$, but the deviation of Z needs to be considered for real-life cases. The value of $Z$ typically increases with pressure and decreases with temperature. At elevated pressures, molecules collide more frequently, which allows the repulsive forces between molecules to influence the molar volume of the real gas ($v_m$), making it surpass that of the corresponding ideal gas $\left( \left(v_m\right)_{ideal~gas} = \frac{RT}{P} \right)$, resulting in $Z$ exceeding one. At lower pressures, molecules move freely, with attractive forces predominating, leading to $Z < 1$.
 	
-	Numerical methods such as Newton-Raphson can be used to solve the polynomial equation to obtain the compressibility $Z\left(T(t,z), P(t)\right)$ at a given temperature and pressure. Alternatively, the closed-form solution can be obtained by the Cardano formula ( Appendix \ref{CH: Cardano}).
+	Numerical methods such as Newton-Raphson can be used to solve the polynomial equation to obtain the compressibility $Z\left(T(t,z), P(t)\right)$ at a given temperature and pressure. Alternatively, a closed-form solution can be obtained by using the Cardano formula (Appendix \ref{CH: Cardano}).
 	
 	\subsubsection{Density of the fluid phase} \label{subsubsec: Fluid density}
 	
-	The density of the fluid can be calculated from the real gas equation $\rho = \frac{P}{RTZ} \frac{1}{m_{CO2}}$. The temperature can be obtain from the time evolution of governing equations, the pressure is consider to be constant along the system to be a know. 
+	The density of the fluid can be calculated from the real gas equation $\rho = \frac{P}{RTZ} \frac{1}{m_{CO2}}$. The temperature can be obtained from the time evolution of governing equations, and the pressure is considered to be constant along the system. 
 	
 \end{document}
