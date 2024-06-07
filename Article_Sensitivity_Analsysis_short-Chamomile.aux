@@ -2,19 +2,17 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
 \HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
-\global\let\oldcontentsline\contentsline
-\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
 \global\let\oldnewlabel\newlabel
 \gdef\newlabel#1#2{\newlabelxx{#1}#2}
 \gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
 \AtEndDocument{\ifx\hyper@anchor\@undefined
-\let\contentsline\oldcontentsline
 \let\newlabel\oldnewlabel
 \fi}
 \fi}
 \global\let\hyper@last\relax 
 \gdef\HyperFirstAtBeginDocument#1{#1}
-\providecommand*\HyPL@Entry[1]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
 \orcidauthor{0000-0003-2593-5956}{Oliwer Sliczniuk}
 \emailauthor{oliwer.sliczniuk@aalto.fi}{Oliwer Sliczniuk}
 \csgdef{mark@corau1}{1}
@@ -29,11 +27,11 @@
 \citation{Sovova1994}
 \citation{Reverchon1996}
 \citation{Reverchon1996}
-\HyPL@Entry{0<</S/D>>}
 \providecommand \oddpage@label [2]{}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
 \citation{Fiori_2007}
 \citation{Santos2000}
+\citation{Sovova1994}
 \citation{Hatami2024}
 \citation{Poletto1996}
 \citation{Anderson1995}
@@ -56,7 +54,6 @@
 \citation{Bulley1984}
 \citation{Reverchon1996}
 \citation{Bulley1984}
-\citation{Spiro2007}
 \newlabel{EQ:Velocity_1}{{6}{3}{Continuity equation}{equation.2.6}{}}
 \newlabel{EQ:Velocity_2}{{7}{3}{Continuity equation}{equation.2.7}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}Mass balance for the fluid phase}{3}{subsubsection.2.2.2}\protected@file@percent }
@@ -70,12 +67,13 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Mass transfer mechanism.\relax }}{3}{figure.caption.2}\protected@file@percent }
 \newlabel{fig: SFE_Mechanism}{{2}{3}{Mass transfer mechanism.\relax }{figure.caption.2}{}}
 \newlabel{Model_kinetic_basic}{{10}{3}{Kinetic term}{equation.2.10}{}}
-\newlabel{Linear_equilibirum}{{11}{3}{Kinetic term}{equation.2.11}{}}
+\citation{Spiro2007}
 \citation{Reverchon1996}
 \citation{Sovova2017}
 \citation{Goto1996}
 \citation{Gmehling2019}
 \citation{Sovova1994a}
+\newlabel{Linear_equilibirum}{{11}{4}{Kinetic term}{equation.2.11}{}}
 \newlabel{Model_kinetic_no_sat}{{13}{4}{Kinetic term}{equation.2.13}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.5}Uneven solute's distribution in the solid phase}{4}{subsubsection.2.2.5}\protected@file@percent }
 \newlabel{CH: Gamma_Function}{{2.2.5}{4}{Uneven solute's distribution in the solid phase}{subsubsection.2.2.5}{}}
@@ -90,17 +88,18 @@
 \newlabel{CH: Pressure}{{2.2.7}{4}{Pressure term}{subsubsection.2.2.7}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.8}Extraction yield}{4}{subsubsection.2.2.8}\protected@file@percent }
 \newlabel{CH: Yield}{{2.2.8}{4}{Extraction yield}{subsubsection.2.2.8}{}}
-\newlabel{Model_measurment_1}{{20}{4}{Extraction yield}{equation.2.20}{}}
-\newlabel{Model_measurment_2}{{21}{4}{Extraction yield}{equation.2.21}{}}
 \citation{Dickinson1976}
 \citation{Maly1996}
+\newlabel{Model_measurment_1}{{20}{5}{Extraction yield}{equation.2.20}{}}
+\newlabel{Model_measurment_2}{{21}{5}{Extraction yield}{equation.2.21}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.9}Initial and boundary conditions}{5}{subsubsection.2.2.9}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.10}Discretization methods}{5}{subsubsection.2.2.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Sensitivity Analysis}{5}{subsection.2.3}\protected@file@percent }
-\newlabel{CH: Sensitivity_Analysis}{{2.3}{5}{Sensitivity Analysis}{subsection.2.3}{}}
-\newlabel{SA_def}{{22}{5}{Sensitivity Analysis}{equation.2.22}{}}
-\newlabel{SA_dt}{{23}{5}{Sensitivity Analysis}{equation.2.23}{}}
-\newlabel{SA_eq_full}{{24}{5}{Sensitivity Analysis}{equation.2.24}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Local sensitivity analysis}{5}{subsection.2.3}\protected@file@percent }
+\newlabel{CH: Sensitivity_Analysis}{{2.3}{5}{Local sensitivity analysis}{subsection.2.3}{}}
+\newlabel{SA_def}{{22}{5}{Local sensitivity analysis}{equation.2.22}{}}
+\newlabel{SA_dt}{{23}{5}{Local sensitivity analysis}{equation.2.23}{}}
+\newlabel{SA_eq_full}{{24}{5}{Local sensitivity analysis}{equation.2.24}{}}
+\citation{Fiori_2007}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Results}{6}{section.3}\protected@file@percent }
 \newlabel{CH: Results}{{3}{6}{Results}{section.3}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The effect of $P_{in}$ change on $P$ in the system\relax }}{6}{figure.caption.3}\protected@file@percent }
@@ -137,6 +136,5 @@
 \bibcite{Sovova1994a}{{18}{1994}{{Sovova et~al.}}{{Sovova, Komers, Kucuera, and Jezu}}}
 \bibcite{Dickinson1976}{{19}{1976}{{Dickinson and Gelinas}}{{}}}
 \bibcite{Maly1996}{{20}{1996}{{Maly and Petzold}}{{}}}
-\bibcite{Peng1976}{{21}{1976}{{Peng and Robinson}}{{}}}
 \csxdef{lastpage}{8}
 \gdef \@abspage@last{8}

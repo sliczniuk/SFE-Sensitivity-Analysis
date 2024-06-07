@@ -59,7 +59,7 @@
 		\end{equation}
 	}
 	
-	The fluid density $\rho_f$ can be obtained from an equation of state (Appendix \ref{subsubsec: Equation of state}) if the temperature and thermodynamic pressure are known along $z$. Variation in fluid density may occur due to pressure or inlet temperature changes. In a non-isothermal case, in Equations \ref{EQ:Velocity_1} and \ref{EQ:Velocity_2} $\rho_f$ is considered the average fluid density along the extraction column.
+	The fluid density $\rho_f$ can be obtained from the Peng-Robinson equation of state if the temperature and thermodynamic pressure are known along $z$. Variation in fluid density may occur due to pressure or inlet temperature changes. In a non-isothermal case, in Equations \ref{EQ:Velocity_1} and \ref{EQ:Velocity_2} $\rho_f$ is considered the average fluid density along the extraction column.
 	
 	\subsubsection{Mass balance for the fluid phase} \label{CH: Mass_balance_fluid}
 	
@@ -134,7 +134,7 @@
 							
 			\subsubsection{Heat balance} \label{CH: heat_balance}
 			
-			The heat balance equation describe the evolution of the internal energy in the system and it is given by Equation \ref{EQ:Enthalpy_equation}
+			The heat balance equation describe the evolution of the enthalpy in the system and it is given by Equation \ref{EQ:Enthalpy_equation}
 			
 			{\footnotesize
 				\begin{equation} \label{EQ:Enthalpy_equation}
@@ -142,9 +142,9 @@
 				\end{equation}
 			}
 			
-			The main advantage of this formulation is the presence of term $\partial P / \partial t $, which directly affects the system through the change of thermodynamic pressure (which is a control variable). %The enthalpy is related to the pressure and temperature through the following equation:
+			The main advantage of this formulation is the presence of term $\partial P / \partial t $, which directly affects the system through the change of thermodynamic pressure. 
 			
-			If the value of enthalpy $h$ is known from the time evolution of the energy equation, and pressure $P$ is known from measurement, then the temperature $T$ can be reconstructed based on the departure function. The departure function is a mathematical function that characterizes the deviation of a thermodynamic property (enthalpy, entropy, and internal energy) of a real substance from that of an ideal gas at the same temperature and pressure. The departure function is defined as the difference between the value of a thermodynamic property for a real fluid and the corresponding value for an ideal gas at the same temperature and pressure. They are computed by integrating a function that depends on the equation of state and its derivatives. As presented by \citet{Gmehling2019}, for the Peng-Robinson equation of state, the enthalpy can be defined by Equation \ref{EQ:Enthalpy_PR}.
+			If the value of enthalpy $h$ is known from the time evolution of the energy equation, and pressure $P$ is known from measurement, then the temperature $T$ can be reconstructed based on the departure function. The departure function is a mathematical function that characterizes the deviation of a thermodynamic property (enthalpy, entropy, and internal energy) of a real substance from that of an ideal gas at the same temperature and pressure. The departure function is defined as the difference between the value of a thermodynamic property for a real fluid and the corresponding value for an ideal gas at the same temperature and pressure. They are computed by integrating a function that depends on the equation of state and its derivatives. As presented by \citet{Gmehling2019}, for the Peng-Robinson equation of state, the enthalpy departure function is defined by Equation \ref{EQ:Enthalpy_PR}.
 			
 			{\scriptsize
 				\begin{equation}
@@ -166,14 +166,14 @@
 
             \subsubsection{Pressure term} \label{CH: Pressure}
 			
-			The pressure term in the energy equation, given by Equation \ref{EQ:Enthalpy_equation}, describes the change of the thermodynamic pressure with respect to time. As explained in Chapters \ref{CH:Governing_equations_chapter}, at Low-Mach number conditions, the thermodynamic pressure is nearly constant in space due to the small pressure wave propagation that occurs at the speed of sound. Under such conditions, the term $\partial P/\partial t$ can be approximated by a difference equation, which describes the pressure change in the whole system. The pressure ($P$) in the system is considered a state variable, while the pressure in the new time-step ($P_{in}$) is considered a control variable.
+			As explained in Chapters \ref{CH:Governing_equations_chapter}, at Low-Mach number conditions, the thermodynamic pressure is nearly constant in space due to the small pressure wave propagation that occurs at the speed of sound. Under such conditions, the term $\partial P/\partial t$ can be approximated by a difference equation, which describes the pressure change in the whole system. The pressure $P$ in the system is considered a state variable, while the pressure in the new time-step $P_{in}$ is considered a control variable.
 			
 			{\footnotesize
 				\begin{equation}
-					\frac{\partial {\color{black}P}(t)}{\partial t} \approx \frac{{\color{black}P_{in}}(t) - {\color{black}P}(t) }{\Delta t}
+					\frac{\partial {\color{black}P}}{\partial t} \approx \frac{{\color{black}P_{in}} - {\color{black}P} }{\Delta t}
 			\end{equation}}
 			
-			Such a simplified equation allows for instantaneous pressure change in the system but does not consider a gradual pressure build-up and the effects of pressure losses. In a real system, the dynamics of pressure change would depend on a pump used in an extraction system and a back-pressure regulator used to control an outlet valve.
+			Such a simplified equation allows for instantaneous pressure change in the system but does not consider a gradual pressure build-up and the effects of pressure losses. In a real system, the dynamics of pressure change would depend on a pump and a back-pressure regulator.
 			
 			\subsubsection{Extraction yield} \label{CH: Yield}
 			
@@ -193,7 +193,7 @@
 			{\footnotesize
 				\begin{align*}
 					&c_f(t = 0, z) = 0  && c_s(t = 0, z) = c_{s0} && h(t = 0, z) = h_0 \\
-					&c_f(t,   z=0) = 0  && h(t, z=0) = h_{in}(t)  && \frac{\partial c_f(t,z=L)}{\partial x} = 0 \\
+					&c_f(t,   z=0) = 0  && h(t, z=0) = h_{in}  && \frac{\partial c_f(t,z=L)}{\partial x} = 0 \\
 					&\frac{\partial h(t,z=L)}{\partial x} = 0   && c_s(t, z=\{0,L\}) = 0 && y(0) = 0 \quad P(0) = P_0 \\
 			\end{align*} }
 			
@@ -203,23 +203,23 @@
 			
 				{\footnotesize
 					\begin{align*} \label{discretization}
-						\dot{x}(t) &= \cfrac{d x}{d t} = 
+						\dot{x} &= \cfrac{d x}{d t} = 
 						\begin{bmatrix}
-							\cfrac{d c_{f,1}(t)}{d t} 	  \\
+							\cfrac{d c_{f,1}}{d t} 	  \\
 							\vdots					  \\
-							\cfrac{d c_{f,N_z}(t)}{d t} \\
+							\cfrac{d c_{f,N_z}}{d t} \\
 							\\ \hline \\
-							\cfrac{d c_{s,1}(t)}{d t} 	  \\
+							\cfrac{d c_{s,1}}{d t} 	  \\
 							\vdots					  \\
-							\cfrac{d c_{s,N_z}(t)}{d t} \\
+							\cfrac{d c_{s,N_z}}{d t} \\
 							\\ \hline \\
-							\cfrac{d h_1(t)}{d t} 	  \\
+							\cfrac{d h_1}{d t} 	  \\
 							\vdots 					  \\
-							\cfrac{d h_{N_z}(t)}{d t} \\
+							\cfrac{d h_{N_z}}{d t} \\
 							\\ \hline \\
-							\cfrac{d P(t)}{d t} \\
+							\cfrac{d P}{d t} \\
 							\\ \hline \\
-							\cfrac{d y(t)}{d t}
+							\cfrac{d y}{d t}
 						\end{bmatrix}
 						=
 						\underbrace{\begin{bmatrix}

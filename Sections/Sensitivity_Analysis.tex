@@ -2,87 +2,87 @@
 \graphicspath{{\subfix{../Figures/}}}
 \begin{document}
 	
-	Local derivative-based methods involve taking the total derivative of the state vector $x$ with respect to parameters $p$, where $p$ is a subset of the parameter space $\theta$. The set of derivatives, known as sensitivity equations, is integrated simultaneously with the process model. The sensitivity analysis shows how responsive the solution is for changes in the parameter $p$. As discussed by \citet{Dickinson1976}, the sensitivity analysis can be used to determine the influence of the uncertainty on the solution of the original system. A sensitivity analysis can be used to distinguish sensitive parameters from insensitive ones, which might be helpful for model reduction. Finally, from a control engineering point of view, the sensitivity analysis allows sorting the control variables with respect to the level of effort required to change the model's output.
+	Local derivative-based methods involve taking the total derivative of the state vector $x$ with respect to the parameter space $\Theta$. The set of derivatives, known as sensitivity equations, is integrated simultaneously with the process model. The sensitivity analysis shows how responsive the solution is for changes in the parameter $\Theta$. As discussed by \citet{Dickinson1976}, the sensitivity analysis can be used to determine the influence of the uncertainty on the solution of the original system. A sensitivity analysis can be used to distinguish sensitive parameters from insensitive ones, which might be helpful for model reduction. Finally, from a control engineering point of view, the sensitivity analysis allows sorting the control variables with respect to the level of effort required to change the model's output.
 	
 	Following the work of \citet{Maly1996}, the sensitivity analysis equations(${\dot{Z}}$) can be defined as follow:
 	
 	{\footnotesize
 		\begin{equation}
 			\label{SA_def}
-			Z(x(t);p) = \cfrac{dx(t)}{dp}
+			Z(x;\Theta) = \cfrac{dx}{d\Theta}
 	   \end{equation} }
 	
 	The new system of equations can be obtained by taking derivatives of $Z$ with respect to time $t$ and applying the chain rule.
 	
 	{\footnotesize
 		\begin{equation} \label{SA_dt} 
-			{\dot{Z}}(x(t);p)  = \cfrac{dZ(x(t);p)}{d t} = \cfrac{d}{d t} \left( \cfrac{dx(t)}{dp} \right) = \cfrac{d }{dp} \left( \cfrac{dx(t)}{d t} \right) = \cfrac{d {G}(x(t);p)}{dp} 
+			{\dot{Z}}(x;\Theta)  = \cfrac{dZ(x;\Theta)}{d t} = \cfrac{d}{d t} \left( \cfrac{dx}{d\Theta} \right) = \cfrac{d }{d\Theta} \left( \cfrac{dx}{d t} \right) = \cfrac{d {G}(x;\Theta)}{d\Theta} 
 	\end{equation} }
 	
-	The sensitivity equation can be obtained by applying the definition of the total derivative to Equation \ref{SA_dt}.
+	The sensitivity Equation \ref{SA_eq_full} can be obtained by applying the definition of the total derivative to Equation \ref{SA_dt}.
 	
 	{\footnotesize
 		\begin{equation} \label{SA_eq_full}
-			\cfrac{dG(x(t);p)}{dp} = \underbrace{ \cfrac{\partial {G}(x(t);p)}{\partial x(t)} }_{{J_x}(x(t);p)} \underbrace{\cfrac{\partial x(t)}{\partial p} }_{S(x(t);p)} + \underbrace{ \cfrac{\partial {G}(x(t);p)}{\partial p} }_{{J_p}(x(t);p)}
+			\cfrac{dG(x;\Theta)}{d\Theta} = \underbrace{ \cfrac{\partial {G}(x;\Theta)}{\partial x} }_{{J_x}(x;\Theta)} \underbrace{\cfrac{\partial x}{\partial \Theta} }_{S(x;\Theta)} + \underbrace{ \cfrac{\partial {G}(x;\Theta)}{\partial \Theta} }_{{J_\Theta}(x;\Theta)}
 	  \end{equation} }
 	
-	Equation \ref{SA_eq_full} is solved simultaneously with the process model and consists of three terms: Jacobian ${J_x}(x(t);p)$, sensitivity matrix $S(x(t);p)$ and Jacobian ${J_p}(x(t);p)$. The Jacobian ${J_x}(x(t);p)$ represents the matrix of equations of size $N_x \times N_x$, where each equation ${J_x}(n_x,n_x)$ is the derivative of ${G}_{n_x}(x(t);p)$ with respect to the state variable $x_{n_p}$.
+	The Jacobian ${J_x}(x;\Theta)$ represents the matrix of equations of size $N_x \times N_x$, where each equation ${J_x}(n_x,n_x)$ is the derivative of ${G}_{n_x}(x;\Theta)$ with respect to the state variable $x_{n_\Theta}$.
 	
 	{\footnotesize
 		\begin{align}
 			\begingroup % keep the change local
 			\setlength\arraycolsep{2pt}
-			{J_x}(x(t);p)=\begin{pmatrix}
-				\cfrac{\partial {G_{1}}(x(t);p)}{\partial {x_{1}}(t)} & \cfrac{\partial {G_{1}}(x(t);p)}{\partial {x_{2}}(t)} & \cdots & \cfrac{\partial {G_{1}}(x(t);p)}{\partial {x_{N_x}}(t)}\\
-				\cfrac{\partial {G_{2}}(x(t);p)}{\partial {x_{1}}(t)} & \cfrac{\partial {G_{2}}(x(t);p)}{\partial {x_{2}}(t)} & \cdots & \cfrac{\partial {G_{2}}(x(t);p)}{\partial {x_{N_x}}(t)}\\
+			{J_x}(x;\Theta)=\begin{pmatrix}
+				\cfrac{\partial {G_{1}}(x;\Theta)}{\partial {x_{1}}} & \cfrac{\partial {G_{1}}(x;\Theta)}{\partial {x_{2}}} & \cdots & \cfrac{\partial {G_{1}}(x;\Theta)}{\partial {x_{N_x}}}\\
+				\cfrac{\partial {G_{2}}(x;\Theta)}{\partial {x_{1}}} & \cfrac{\partial {G_{2}}(x;\Theta)}{\partial {x_{2}}} & \cdots & \cfrac{\partial {G_{2}}(x;\Theta)}{\partial {x_{N_x}}}\\
 				\vdots & \vdots & \ddots & \vdots\\ 
-				\cfrac{\partial {G_{N_x}}(x(t);p)}{\partial {x_{1}}(t)} & \cfrac{\partial {G_{N_x}}(x(t);p)}{\partial {x_{2}}(t)} & \cdots & \cfrac{\partial {G_{N_x}}(x(t);p)}{\partial {x_{N_x}}(t)}\\
+				\cfrac{\partial {G_{N_x}}(x;\Theta)}{\partial {x_{1}}} & \cfrac{\partial {G_{N_x}}(x;\Theta)}{\partial {x_{2}}} & \cdots & \cfrac{\partial {G_{N_x}}(x;\Theta)}{\partial {x_{N_x}}}\\
 			\end{pmatrix}
 			\endgroup
 	\end{align} }
 	
-	The sensitivity matrix $S(x(t);p)$ represents the matrix of equations of size $N_x \times N_p$, where each subequation $S(n_x,n_p)$ is the derivative of the state variable $x_{n_x}$ with respect to the parameter $p_{n_p}$. Matrix ${J_x}(x(t);p)$ and $S(x(t);p)$ describe indirect influence of $p_{n_p}$ on the model output.
+	The sensitivity matrix $S(x;\Theta)$ represents the matrix of equations of size $N_x \times N_\Theta$, where each subequation $S(n_x,n_\Theta)$ is the derivative of the state variable $x_{n_x}$ with respect to the parameter $\Theta_{n_\Theta}$. Matrix ${J_x}(x;\Theta)$ and $S(x;\Theta)$ describe indirect influence of $\Theta_{n_\Theta}$ on the model output.
 	
 	{\footnotesize
 		\begin{equation}
 			\begin{split}
-				S(x(t);p) & = 
+				S(x;\Theta) & = 
 				\begingroup % keep the change local
 				\setlength\arraycolsep{2pt}
 				\begin{pmatrix}
-					\cfrac{\partial {x_{1}}(t)}{\partial {p_{1}}} 	& \cfrac{\partial {x_{1}}(t)}{d {p_{2}}}     & \cdots & \cfrac{d {x_{1}}(t)}{\partial {p_{N_p}}}\\
-					\cfrac{\partial {x_{2}}(t)}{\partial {p_{1}}} 	& \cfrac{\partial {x_{2}}(t)}{d {p_{2}}}     & \cdots & \cfrac{d {x_{2}}(t)}{\partial {p_{N_p}}}\\
+					\cfrac{\partial {x_{1}}}{\partial {\Theta_{1}}} 	& \cfrac{\partial {x_{1}}}{d {\Theta_{2}}}     & \cdots & \cfrac{d {x_{1}}}{\partial {\Theta_{N_\Theta}}}\\
+					\cfrac{\partial {x_{2}}}{\partial {\Theta_{1}}} 	& \cfrac{\partial {x_{2}}}{d {\Theta_{2}}}     & \cdots & \cfrac{d {x_{2}}}{\partial {\Theta_{N_\Theta}}}\\
 					\vdots					 	    & \vdots 					   	  & \ddots & \vdots\\
-					\cfrac{\partial {x_{N_x}}(t)}{\partial {p_{1}}} 	& \cfrac{\partial {x_{N_x}}(t)}{d {p_{2}}}     & \cdots & \cfrac{\partial {x_{N_x}}(t)}{d {p_{N_p}}}
+					\cfrac{\partial {x_{N_x}}}{\partial {\Theta_{1}}} 	& \cfrac{\partial {x_{N_x}}}{d {\Theta_{2}}}     & \cdots & \cfrac{\partial {x_{N_x}}}{d {\Theta_{N_\Theta}}}
 				\end{pmatrix} 
 				\endgroup
 			\end{split}
 	\end{equation} }
 	
-	The Jacobian ${J_p}(x(t);p)$ represents the matrix of equations of size $N_x \times N_p$, where each subequation ${J_p}(n_x,n_p)$ is the partial derivative of the process model equation $F_{n_x}$ with respect to the parameter $p_{n_p}$. ${J_p}(n_x,n_p)$ defines direct effect of $p_{n_p}$ on the model output.
+	The Jacobian ${J_\Theta}(x;\Theta)$ represents the matrix of equations of size $N_x \times N_\Theta$, where each subequation ${J_\Theta}(n_x,n_\Theta)$ is the partial derivative of the process model equation $G_{n_x}$ with respect to the parameter $\Theta_{n_\Theta}$. ${J_\Theta}(n_x,n_\Theta)$ defines direct effect of $\Theta_{n_\Theta}$ on the model output.
 	
 	{\footnotesize
 		\begin{align}
-			{J_p}(x(t);p) & =
+			{J_\Theta}(x;\Theta) & =
 			\begingroup % keep the change local
 			\setlength\arraycolsep{2pt}
 			\begin{pmatrix}
-				\cfrac{\partial {G_{1}}(x(t);p)}{\partial {p_{1}}} & \cfrac{\partial {G_{1}}(x(t);p)}{\partial {p_{2}}} & \cdots & \cfrac{\partial {G_{1}}(x(t);p)}{\partial {p_{N_p}}}\\
-				\cfrac{\partial {G_{2}}(x(t);p)}{\partial {p_{1}}} & \cfrac{\partial {G_{2}}(x(t);p)}{\partial {p_{2}}} & \cdots & \cfrac{\partial {G_{2}}(x(t);p)}{\partial {p_{N_p}}}\\
+				\cfrac{\partial {G_{1}}(x;\Theta)}{\partial {\Theta_{1}}} & \cfrac{\partial {G_{1}}(x;\Theta)}{\partial {\Theta_{2}}} & \cdots & \cfrac{\partial {G_{1}}(x;\Theta)}{\partial {\Theta_{N_\Theta}}}\\
+				\cfrac{\partial {G_{2}}(x;\Theta)}{\partial {\Theta_{1}}} & \cfrac{\partial {G_{2}}(x;\Theta)}{\partial {\Theta_{2}}} & \cdots & \cfrac{\partial {G_{2}}(x;\Theta)}{\partial {\Theta_{N_\Theta}}}\\
 				\vdots & \vdots & \ddots & \vdots\\
-				\cfrac{\partial {G_{N_x}}(x(t);p)}{\partial {p_{1}}} & \cfrac{\partial {G_{N_x}}(x(t);p)}{\partial {p_{2}}} & \cdots & \cfrac{\partial {G_{N_x}}(x(t);p)}{\partial {p_{N_p}}}
+				\cfrac{\partial {G_{N_x}}(x;\Theta)}{\partial {\Theta_{1}}} & \cfrac{\partial {G_{N_x}}(x;\Theta)}{\partial {\Theta_{2}}} & \cdots & \cfrac{\partial {G_{N_x}}(x;\Theta)}{\partial {\Theta_{N_\Theta}}}
 			\end{pmatrix}
 			\endgroup
 	\end{align}}
 	
-	The combined system containing the original set of equations ${G}(x(t);p)$ and sensitivity equations can be formulated as ${\textbf{G}}\left(x(t);p\right)$. The size of ${\textbf{G}}\left(x(t);p\right)$ is equal to $N_s = N_x(N_p + 1)$.
+	The combined system containing the original set of equations ${G}(x;\Theta)$ and sensitivity equations can be formulated as ${\textbf{G}}\left(x;\Theta\right)$. The size of ${\textbf{G}}\left(x;\Theta\right)$ is equal to $N_s = N_x(N_\Theta + 1)$.
 	
 	{\footnotesize
 		\begin{align}
-			{\textbf{G}}\left(x(t);p\right) = 
+			{\textbf{G}}\left(x;\Theta\right) = 
 			\begin{bmatrix}
-				{G}(x(t);p)\\
-				{J_x}(x(t);p)S(x(t);p) + {J_p}(x(t);p)
+				{G}(x;\Theta)\\
+				{J_x}(x;\Theta)S(x;\Theta) + {J_\Theta}(x;\Theta)
 			\end{bmatrix}
 	\end{align} }
 	
@@ -90,12 +90,12 @@
 	
 	{\footnotesize
 		\begin{align}
-			{\textbf{G}}\left(x(t_0);p\right)  &= 
+			{\textbf{G}}\left(x(t_0);\Theta\right)  &= 
 			\begin{bmatrix}
                 x(t_0),						               &
-				\cfrac{ \text{d}x(t_0) }{ d{p_1} },		   &
+				\cfrac{ \text{d}x(t_0) }{ d{\Theta_1} },		   &
 				\cdots,					 				   &
-				\cfrac{ dx(t_0) }{ d{p_{N_p}} }            
+				\cfrac{ dx(t_0) }{ d{\Theta_{N_\Theta}} }            
 			\end{bmatrix}^\top = \\ &=
             \begin{bmatrix} 
                 \quad x_0,	                               &
@@ -105,11 +105,11 @@
 			\end{bmatrix}^\top
 	\end{align} }
 	
-	The sensitivity analysis of the output function can be performed with respect to parameters $p$. The output function $g(x(t))$ returns ${y}(t)$. By taking a total derivative of ${y}(t)$ with respect to $p$, the new sensitivity equation can be found.
+	The sensitivity analysis of the output function can be performed with respect to parameters $\Theta$. The output function $g(x)$ returns ${y}$. By taking a total derivative of ${y}$ with respect to $\Theta$, the new sensitivity equation can be found.
 	
 	{\footnotesize
 		\begin{equation}
-			\cfrac{d {y}(t)}{dp} = \cfrac{d g(x(t))}{dp} = \cfrac{\partial g(x(t))}{\partial x(t)} \cfrac{\partial x(t)}{\partial p} + \cfrac{\partial g(x(t))}{\partial p}
+			\cfrac{d {y}}{d\Theta} = \cfrac{d g(x)}{d\Theta} = \cfrac{\partial g(x)}{\partial x} \cfrac{\partial x}{\partial \Theta} + \cfrac{\partial g(x)}{\partial \Theta}
 	   \end{equation} }
 	
 \end{document}

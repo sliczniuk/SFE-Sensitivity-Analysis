@@ -1,4 +1,4 @@
-\begin{thebibliography}{21}
+\begin{thebibliography}{20}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -160,12 +160,5 @@ Timothy Maly and Linda~R. Petzold.
 \newblock \emph{Applied Numerical Mathematics}, 20\penalty0 (1-2):\penalty0
   57--79, feb 1996.
 \newblock \doi{10.1016/0168-9274(95)00117-4}.
-
-\bibitem[Peng and Robinson(1976)]{Peng1976}
-Ding-Yu Peng and Donald~B. Robinson.
-\newblock A new two-constant equation of state.
-\newblock \emph{Industrial {\&} Engineering Chemistry Fundamentals},
-  15\penalty0 (1):\penalty0 59--64, feb 1976.
-\newblock \doi{10.1021/i160057a011}.
 
 \end{thebibliography}
