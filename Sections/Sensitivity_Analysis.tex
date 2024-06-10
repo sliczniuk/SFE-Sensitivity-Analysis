@@ -4,26 +4,26 @@
 	
 	Local derivative-based methods involve taking the total derivative of the state vector $x$ with respect to the parameter space $\Theta$. The set of derivatives, known as sensitivity equations, is integrated simultaneously with the process model. The sensitivity analysis shows how responsive the solution is for changes in the parameter $\Theta$. As discussed by \citet{Dickinson1976}, the sensitivity analysis can be used to determine the influence of the uncertainty on the solution of the original system. A sensitivity analysis can be used to distinguish sensitive parameters from insensitive ones, which might be helpful for model reduction. Finally, from a control engineering point of view, the sensitivity analysis allows sorting the control variables with respect to the level of effort required to change the model's output.
 	
-	Following the work of \citet{Maly1996}, the sensitivity analysis equations(${\dot{Z}}$) can be defined as follow:
+	Following the work of \citet{Maly1996}, the sensitivity equations (${\dot{S}}$) can be defined as follow:
 	
 	{\footnotesize
 		\begin{equation}
 			\label{SA_def}
-			Z(x;\Theta) = \cfrac{dx}{d\Theta}
+			S(x;\Theta) = \cfrac{dx}{d\Theta}
 	   \end{equation} }
 	
-	The new system of equations can be obtained by taking derivatives of $Z$ with respect to time $t$ and applying the chain rule.
+	The new system of equations can be obtained by taking derivatives of $S$ with respect to time $t$ and applying the chain rule.
 	
 	{\footnotesize
 		\begin{equation} \label{SA_dt} 
-			{\dot{Z}}(x;\Theta)  = \cfrac{dZ(x;\Theta)}{d t} = \cfrac{d}{d t} \left( \cfrac{dx}{d\Theta} \right) = \cfrac{d }{d\Theta} \left( \cfrac{dx}{d t} \right) = \cfrac{d {G}(x;\Theta)}{d\Theta} 
+			{\dot{S}}(x;\Theta)  = \cfrac{dS(x;\Theta)}{d t} = \cfrac{d}{d t} \left( \cfrac{dx}{d\Theta} \right) = \cfrac{d }{d\Theta} \left( \cfrac{dx}{d t} \right) = \cfrac{d {G}(x;\Theta)}{d\Theta} 
 	\end{equation} }
 	
 	The sensitivity Equation \ref{SA_eq_full} can be obtained by applying the definition of the total derivative to Equation \ref{SA_dt}.
 	
 	{\footnotesize
 		\begin{equation} \label{SA_eq_full}
-			\cfrac{dG(x;\Theta)}{d\Theta} = \underbrace{ \cfrac{\partial {G}(x;\Theta)}{\partial x} }_{{J_x}(x;\Theta)} \underbrace{\cfrac{\partial x}{\partial \Theta} }_{S(x;\Theta)} + \underbrace{ \cfrac{\partial {G}(x;\Theta)}{\partial \Theta} }_{{J_\Theta}(x;\Theta)}
+			\cfrac{d G(x;\Theta)}{d \Theta} = \underbrace{ \cfrac{\partial {G}(x;\Theta)}{\partial x} }_{{J_x}(x;\Theta)} \underbrace{\cfrac{\partial x}{\partial \Theta} }_{S(x;\Theta)} + \underbrace{ \cfrac{\partial {G}(x;\Theta)}{\partial \Theta} }_{{J_\Theta}(x;\Theta)}
 	  \end{equation} }
 	
 	The Jacobian ${J_x}(x;\Theta)$ represents the matrix of equations of size $N_x \times N_x$, where each equation ${J_x}(n_x,n_x)$ is the derivative of ${G}_{n_x}(x;\Theta)$ with respect to the state variable $x_{n_\Theta}$.
