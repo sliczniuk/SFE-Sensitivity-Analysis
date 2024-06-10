@@ -41,7 +41,7 @@
 			\endgroup
 	\end{align} }
 	
-	The sensitivity matrix $S(x;\Theta)$ represents the matrix of equations of size $N_x \times N_\Theta$, where each subequation $S(n_x,n_\Theta)$ is the derivative of the state variable $x_{n_x}$ with respect to the parameter $\Theta_{n_\Theta}$. Matrix ${J_x}(x;\Theta)$ and $S(x;\Theta)$ describe indirect influence of $\Theta_{n_\Theta}$ on the model output.
+	The sensitivity matrix $S(x;\Theta)$ represents the matrix of equations of size $N_x \times N_\Theta$, where each subequation $S(n_x,n_\Theta)$ is the derivative of the state variable $x_{n_x}$ with respect to the parameter $\Theta_{n_\Theta}$. Matrix ${J_x}(x;\Theta)$ and $S(x;\Theta)$ describe indirect influence of $\Theta_{n_\Theta}$ on the state space.
 	
 	{\footnotesize
 		\begin{equation}
@@ -59,7 +59,7 @@
 			\end{split}
 	\end{equation} }
 	
-	The Jacobian ${J_\Theta}(x;\Theta)$ represents the matrix of equations of size $N_x \times N_\Theta$, where each subequation ${J_\Theta}(n_x,n_\Theta)$ is the partial derivative of the process model equation $G_{n_x}$ with respect to the parameter $\Theta_{n_\Theta}$. ${J_\Theta}(n_x,n_\Theta)$ defines direct effect of $\Theta_{n_\Theta}$ on the model output.
+	The Jacobian ${J_\Theta}(x;\Theta)$ represents the matrix of equations of size $N_x \times N_\Theta$, where each subequation ${J_\Theta}(n_x,n_\Theta)$ is the partial derivative of the process model equation $G_{n_x}$ with respect to the parameter $\Theta_{n_\Theta}$. ${J_\Theta}(n_x,n_\Theta)$ defines direct effect of $\Theta_{n_\Theta}$ on the state space.
 	
 	{\footnotesize
 		\begin{align}
@@ -75,7 +75,7 @@
 			\endgroup
 	\end{align}}
 	
-	The combined system containing the original set of equations ${G}(x;\Theta)$ and sensitivity equations can be formulated as ${\textbf{G}}\left(x;\Theta\right)$. The size of ${\textbf{G}}\left(x;\Theta\right)$ is equal to $N_s = N_x(N_\Theta + 1)$.
+	The augmented system containing the original set of equations ${G}(x;\Theta)$ and sensitivity equations can be formulated as ${\textbf{G}}\left(x;\Theta\right)$. The size of ${\textbf{G}}\left(x;\Theta\right)$ is equal to $N_s = N_x(N_\Theta + 1)$.
 	
 	{\footnotesize
 		\begin{align}
