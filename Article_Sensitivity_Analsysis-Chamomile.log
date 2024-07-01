@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 23.10.12) (preloaded format=xelatex 2024.5.24)  11 JUN 2024 11:08
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 23.10.12) (preloaded format=xelatex 2024.5.24)  1 JUL 2024 18:28
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1650,27 +1650,17 @@ File: Figures/SFE_PFD.drawio.png Graphic file (type bmp)
  [3] (Sections/Saturation.tex) [4])
 (Sections/Sensitivity_Analysis.tex [5]) (Sections/Results_Sensitivity.tex
 (Sections/Sensitivity_Pressure.tex
-File: Figures///Results_sensitivity/P_P_1.png Graphic file (type bmp)
-<Figures///Results_sensitivity/P_P_1.png>
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-File: Figures///Results_sensitivity/H_P_1.png Graphic file (type bmp)
-<Figures///Results_sensitivity/H_P_1.png>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 File: Figures///Results_sensitivity/CS_P_1.png Graphic file (type bmp)
 <Figures///Results_sensitivity/CS_P_1.png>
-[6]
 File: Figures///Results_sensitivity/CF_P_1.png Graphic file (type bmp)
 <Figures///Results_sensitivity/CF_P_1.png>
-File: Figures///Results_sensitivity/Y_P_1.png Graphic file (type bmp)
-<Figures///Results_sensitivity/Y_P_1.png>
-)) (Article_Sensitivity_Analsysis-Chamomile.bbl [7]
+ [6]
+File: Figures///Results_sensitivity/Yield_Multiple.png Graphic file (type bmp)
+<Figures///Results_sensitivity/Yield_Multiple.png>
+))
+(Article_Sensitivity_Analsysis-Chamomile.bbl
 Missing character: There is no – in font t1-stixgeneral!
-
+ [7]
 Underfull \hbox (badness 1859) in paragraph at lines 127--131
 []\T1/stix/m/n/8 J. Gmehling, M. Kleiber, B. Kolbe, and J. Rarey.  |   []
  []
@@ -1683,10 +1673,10 @@ Package rerunfilecheck Info: File `Article_Sensitivity_Analsysis-Chamomile.out'
 (rerunfilecheck)             Checksum: 64389B9946E6DE1AD024978A1B72866F;2855.
  ) 
 Here is how much of TeX's memory you used:
- 41797 strings out of 411223
- 890054 string characters out of 2829157
+ 41777 strings out of 411223
+ 889377 string characters out of 2829157
  1340087 words of memory out of 3000000
- 61507 multiletter control sequences out of 15000+600000
+ 61489 multiletter control sequences out of 15000+600000
  535852 words of font info for 179 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  94i,26n,131p,1507b,593s stack positions out of 5000i,500n,10000p,200000b,80000s
