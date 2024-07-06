@@ -4,7 +4,7 @@
 	
 	Local derivative-based methods involve taking the total derivative of the state vector $x$ with respect to the parameter space $\Theta$. The set of derivatives, known as sensitivity equations, is integrated simultaneously with the process model. The sensitivity analysis shows how responsive the solution is for changes in the parameter $\Theta$. As discussed by \citet{Dickinson1976}, the sensitivity analysis can be used to determine the influence of the uncertainty on the solution of the original system. Another application of sensitivity analysis is to distinguish sensitive parameters from insensitive ones, which might be helpful for model reduction. Finally, from a control engineering point of view, the sensitivity analysis allows sorting the control variables with respect to the level of effort required to change the model's output.
 	
-	Following the work of \citet{Maly1996}, the sensitivity equations (${\dot{S}}$) can be defined as follow:
+	Following the work of \citet{Maly1996}, the sensitivity equations can be defined as follow:
 	
 	{\footnotesize
 		\begin{equation}
@@ -12,27 +12,27 @@
 			S(x;\Theta) = \cfrac{dx}{d\Theta}
 	   \end{equation} }
 	
-	The new system of equations can be obtained by taking derivatives of $S$ with respect to time $t$ and applying the chain rule.
+	The new system of equations can be obtained by taking the total derivative of $S$ with respect to time $t$.
 	
 	{\footnotesize
 		\begin{equation} \label{SA_dt} 
-			{\dot{S}}(x;\Theta)  = \cfrac{dS(x;\Theta)}{d t} = \cfrac{d}{d t} \left( \cfrac{dx}{d\Theta} \right) = \cfrac{d }{d\Theta} \left( \cfrac{dx}{d t} \right) = \cfrac{d {G}(x;\Theta)}{d\Theta} 
+			{\dot{S}}(x;\Theta)  = \cfrac{dS(x;\Theta)}{d t} = \cfrac{d}{d t} \left( \cfrac{dx}{d\Theta} \right) = \cfrac{d }{d\Theta} \left( \cfrac{dx}{d t} \right) = \cfrac{d G(x;\Theta)}{d\Theta} 
 	\end{equation} }
 	
 	The sensitivity Equation \ref{SA_eq_full} can be obtained by applying the definition of the total derivative to Equation \ref{SA_dt}.
 	
 	{\footnotesize
 		\begin{equation} \label{SA_eq_full}
-			\cfrac{d G(x;\Theta)}{d \Theta} = \underbrace{ \cfrac{\partial {G}(x;\Theta)}{\partial x} }_{{J_x}(x;\Theta)} \underbrace{\cfrac{\partial x}{\partial \Theta} }_{S(x;\Theta)} + \underbrace{ \cfrac{\partial {G}(x;\Theta)}{\partial \Theta} }_{{J_\Theta}(x;\Theta)}
+			\cfrac{d G(x;\Theta)}{d \Theta} = \underbrace{ \cfrac{\partial G(x;\Theta)}{\partial x} }_{{\bar{J}_x}(x;\Theta)} \underbrace{\cfrac{\partial x}{\partial \Theta} }_{\bar{S}(x;\Theta)} + \underbrace{ \cfrac{\partial G(x;\Theta)}{\partial \Theta} }_{{\bar{J}_\Theta}(x;\Theta)}
 	  \end{equation} }
 	
-	The Jacobian ${J_x}(x;\Theta)$ represents the matrix of equations of size $N_x \times N_x$, where each equation ${J_x}(n_x,n_x)$ is the derivative of ${G}_{n_x}(x;\Theta)$ with respect to the state variable $x_{n_\Theta}$.
+	The Jacobian ${\bar{J}_x}(x;\Theta)$ represents the matrix of equations of size $N_x \times N_x$, where each equation ${\bar{J}_x}(n_x,n_x)$ is the derivative of $G_{n_x}(x;\Theta)$ with respect to the state variable $x_{n_\Theta}$.
 	
 	{\footnotesize
 		\begin{align}
 			\begingroup % keep the change local
 			\setlength\arraycolsep{2pt}
-			{J_x}(x;\Theta)=\begin{pmatrix}
+			{\bar{J}_x}(x;\Theta)=\begin{pmatrix}
 				\cfrac{\partial {G_{1}}(x;\Theta)}{\partial {x_{1}}} & \cfrac{\partial {G_{1}}(x;\Theta)}{\partial {x_{2}}} & \cdots & \cfrac{\partial {G_{1}}(x;\Theta)}{\partial {x_{N_x}}}\\
 				\cfrac{\partial {G_{2}}(x;\Theta)}{\partial {x_{1}}} & \cfrac{\partial {G_{2}}(x;\Theta)}{\partial {x_{2}}} & \cdots & \cfrac{\partial {G_{2}}(x;\Theta)}{\partial {x_{N_x}}}\\
 				\vdots & \vdots & \ddots & \vdots\\ 
@@ -41,12 +41,12 @@
 			\endgroup
 	\end{align} }
 	
-	The sensitivity matrix $S(x;\Theta)$ represents the matrix of equations of size $N_x \times N_\Theta$, where each subequation $S(n_x,n_\Theta)$ is the derivative of the state variable $x_{n_x}$ with respect to the parameter $\Theta_{n_\Theta}$. Matrix ${J_x}(x;\Theta)$ and $S(x;\Theta)$ describe indirect influence of $\Theta_{n_\Theta}$ on the state space.
+	The sensitivity matrix $\bar{S}(x;\Theta)$ represents the matrix of equations of size $N_x \times N_\Theta$, where each entry $\bar{S}(n_x,n_\Theta)$ is the derivative of the state variable $x_{n_x}$ with respect to the parameter $\Theta_{n_\Theta}$. Matrix ${\bar{J}_x}(x;\Theta)$ and $\bar{S}(x;\Theta)$ describe indirect influence of $\Theta_{n_\Theta}$ on the state space.
 	
 	{\footnotesize
 		\begin{equation}
 			\begin{split}
-				S(x;\Theta) & = 
+				\bar{S}(x;\Theta) & = 
 				\begingroup % keep the change local
 				\setlength\arraycolsep{2pt}
 				\begin{pmatrix}
@@ -59,11 +59,11 @@
 			\end{split}
 	\end{equation} }
 	
-	The Jacobian ${J_\Theta}(x;\Theta)$ represents the matrix of equations of size $N_x \times N_\Theta$, where each subequation ${J_\Theta}(n_x,n_\Theta)$ is the partial derivative of the process model equation $G_{n_x}$ with respect to the parameter $\Theta_{n_\Theta}$. ${J_\Theta}(n_x,n_\Theta)$ defines direct effect of $\Theta_{n_\Theta}$ on the state space.
+	The Jacobian ${\bar{J}_\Theta}(x;\Theta)$ represents the matrix of equations of size $N_x \times N_\Theta$, where each subequation ${\bar{J}_\Theta}(n_x,n_\Theta)$ is the partial derivative of the process model equation $G_{n_x}$ with respect to the parameter $\Theta_{n_\Theta}$. ${\bar{J}_\Theta}(n_x,n_\Theta)$ defines direct effect of $\Theta_{n_\Theta}$ on the state space.
 	
 	{\footnotesize
 		\begin{align}
-			{J_\Theta}(x;\Theta) & =
+			{\bar{J}_\Theta}(x;\Theta) & =
 			\begingroup % keep the change local
 			\setlength\arraycolsep{2pt}
 			\begin{pmatrix}
@@ -75,14 +75,14 @@
 			\endgroup
 	\end{align}}
 	
-	The augmented system containing the original set of equations ${G}(x;\Theta)$ and sensitivity equations can be formulated as ${\textbf{G}}\left(x;\Theta\right)$. The size of ${\textbf{G}}\left(x;\Theta\right)$ is equal to $N_s = N_x(N_\Theta + 1)$.
+	The augmented system containing the original set of equations $G(x;\Theta)$ and sensitivity equations can be formulated as ${\textbf{G}}\left(x;\Theta\right)$. The size of ${\textbf{G}}\left(x;\Theta\right)$ is equal to $N_s = N_x(N_\Theta + 1)$.
 	
 	{\footnotesize
 		\begin{align}
 			{\textbf{G}}\left(x;\Theta\right) = 
 			\begin{bmatrix}
-				{G}(x;\Theta)\\
-				{J_x}(x;\Theta)S(x;\Theta) + {J_\Theta}(x;\Theta)
+				G(x;\Theta)\\
+				{\bar{J}_x}(x;\Theta)\bar{S}(x;\Theta) + {\bar{J}_\Theta}(x;\Theta)
 			\end{bmatrix}
 	\end{align} }
 	

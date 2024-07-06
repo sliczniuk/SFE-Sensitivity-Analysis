@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 23.10.12) (preloaded format=xelatex 2024.5.24)  1 JUL 2024 18:28
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 23.10.12) (preloaded format=xelatex 2024.5.24)  6 JUL 2024 17:44
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1639,7 +1639,7 @@ File: Figures/PFD.drawio.pdf Graphic file (type pdf)
 
 ]
 LaTeX Font Info:    Trying to load font information for TS1+stix on input line 
-8.
+9.
 
 (C:\Users\sliczno1\AppData\Local\Programs\MiKTeX\tex/latex/stix\ts1stix.fd
 File: ts1stix.fd 2015/04/17 v1.1.2-latex STIX TS1 font definitions
@@ -1647,38 +1647,41 @@ File: ts1stix.fd 2015/04/17 v1.1.2-latex STIX TS1 font definitions
 (Sections/Model.tex [2]
 File: Figures/SFE_PFD.drawio.png Graphic file (type bmp)
 <Figures/SFE_PFD.drawio.png>
- [3] (Sections/Saturation.tex) [4])
+ (Sections/Saturation.tex [3]
+File: Figures///Di_Re_F_1.png Graphic file (type bmp)
+<Figures///Di_Re_F_1.png>
+File: Figures///Gamma_Re_F_1.png Graphic file (type bmp)
+<Figures///Gamma_Re_F_1.png>
+) [4])
 (Sections/Sensitivity_Analysis.tex [5]) (Sections/Results_Sensitivity.tex
 (Sections/Sensitivity_Pressure.tex
 File: Figures///Results_sensitivity/CS_P_1.png Graphic file (type bmp)
 <Figures///Results_sensitivity/CS_P_1.png>
+ [6]
 File: Figures///Results_sensitivity/CF_P_1.png Graphic file (type bmp)
 <Figures///Results_sensitivity/CF_P_1.png>
- [6]
 File: Figures///Results_sensitivity/Yield_Multiple.png Graphic file (type bmp)
 <Figures///Results_sensitivity/Yield_Multiple.png>
-))
+)) [7]
 (Article_Sensitivity_Analsysis-Chamomile.bbl
 Missing character: There is no – in font t1-stixgeneral!
- [7]
+
 Underfull \hbox (badness 1859) in paragraph at lines 127--131
 []\T1/stix/m/n/8 J. Gmehling, M. Kleiber, B. Kolbe, and J. Rarey.  |   []
  []
 
-) [8
-
-] (Article_Sensitivity_Analsysis-Chamomile.aux)
+) [8] (Article_Sensitivity_Analsysis-Chamomile.aux)
 Package rerunfilecheck Info: File `Article_Sensitivity_Analsysis-Chamomile.out'
  has not changed.
-(rerunfilecheck)             Checksum: 64389B9946E6DE1AD024978A1B72866F;2855.
+(rerunfilecheck)             Checksum: 24FF5CEDE9C555A660D8BA3B50580DE0;3037.
  ) 
 Here is how much of TeX's memory you used:
- 41777 strings out of 411223
- 889377 string characters out of 2829157
- 1340087 words of memory out of 3000000
- 61489 multiletter control sequences out of 15000+600000
+ 41800 strings out of 411223
+ 889964 string characters out of 2829157
+ 1334087 words of memory out of 3000000
+ 61507 multiletter control sequences out of 15000+600000
  535852 words of font info for 179 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 94i,26n,131p,1507b,593s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 94i,26n,131p,1461b,654s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on Article_Sensitivity_Analsysis-Chamomile.pdf (8 pages).

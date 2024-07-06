@@ -142,7 +142,7 @@
 				\end{equation}
 			}
 			
-			The main advantage of this formulation is the presence of term $\partial P / \partial t $, which directly affects the system through the change of thermodynamic pressure. 
+			%The main advantage of this formulation is the presence of term $\partial P / \partial t $, which directly affects the system through the change of thermodynamic pressure. 
 			
 			If the value of enthalpy $h$ is known from the time evolution of the energy equation, and pressure $P$ is known from measurement, then the temperature $T$ can be reconstructed based on the departure function. The departure function is a mathematical function that characterizes the deviation of a thermodynamic property (enthalpy, entropy, and internal energy) of a real substance from that of an ideal gas at the same temperature and pressure. As presented by \citet{Gmehling2019}, for the Peng-Robinson equation of state, the enthalpy departure function is defined by Equation \ref{EQ:Enthalpy_PR}.
 			
@@ -152,6 +152,8 @@
 					\label{EQ:Enthalpy_PR}
 				\end{equation}				
 			}
+			
+			where $\alpha$ is defined as $\left( 1+\kappa \left( 1 - \sqrt{T_r} \right) \right)^2$, $T_r$ is the reduced temperature, $P_r$ is the reduced pressure, $Z$ is the compressibility factor, $\kappa$ is a quadratic function of the acentric factor and $B$ is calculated as $0.07780\frac{P_r}{T_r}$.
 			
 			Equation \ref{EQ:Enthalpy_PR} requires an reference sate, which is assumed to be $T_{ref}=298.15$ K and $P_{ref}=1.01325$ bar.
 			
