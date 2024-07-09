@@ -1,0 +1,50 @@
+Numer,Name,Value,Unit,Description
+1,nstages,50,[-],Number of stages
+2,C0solid,141.8181818,kg/m3,Inital concentration in the solid phase
+3,r,1.98E-02,m,Extractor radius
+4,epsi,0.77,[-],Void fraction
+5,dp,3.00E-04,m,Particle diameter
+6,L,0.165,m,Extractor length
+7,rho_s,1364,kg/m3,Density of solid particles
+8,km,1,[-],Mass partition coefficient
+9,mi,0.5,[-],Particle shape coefficient
+10,Tc,304.1,K,Critical temperature
+11,Pc,73.8,bar,Critical pressure
+12,R,0.0000831,[m3-bar/K-mol],Gas constant
+13,kappa,0.225,[-],Acentric factor
+14,MW,0.044,Kg/mol,Molar mass
+15,EA_Di,0.738266579,[-],
+16,betah_Di,51.24432282,[-],
+17,CP_0,NAN,,Ideal gas CP for CO2
+18,CP_A,22.26,,
+19,CP_B,5.98E-02,,
+20,CP_C,-3.50E-05,,
+21,CP_D,7.47E-09,,
+22,EA_km,-1.078261986,,
+23,betah_km,3.63E-19,,
+24,cpSolid,1.5,kJ/K/Kg,
+25,a_axial,0.1,,
+26,b_axial,0.011,,
+27,c_axial,0.48,,
+28,A1_cond,-105.161,,
+29,A2_cond,0.9007,,
+30,A3_cond,0.0007,,
+31,A4_cond,3.50E-15,,
+32,A5_cond,3.76E-10,,
+33,A6_cond,0.75,,
+34,A7_cond,0.0017,,
+35,A1_visc,-0.1146067,,
+36,A2_visc,0.000000698,,
+37,A3_visc,3.98E-10,,
+38,A4_visc,0.0633612,,
+39,A5_visc,-0.01166119,,
+40,A6_visc,0.00071426,,
+41,A7_visc,0.00000652,,
+42,A8_visc,-0.3567559,,
+43,A9_visc,0.03180473,,
+44,Di1,0.19,,"Internal diffusion, slope"
+45,Di2,8.188,,"Internal diffusion, intercept"
+46,Di3,0.62,,
+47,gamma1,3.158,,"gamma, slope"
+48,gamma2,11.922,,"gamma, intercept"
+49,gamma3,0.6868,,

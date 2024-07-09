@@ -1,0 +1,8 @@
+function D = Diffusion(Re, F, parameters)
+
+    a = parameters{44};
+    b = parameters{45};
+
+    D =  0.190 -  8.188 * Re + 0.620  * F * 10^5;
+    
+end
