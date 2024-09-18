@@ -9,23 +9,19 @@ import casadi.*
 Parameters_table        = readtable('Parameters.csv') ;                     % Table with prameters
 Parameters              = num2cell(Parameters_table{:,3});                  % Parameters within the model + (m_max), m_ratio, sigma
 
-LabResults              = xlsread('wpd_datasets.xlsx');
-which_dataset           = 4;
-
-SAMPLE                  = LabResults(21:34,1);
-data_org                = LabResults(21:34,which_dataset+1)';
+LabResults              = xlsread('dataset_2.xlsx');
 
 %% Load paramters
 m_total                 = 3.0;
 
 % Bed geometry
 before                  = 0.04;                                             % Precentage of length before which is empty
-bed                     = 0.92;                                              % Percentage of length occupied by fixed bed
+bed                     = 0.92;                                             % Percentage of length occupied by fixed bed
 
 % Set time of the simulation
 PreparationTime         = 0;
-ExtractionTime          = 100;
-timeStep                = 1;                                                % Minutes
+ExtractionTime          = 600;
+timeStep                = 0.5;                                                % Minutes
 
 simulationTime          = PreparationTime + ExtractionTime;
 
@@ -89,7 +85,7 @@ x                       = MX.sym('x', Nx);
 u                       = MX.sym('u', Nu);
 
 %% Set Integrator
-f                       = @(x, u) modelSFE(x, u, bed_mask, timeStep_in_sec);
+f                       = @(x, u) modelSFE_2(x, u, bed_mask, timeStep_in_sec);
 xdot                    = modelSFE(x, u, bed_mask, timeStep_in_sec);
 
 % Integrator
@@ -111,13 +107,24 @@ m_fluid                 = G(L_bed_after_nstages)*( L_bed_after_nstages(2) ); % L
 m_fluid                 = [zeros(1,numel(nstagesbefore)) m_fluid];
 C0fluid                 = m_fluid * 1e-3 ./ V_fluid';
 
-RES                     = [];
+MSE = [];
+STD = [];
 
-for PP = [100,150,200]
-    %% Set operating conditions
-    T0homog                 = 35+273;                    % K
-    feedPress               = PP;                        % bar
-    Flow                    = 5 * 1e-5 ;                 % kg/s
+for jj=1:12%N_trial
+
+    which_dataset           = jj;
+    data_org                = LabResults(6:19,which_dataset+1)';
+    SAMPLE                  = LabResults(6:19,1);
+    % Check if the number of data points is the same for both the dataset and the simulation
+    N_Sample                = [];
+    for i = 1:numel(SAMPLE)
+        N_Sample            = [N_Sample ; find(round(Time,3) == round(SAMPLE(i))) ];
+    end
+        
+    % Set operating conditions
+    T0homog                 = LabResults(2,which_dataset+1);                    % K
+    feedPress               = LabResults(3,which_dataset+1) * 10;               % MPa -> bar
+    Flow                    = LabResults(4,which_dataset+1) * 1e-5 ;            % kg/s
     
     Z                       = Compressibility( T0homog, feedPress,         Parameters );
     rho                     = rhoPB_Comp(      T0homog, feedPress, Z,      Parameters );
@@ -134,7 +141,7 @@ for PP = [100,150,200]
     
     MU                      =     Viscosity(T0homog,rho);
     VELOCITY                =     Velocity(Flow, rho, Parameters);
-    RE                      =     dp .* rho .* VELOCITY ./ MU;
+    RE                      =     dp .* rho .* VELOCITY ./ MU .* 1.3;
     
     % Initial conditions
     x0                      = [ C0fluid'                         ;
@@ -145,110 +152,18 @@ for PP = [100,150,200]
                                 ];
     
     %% Set the inital simulation and plot it against the corresponding dataset
-    %Parameters_init_time   = [uu repmat(cell2mat(Parameters),1,N_Time)'];
-    %[xx_0]                 = simulateSystem(F, [], x0, Parameters_init_time );
-    
-    %hold on
-    %plot(Time,xx_0(end,:))
-    %plot(SAMPLE,data_org,'o')
-    %hold off
-    
-    %% Set sensitivity analysis
-    
-    name_v = {'T_{in}', 'P_{in}', 'F'                                   };
-    name_s = {'c_f'   , 'c_s'   , '(h\times\rho)' , 'P_{t-1}'     , 'y' };
-    name_p = {'CF'    , 'CS'    , 'H'             , 'P_{in}'      , 'Y' };
-    
-    My_Font = 14;
-    num_levels = 100;
-    
-    for ii = 2     
-    
-            %% Sensitivities calculations
-            Parameters{8} = ii;
-            Parameters_init_time   = [uu repmat(cell2mat(Parameters),1,N_Time)'];
-            [S,p,Sdot]              = Sensitivity(x, xdot, u, ii );
-    
-            % Initial conditions
-            x0_SA                   = [ x0; zeros(length(S)-length(xdot),1) ];
-    
-            f_SA = @(S, p) Sdot(S, p, bed_mask);
-            Results = Integrator_SS(Time*60, x0_SA, S, p, Sdot, Parameters_init_time);
-            Res = Results(Nx+1:end,:);
+    Parameters_init_time   = [uu repmat(cell2mat(Parameters),1,N_Time)'];
+    [xx_0]                 = simulateSystem(F, [], x0, Parameters_init_time );
 
-            RES = [RES; Res(end,:)];
-    
-            %% Sensitivities plot 
-            %{
-            for ind=0:2
-                figure()
-                %subplot(2,1,1)
-                imagesc(Time, L_nstages, Res(ind*nstages+1:(ind+1)*nstages,:)); cb = colorbar; colormap turbo;
-                %subplot(2,1,2)
-                %contourf(Time, L_nstages, flip(Res(ind*nstages+1:(ind+1)*nstages,:)),'EdgeColor','none','Levels',200); cb = colorbar; colormap turbo;
-    
-                hold on
-                yline([L_nstages(nstagesbed(end)) L_nstages(nstagesbed(1))],'k--');
-                plot([ExtractionTime-40, ExtractionTime-40], [L_nstages(nstagesbed(end)) L_nstages(nstagesbed(1))], 'k--');
-                text(ExtractionTime-55,[mean([L_nstages(nstagesbed(end)) L_nstages(nstagesbed(1))])],'fixed bed', 'Interpreter', 'latex', 'Color', 'black', 'HorizontalAlignment','center','VerticalAlignment','middle', 'Rotation', 90);
-                hold off
-    
-                title(cb, ['$\frac{d',name_s{ind+1},'}{d',name_v{ii},'}$'], 'Interpreter', 'latex'); cb.TickLabelInterpreter = 'latex'; 
-                cb.Label.Rotation = 0; % to rotate the text
-                xlabel('Time [min]'); ylabel('Length [m]'); 
-                set(gca,'FontSize',My_Font)
-                %xscale log
-                
-                %exportgraphics(figure(1),[name_p{ind+1},'_',name_v{ii},'.png'], "Resolution",300);
-                %close all;
-            end
-    
-            %% Sensitivities plot - P and y
-            indx = 0;
-            for ind = 4:-1:3
-                figure()
-                hold on
-                plot(Time, Res(end - indx,:), LineWidth=2); 
-                %yline(0, LineWidth=2)
-                xlabel('Time [min]'); ylabel(['$\frac{d ',name_s{ind+1},'}{d',name_v{ii},'}$'])
-                hold off
-                set(gca,'FontSize',My_Font)
-                
-                %exportgraphics(figure(1),[name_p{ind+1},'_',name_v{ii},'.png'], "Resolution",300);
-                %close all;
-                indx = indx + 1;
-            end     
-            %}   
-    end
+    MSE = [MSE, mse(data_org, xx_0(end,N_Sample))];
+    STD = [STD, std(data_org - xx_0(end,N_Sample))];
+    %hold on; plot(Time,xx_0(end,:), 'LineWidth',2); plot(SAMPLE, data_org,'ko', 'LineWidth',2, 'HandleVisibility','off' ); hold off
+    %subplot(2,1,2)
+    %hold on; plot(SAMPLE(2:end),diff(xx_0(end,N_Sample))); plot(SAMPLE(2:end), data_diff,'o'); hold off
+    %xlabel('t [min]')
+    %ylabel('$\frac{dy}{dt}~\left[ \frac{g}{min} \right]$')
+
 end
-%%
-plot(RES','LineWidth',2)
-legend('100 bar', '150 bar', '200 bar', 'Location','best')
-legend box off
-xlabel('Time [min]'); 
-ylabel(['$\frac{d ',name_s{5},'}{d',name_v{2},'}$'])
-set(gca,'FontSize',My_Font)
-exportgraphics(figure(1),[name_p{ind+1},'_',name_v{ii},'.png'], "Resolution",300);
-close all;
-
-%}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

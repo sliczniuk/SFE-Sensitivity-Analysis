@@ -24,8 +24,8 @@ bed                     = 0.92;                                             % Pe
 
 % Set time of the simulation
 PreparationTime         = 0;
-ExtractionTime          = 15000;
-timeStep                = 1;                                                % Minutes
+ExtractionTime          = 60000;
+timeStep                = 10;                                                % Minutes
 
 simulationTime          = PreparationTime + ExtractionTime;
 
@@ -199,8 +199,8 @@ for PP = [100,125,150,175,200]
                 set(gca,'FontSize',My_Font)
                 %xscale log
                 
-                %exportgraphics(figure(1),[name_p{ind+1},'_',name_v{ii},'.png'], "Resolution",300);
-                %close all;
+                exportgraphics(figure(1),[name_p{ind+1},'_',name_v{ii},'.png'], "Resolution",300);
+                close all;
             end
     
             %% Sensitivities plot - P and y
@@ -214,18 +214,19 @@ for PP = [100,125,150,175,200]
                 hold off
                 set(gca,'FontSize',My_Font)
                 
-                %exportgraphics(figure(1),[name_p{ind+1},'_',name_v{ii},'.png'], "Resolution",300);
-                %close all;
+                exportgraphics(figure(1),[name_p{ind+1},'_',name_v{ii},'.png'], "Resolution",300);
+                close all;
                 indx = indx + 1;
             end     
             %}   
     end
 end
 %%
+%{
 plot(Time, RES','LineWidth',2)
 legend('100 bar', '125 bar', '150 bar', '175 bar', '200 bar', 'Location','best')
 legend box off
-xlabel('Time [min]'); 
+xlabel('Time min'); 
 ylabel(['$\frac{d ',name_s{5},'}{d',name_v{2},'}$'])
 set(gca,'FontSize',My_Font)
 %exportgraphics(figure(1),['Yield_multiple.png'], "Resolution",300);
