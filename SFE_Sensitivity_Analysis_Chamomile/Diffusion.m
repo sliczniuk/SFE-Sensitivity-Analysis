@@ -5,5 +5,5 @@ function D = Diffusion(Re, F, parameters)
     c = parameters{46};
 
     D =  a -  b * Re + c  * F * 10^5;
-    
+    D = max(D,0) ;
 end

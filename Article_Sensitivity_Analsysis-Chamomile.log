@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2024.1.12)  18 SEP 2024 18:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2024.1.12)  10 OCT 2024 17:27
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1700,34 +1700,34 @@ Package pdftex.def Info: Figures/SFE_PFD.drawio.png  used on input line 97.
 (pdftex.def)             Requested size: 202.51772pt x 156.9374pt.
 
 (Sections/Saturation.tex
-<Figures///Di_Re_F_1.png, id=215, 373.8768pt x 273.1806pt>
-File: Figures///Di_Re_F_1.png Graphic file (type png)
-<use Figures///Di_Re_F_1.png>
-Package pdftex.def Info: Figures///Di_Re_F_1.png  used on input line 32.
-(pdftex.def)             Requested size: 238.25444pt x 174.08466pt.
-<Figures///Gamma_Re_F_1.png, id=217, 370.5042pt x 291.489pt>
-File: Figures///Gamma_Re_F_1.png Graphic file (type png)
-<use Figures///Gamma_Re_F_1.png>
-Package pdftex.def Info: Figures///Gamma_Re_F_1.png  used on input line 39.
-(pdftex.def)             Requested size: 238.25444pt x 187.44186pt.
-) [4 <./Figures/SFE_PFD.drawio.png>] [5 <./Figures///Di_Re_F_1.png> <./Figures/
-//Gamma_Re_F_1.png>])
+<Figures///Di.png, id=215, 386.6445pt x 311.0019pt>
+File: Figures///Di.png Graphic file (type png)
+<use Figures///Di.png>
+Package pdftex.def Info: Figures///Di.png  used on input line 32.
+(pdftex.def)             Requested size: 238.25444pt x 191.6423pt.
+ [4 <./Figures/SFE_PFD.drawio.png>]
+<Figures///Gamma.png, id=234, 368.8179pt x 309.7974pt>
+File: Figures///Gamma.png Graphic file (type png)
+<use Figures///Gamma.png>
+Package pdftex.def Info: Figures///Gamma.png  used on input line 39.
+(pdftex.def)             Requested size: 238.25444pt x 200.12741pt.
+) [5 <./Figures///Di.png (PNG copy)> <./Figures///Gamma.png (PNG copy)>])
 (Sections/Sensitivity_Analysis.tex [6]) (Sections/Results_Sensitivity.tex
 (Sections/Sensitivity_Pressure.tex
-<Figures///Results_sensitivity/CS_P_1.png, id=281, 405.1938pt x 314.6154pt>
+<Figures///Results_sensitivity/CS_P_1.png, id=278, 405.1938pt x 314.6154pt>
 File: Figures///Results_sensitivity/CS_P_1.png Graphic file (type png)
 <use Figures///Results_sensitivity/CS_P_1.png>
 Package pdftex.def Info: Figures///Results_sensitivity/CS_P_1.png  used on inpu
 t line 13.
 (pdftex.def)             Requested size: 238.25444pt x 184.99258pt.
-<Figures///Results_sensitivity/CF_P_1.png, id=285, 401.3394pt x 316.0608pt>
+<Figures///Results_sensitivity/CF_P_1.png, id=282, 401.3394pt x 316.0608pt>
 File: Figures///Results_sensitivity/CF_P_1.png Graphic file (type png)
 <use Figures///Results_sensitivity/CF_P_1.png>
 Package pdftex.def Info: Figures///Results_sensitivity/CF_P_1.png  used on inpu
 t line 22.
 (pdftex.def)             Requested size: 238.25444pt x 187.6317pt.
  [7 <./Figures///Results_sensitivity/CS_P_1.png>]
-<Figures///Results_sensitivity/Yield_Multiple.png, id=302, 421.575pt x 316.3017
+<Figures///Results_sensitivity/Yield_Multiple.png, id=300, 421.575pt x 316.3017
 pt>
 File: Figures///Results_sensitivity/Yield_Multiple.png Graphic file (type png)
 <use Figures///Results_sensitivity/Yield_Multiple.png>
@@ -1771,8 +1771,8 @@ Package rerunfilecheck Info: File `Article_Sensitivity_Analsysis-Chamomile.out'
 (rerunfilecheck)             Checksum: 24FF5CEDE9C555A660D8BA3B50580DE0;3037.
  ) 
 Here is how much of TeX's memory you used:
- 43008 strings out of 478848
- 934189 string characters out of 2848485
+ 43007 strings out of 478848
+ 934072 string characters out of 2848485
  1396928 words of memory out of 3000000
  59946 multiletter control sequences out of 15000+600000
  530010 words of font info for 178 fonts, out of 8000000 for 9000
@@ -1794,10 +1794,10 @@ e1/public/stix/stix-mathit.pfb><C:/Users/sliczno1/AppData/Local/Programs/MiKTeX
 /fonts/type1/public/stix/stix-mathrm.pfb><C:/Users/sliczno1/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/stix/stix-mathscr.pfb><C:/Users/sliczno1/AppData/
 Local/Programs/MiKTeX/fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on Article_Sensitivity_Analsysis-Chamomile.pdf (10 pages, 144833
-5 bytes).
+Output written on Article_Sensitivity_Analsysis-Chamomile.pdf (10 pages, 159908
+4 bytes).
 PDF statistics:
- 408 PDF objects out of 1000 (max. 8388607)
+ 406 PDF objects out of 1000 (max. 8388607)
  97 named destinations out of 1000 (max. 500000)
  233 words of extra memory for PDF output out of 10000 (max. 10000000)
 

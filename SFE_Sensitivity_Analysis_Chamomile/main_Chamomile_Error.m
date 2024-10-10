@@ -86,7 +86,7 @@ u                       = MX.sym('u', Nu);
 
 %% Set Integrator
 f                       = @(x, u) modelSFE_2(x, u, bed_mask, timeStep_in_sec);
-xdot                    = modelSFE(x, u, bed_mask, timeStep_in_sec);
+xdot                    = modelSFE_2(x, u, bed_mask, timeStep_in_sec);
 
 % Integrator
 F                       = buildIntegrator(f, [Nx,Nu] , timeStep_in_sec);
@@ -110,7 +110,7 @@ C0fluid                 = m_fluid * 1e-3 ./ V_fluid';
 MSE = [];
 STD = [];
 
-for jj=1:12%N_trial
+for jj=5:8%N_trial
 
     which_dataset           = jj;
     data_org                = LabResults(6:19,which_dataset+1)';
@@ -157,7 +157,7 @@ for jj=1:12%N_trial
 
     MSE = [MSE, mse(data_org, xx_0(end,N_Sample))];
     STD = [STD, std(data_org - xx_0(end,N_Sample))];
-    %hold on; plot(Time,xx_0(end,:), 'LineWidth',2); plot(SAMPLE, data_org,'ko', 'LineWidth',2, 'HandleVisibility','off' ); hold off
+    hold on; plot(Time,xx_0(end,:), 'LineWidth',2); plot(SAMPLE, data_org,'ko', 'LineWidth',2, 'HandleVisibility','off' ); hold off
     %subplot(2,1,2)
     %hold on; plot(SAMPLE(2:end),diff(xx_0(end,N_Sample))); plot(SAMPLE(2:end), data_diff,'o'); hold off
     %xlabel('t [min]')
