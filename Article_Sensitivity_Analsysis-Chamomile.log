@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2024.1.12)  11 OCT 2024 19:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2024.1.12)  14 OCT 2024 12:58
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1697,7 +1697,7 @@ Underfull \hbox (badness 1924) in paragraph at lines 25--26
 
 pdfTeX warning: pdflatex (file ./Figures/PFD.drawio.pdf): PDF inclusion: found 
 PDF version <1.7>, but at most version <1.5> allowed
-<Figures/PFD.drawio.pdf, id=130, 871.33525pt x 336.29637pt>
+<Figures/PFD.drawio.pdf, id=129, 871.33525pt x 336.29637pt>
 File: Figures/PFD.drawio.pdf Graphic file (type pdf)
 <use Figures/PFD.drawio.pdf>
 Package pdftex.def Info: Figures/PFD.drawio.pdf  used on input line 29.
@@ -1710,50 +1710,60 @@ LaTeX Font Info:    Trying to load font information for TS1+stix on input line
 File: ts1stix.fd 2015/04/17 v1.1.2-latex STIX TS1 font definitions
 )
 [2{C:/Users/sliczno1/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/stix/stix-ts
-1.enc} <./Figures/PFD.drawio.pdf>]) (Sections/Model.tex [3]
+1.enc} <./Figures/PFD.drawio.pdf>]) (Sections/Model.tex
+Overfull \hbox (8.60632pt too wide) in paragraph at lines 93--94
+[]\T1/stix/m/n/10 As the sol-vent flows through the fixed bed, CO$[]$ molecules
+
+ []
+
+[3]
 <Figures/SFE_PFD.drawio.png, id=201, 8222.72pt x 4626.28375pt>
 File: Figures/SFE_PFD.drawio.png Graphic file (type png)
 <use Figures/SFE_PFD.drawio.png>
 Package pdftex.def Info: Figures/SFE_PFD.drawio.png  used on input line 97.
 (pdftex.def)             Requested size: 202.51772pt x 156.9374pt.
-
-(Sections/Saturation.tex [4 <./Figures/SFE_PFD.drawio.png>]
-<Figures///Di.png, id=236, 386.6445pt x 311.0019pt>
+ (Sections/Saturation.tex [4 <./Figures/SFE_PFD.drawio.png>]
+<Figures///Di.png, id=233, 386.6445pt x 311.0019pt>
 File: Figures///Di.png Graphic file (type png)
 <use Figures///Di.png>
-Package pdftex.def Info: Figures///Di.png  used on input line 32.
+Package pdftex.def Info: Figures///Di.png  used on input line 36.
 (pdftex.def)             Requested size: 238.25444pt x 191.6423pt.
-<Figures///Gamma.png, id=238, 368.8179pt x 309.7974pt>
+<Figures///Gamma.png, id=235, 368.8179pt x 309.7974pt>
 File: Figures///Gamma.png Graphic file (type png)
 <use Figures///Gamma.png>
-Package pdftex.def Info: Figures///Gamma.png  used on input line 39.
+Package pdftex.def Info: Figures///Gamma.png  used on input line 43.
 (pdftex.def)             Requested size: 238.25444pt x 200.12741pt.
 ) [5 <./Figures///Di.png (PNG copy)> <./Figures///Gamma.png (PNG copy)>])
-(Sections/Sensitivity_Analysis.tex [6]) (Sections/Results_Sensitivity.tex
-(Sections/Sensitivity_Pressure.tex
-<Figures///Results_sensitivity/CS_P_1.png, id=285, 405.1938pt x 314.6154pt>
-File: Figures///Results_sensitivity/CS_P_1.png Graphic file (type png)
-<use Figures///Results_sensitivity/CS_P_1.png>
-Package pdftex.def Info: Figures///Results_sensitivity/CS_P_1.png  used on inpu
-t line 13.
-(pdftex.def)             Requested size: 238.25444pt x 184.99258pt.
-<Figures///Results_sensitivity/CF_P_1.png, id=290, 401.3394pt x 316.0608pt>
-File: Figures///Results_sensitivity/CF_P_1.png Graphic file (type png)
-<use Figures///Results_sensitivity/CF_P_1.png>
-Package pdftex.def Info: Figures///Results_sensitivity/CF_P_1.png  used on inpu
-t line 22.
-(pdftex.def)             Requested size: 238.25444pt x 187.6317pt.
- [7 <./Figures///Results_sensitivity/CS_P_1.png>]
-<Figures///Results_sensitivity/Yield_Multiple.png, id=309, 421.575pt x 316.3017
+(Sections/Sensitivity_Analysis.tex [6]
+Underfull \hbox (badness 1701) in paragraph at lines 78--79
+[]\T1/stix/m/n/10 The aug-mented sys-tem con-tain-ing the orig-i-nal set
+ []
+
+) (Sections/Results_Sensitivity.tex (Sections/Sensitivity_Pressure.tex
+<Figures///Results_sensitivity/CS_P.png, id=284, 398.6895pt x 309.3156pt>
+File: Figures///Results_sensitivity/CS_P.png Graphic file (type png)
+<use Figures///Results_sensitivity/CS_P.png>
+Package pdftex.def Info: Figures///Results_sensitivity/CS_P.png  used on input 
+line 13.
+(pdftex.def)             Requested size: 238.25444pt x 184.84506pt.
+ [7 <./Figures///Results_sensitivity/CS_P.png (PNG copy)>]
+<Figures///Results_sensitivity/CF_P.png, id=300, 398.6895pt x 310.5201pt>
+File: Figures///Results_sensitivity/CF_P.png Graphic file (type png)
+<use Figures///Results_sensitivity/CF_P.png>
+Package pdftex.def Info: Figures///Results_sensitivity/CF_P.png  used on input 
+line 22.
+(pdftex.def)             Requested size: 238.25444pt x 185.56487pt.
+<Figures///Results_sensitivity/Yield_Multiple.png, id=305, 421.575pt x 316.3017
 pt>
 File: Figures///Results_sensitivity/Yield_Multiple.png Graphic file (type png)
 <use Figures///Results_sensitivity/Yield_Multiple.png>
 Package pdftex.def Info: Figures///Results_sensitivity/Yield_Multiple.png  used
  on input line 33.
 (pdftex.def)             Requested size: 238.25444pt x 193.09819pt.
-)) [8 <./Figures///Results_sensitivity/CF_P_1.png> <./Figures///Results_sensiti
-vity/Yield_Multiple.png (PNG copy)>]
-(Article_Sensitivity_Analsysis-Chamomile.bbl
+))
+(Article_Sensitivity_Analsysis-Chamomile.bbl [8 <./Figures///Results_sensitivit
+y/CF_P.png (PNG copy)> <./Figures///Results_sensitivity/Yield_Multiple.png (PNG
+ copy)>]
 Underfull \hbox (badness 1117) in paragraph at lines 30--38
 \T1/stix/m/n/8 Ex-per-i-men-tal study of ke-to-cona-zole im-preg-na-tion into p
 olyvinyl
@@ -1792,8 +1802,8 @@ Package rerunfilecheck Info: File `Article_Sensitivity_Analsysis-Chamomile.out'
 (rerunfilecheck)             Checksum: 24FF5CEDE9C555A660D8BA3B50580DE0;3037.
  ) 
 Here is how much of TeX's memory you used:
- 43308 strings out of 478848
- 938828 string characters out of 2848485
+ 43307 strings out of 478848
+ 938783 string characters out of 2848485
  1410602 words of memory out of 3000000
  60240 multiletter control sequences out of 15000+600000
  536329 words of font info for 181 fonts, out of 8000000 for 9000
@@ -1816,10 +1826,10 @@ x/stix-mathit.pfb><C:/Users/sliczno1/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/stix/stix-mathrm.pfb><C:/Users/sliczno1/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/stix/stix-mathscr.pfb><C:/Users/sliczno1/AppData/Local/Program
 s/MiKTeX/fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on Article_Sensitivity_Analsysis-Chamomile.pdf (10 pages, 161759
-7 bytes).
+Output written on Article_Sensitivity_Analsysis-Chamomile.pdf (10 pages, 163310
+4 bytes).
 PDF statistics:
- 420 PDF objects out of 1000 (max. 8388607)
- 99 named destinations out of 1000 (max. 500000)
+ 416 PDF objects out of 1000 (max. 8388607)
+ 98 named destinations out of 1000 (max. 500000)
  233 words of extra memory for PDF output out of 10000 (max. 10000000)
 

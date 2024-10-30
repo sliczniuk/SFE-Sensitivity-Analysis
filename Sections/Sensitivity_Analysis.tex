@@ -75,7 +75,7 @@
 			\endgroup
 	\end{align}}
 		
-	The augmented system containing the original set of equations $G(x;\Theta)$ and sensitivity equations can be formulated as ${\textbf{G}}\left(x;\Theta\right)$. The size of ${\textbf{G}}\left(x;\Theta\right)$ is equal to $N_s = N_x(N_\Theta + 1)$.
+	The augmented system containing the original set of equations $G(x;\Theta)$ and sensitivity equations is called ${\textbf{G}}\left(x;\Theta\right)$. The size of ${\textbf{G}}\left(x;\Theta\right)$ is equal to $N_s = N_x(N_\Theta + 1)$.
 	
 	{\footnotesize
 		\begin{align}
@@ -102,14 +102,6 @@
 				\quad ~0,		                           &
 			    \quad \cdots,			                   &
 				\quad 0 \quad~~
-			\end{bmatrix}^\top
+			\end{bmatrix}^\top \nonumber
 	\end{align} }
-	\begin{comment}
-	The sensitivity analysis of the output function can be performed with respect to parameters $\Theta$. The output function $g(x)$ returns ${y}$. By taking a total derivative of ${y}$ with respect to $\Theta$, the new sensitivity equation can be found.
-	
-	{\footnotesize
-		\begin{equation}
-			\cfrac{d {y}}{d\Theta} = \cfrac{d g(x)}{d\Theta} = \cfrac{\partial g(x)}{\partial x} \cfrac{\partial x}{\partial \Theta} + \cfrac{\partial g(x)}{\partial \Theta}
-	   \end{equation} }
-	\end{comment}
 \end{document}

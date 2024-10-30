@@ -24,8 +24,8 @@ bed                     = 0.92;                                             % Pe
 
 % Set time of the simulation
 PreparationTime         = 0;
-ExtractionTime          = 60000;
-timeStep                = 10;                                                % Minutes
+ExtractionTime          = 600;
+timeStep                = 1;                                                % Minutes
 
 simulationTime          = PreparationTime + ExtractionTime;
 
@@ -113,7 +113,7 @@ C0fluid                 = m_fluid * 1e-3 ./ V_fluid';
 
 RES                     = [];
 
-for PP = [100,125,150,175,200]
+for PP = 150
     %% Set operating conditions
     T0homog                 = 35+273;                    % K
     feedPress               = PP;                        % bar
@@ -155,7 +155,7 @@ for PP = [100,125,150,175,200]
     
     %% Set sensitivity analysis
     
-    name_v = {'T_{in}', 'P_{in}', 'F'                                   };
+    name_v = {'T_{in}', 'P'     , 'F'                                   };
     name_s = {'c_f'   , 'c_s'   , '(h\times\rho)' , 'P_{t-1}'     , 'y' };
     name_p = {'CF'    , 'CS'    , 'H'             , 'P_{in}'      , 'Y' };
     
@@ -179,11 +179,11 @@ for PP = [100,125,150,175,200]
             RES = [RES; Res(end,:)];
     
             %% Sensitivities plot 
-            %{
-            for ind=0:2
+            %{\
+            for ind=0%0:2
                 figure()
                 %subplot(2,1,1)
-                imagesc(Time, L_nstages, Res(ind*nstages+1:(ind+1)*nstages,:)); cb = colorbar; colormap turbo;
+                imagesc(Time, L_nstages, Res(ind*nstages+1:(ind+1)*nstages,:) ); cb = colorbar; colormap turbo;
                 %subplot(2,1,2)
                 %contourf(Time, L_nstages, flip(Res(ind*nstages+1:(ind+1)*nstages,:)),'EdgeColor','none','Levels',200); cb = colorbar; colormap turbo;
     
@@ -194,8 +194,11 @@ for PP = [100,125,150,175,200]
                 hold off
     
                 title(cb, ['$\frac{d',name_s{ind+1},'}{d',name_v{ii},'}$'], 'Interpreter', 'latex'); cb.TickLabelInterpreter = 'latex'; 
+                set(cb,'TickLabelInterpreter','latex'); cb.Ruler.Exponent = -3;
+                %cb.Ruler.SecondaryLabel.Units = 'normalized';
+                %cb.Ruler.SecondaryLabel.Position = [1 1.08];
                 cb.Label.Rotation = 0; % to rotate the text
-                xlabel('Time [min]'); ylabel('Length [m]'); 
+                xlabel('Time min'); ylabel('Length m'); 
                 set(gca,'FontSize',My_Font)
                 %xscale log
                 
