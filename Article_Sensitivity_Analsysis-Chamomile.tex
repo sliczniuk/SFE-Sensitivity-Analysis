@@ -37,7 +37,7 @@
 	]}
 \newcommand{\nomunit}[1]{%
 	\renewcommand{\nomentryend}{\hspace*{\fill}#1}}
-	
+
 \usepackage{csvsimple}
 
 % TODO package
@@ -51,7 +51,7 @@
 \usepackage[sort]{natbib}
 \setcitestyle{square,numbers}
 
- %\bibliographystyle{cas-model2-names}
+%\bibliographystyle{cas-model2-names}
 
 \usepackage{setspace}
 \usepackage{subfiles} % Best loaded last in the preamble
@@ -94,168 +94,615 @@
 % ========================== DOCUMENT ==========================
 % ==============================================================
 \begin{document} 
-%  --------------------------------------------------------------------
-
-% ===================================================
-% METADATA
-% ===================================================
-\title[mode=title]{Local sensitivity analysis of a supercritical extraction model}                      
-\shorttitle{Sensitivity Analysis}
-
-\shortauthors{OS, PO}
-
-\author[1]{Oliwer Sliczniuk}[orcid=0000-0003-2593-5956]
-\ead{oliwer.sliczniuk@aalto.fi}
-\cormark[1]
-\credit{a}
-
-\author[1]{Pekka Oinas}[orcid=0000-0002-0183-5558]
-\credit{b}
-
-%\author[1]{Francesco Corona}[orcid=0000-0002-3615-1359]
-%\credit{c}
-
-\address[1]{Aalto University, School of Chemical Engineering, Espoo, 02150, Finland}
-%\address[2]{2}
-
-\cortext[cor1]{Corresponding author}
-
-% ===================================================
-% ABSTRACT
-% ===================================================
-\begin{abstract}
-This study investigates the process of chamomile oil extraction from chamomile flowers. A parameter-distributed model, consisting of a set of partial differential equations, is used to describe the governing mass transfer phenomena between solid and fluid phases under supercritical conditions using carbon dioxide as the solvent. The concept of quasi-one-dimensional flow is applied to reduce the number of spatial dimensions. The {\color{blue}flow of carbon dioxide} is assumed to be uniform across any cross-section, although the area available for the fluid phase can vary along the extractor. The physical properties of the solvent are estimated using the Peng-Robinson equation of state. Laboratory experiments were conducted under various, but constant operating conditions. $30 - 40~^\circ C$, $100 - 200$ bar, and $3.33-6.67 \cdot 10^{-5}$ kg/s. {\color{blue}The local sensitivity analysis method was applied to evaluate the model parameters' robustness by investigating the impact of infinitesimally small changes in model parameters and controls on model outputs}. This study focuses on analysing the effect of pressure on the model state space and extraction yield.
-
-\end{abstract}
-
-\begin{keywords}
-Supercritical extraction \sep Sensitivity analysis \sep Mathematical modelling
-\end{keywords}
-
-% ===================================================
-% TITLE
-% ===================================================
-\maketitle
-
-% ===================================================
-% Section: Introduction
-% ===================================================
-
-\section{Introduction}
-
-\subfile{Sections/introduction_imp}
-
-\subfile{Sections/Literature_Review}
-
-% ===================================================
-% Section: Main
-% ===================================================
-
-\subfile{Sections/Model}
-
-\subsection{Local sensitivity analysis} \label{CH: Sensitivity_Analysis}
-\subfile{Sections/Sensitivity_Analysis}
-
-% ===================================================
-% Section: Summary
-% ===================================================
-
-\subfile{Sections/Results_Sensitivity}
-
-\section{Conclusions} \label{CH: Conclusion}
-
-Sensitivity analysis is a tool used to understand how model parameters affect its output. The presented formulation involves derivative-based local sensitivity analysis of the model solution with respect to selected parameters and controls. This work implemented the automatic differentiation to derive the sensitivity equations. The local sensitivity analysis techniques consider only a small region of parameter space, and the conclusions derived from such an analysis are limited to local conditions. In the case of dynamic systems, the outcome of local sensitivity analysis quantifies how the state of the system or its output varies in time with respect to small perturbations in parameters.
-
-%The local sensitivity analysis can be performed with respect to any model parameter, but this work focuses on the effect of pressure increase. At selected operating conditions( $35^\circ C$ and $5\cdot 10^{-5}$ kg/s), the pressure increase enhances the mass transfer, which leads to faster mass transfer from particles and consequently to negative sensitivities in the solid phase. Analogously, the sensitivities in the fluid phase are characterised by positive deviations, which indicates that more solute is transported to the fluid phase. As a result, the extraction yield is improved and characterised by positive sensitivities. As the results of the local sensitivity analysis depends on the operating point, the analysis was repeated at different nominal pressures. It can be observed that system responses at low-pressures are stronger than at high-pressures. This behaviour can be explained by rapid changes of the solvent properties close to the critical point.
-
-{\color{blue}Although local sensitivity analysis can be performed with respect to any model parameter, this study focuses specifically on the effect of pressure. Under the selected operating conditions, it was observed for all the cases that the pressure increment enhances mass transfer, leading to a faster mass transfer of solute from the particles. Consequently, the negative sensitivities can be observed in the diagram for the solid phase. The corresponding response in the fluid phase is characterized by positive-valued sensitivities, indicating that more amount of solute is transported into the fluid phase. As a result, the extraction yield is improved and characterized by positive sensitivities. Given that the results of the local sensitivity analysis depend on the operating point, the analysis was repeated at different pressures. It was observed that the system responses at low pressures are stronger than those at higher pressures. This behaviour can be explained by the rapid changes in solvent properties occurring near the critical point of CO$_2$}.
-
-Local sensitivity analysis results provide valuable information by identifying which parameters are influential and how these influence changes over time. One application of the sensitivity analysis is to spot discrepancies between model predictions and actual experimental results. Identifying unexpected system responses prompts further investigation and refinement of the process model. Sensitivity analysis results can be used to design future experiments by indicating which parameters should be varied and monitored. Moreover, the parameters which are characterized by low sensitivity can be subject of model refinement. 
-
-\section*{Acknowledgement} 
-This work was supported by: NovelBaltic, CEForestry (IBC), BIO4P (BF)
-
-% ===================================================
-% Bibliography
-% ===================================================
-%% Loading bibliography style file
-%\clearpage
-%\newpage
-%\bibliographystyle{model1-num-names}
-\bibliographystyle{unsrtnat}
-\bibliography{mybibfile}
-
-%\clearpage \appendix \label{appendix}
-%\section{Appendix} 
-%\subfile{Sections/Qubic_EOS} \label{CH: EOS}
-%\subsection{Cardano's Formula} \label{CH: Cardano}
-%\subfile{Sections/Cardano}
-
-\newpage
-
-\nomenclature[A]{\(P\)}{Pressure \nomunit{bar}}
-\nomenclature[A]{\(T\)}{Temperature \nomunit{K}}
-\nomenclature[A]{\(T_{in}\)}{Inlet temperature \nomunit{K}}
-\nomenclature[A]{\(T_{out}\)}{Outlet temperature \nomunit{K}}
-\nomenclature[A]{\(F\)}{Mass flow rate \nomunit{kg/s}}
-\nomenclature[A]{\(u\)}{Superficial velocity \nomunit{m/s}}
-\nomenclature[A]{\(v\)}{Linear velocity \nomunit{m/s}}
-\nomenclature[A]{\(z\)}{Spatial direction \nomunit{m}}
-\nomenclature[A]{\(e\)}{Internal energy \nomunit{J/kg}}
-\nomenclature[A]{\(h\)}{Enthalpy \nomunit{J}}
-\nomenclature[A]{\(t\)}{Time \nomunit{s}}
-\nomenclature[A]{\(t_f\)}{Total extraction time \nomunit{s}}
-\nomenclature[A]{\(t_0\)}{Initial extraction time \nomunit{s}}
-\nomenclature[A]{\(A\)}{Total cross-section of the bed \nomunit{m$^2$}}
-\nomenclature[A]{\(A_f\)}{Cross-section of the bed occupied by the fluid \nomunit{m$^2$}}
-\nomenclature[A]{\(c_f\)}{Concentration of solute in the fluid phase \nomunit{kg/m$^3$}}
-\nomenclature[A]{\(c_{f0}\)}{Initial concentration of solute in the fluid phase \nomunit{kg/m$^3$}}
-\nomenclature[A]{\(c_f^*\)}{Concentration of solute at the solid-fluid interface \nomunit{kg/m$^3$}}
-\nomenclature[A]{\(c_s\)}{Concentration of solute in the solid phase \nomunit{kg/m$^3$}}
-\nomenclature[A]{\(c_{s0}\)}{Initial concentration of solute in the solid phase \nomunit{kg/m$^3$}}
-\nomenclature[A]{\(c_s^*\)}{Concentration of solute at the solid-fluid interface \nomunit{kg$^3$}}
-\nomenclature[A]{\(c_p\)}{Concentration of solute in the core of a pore \nomunit{kg/m$^3$}}
-\nomenclature[A]{\(c_{pf}\)}{Concentration of solute at the pore opening \nomunit{kg/m$^3$}}
-\nomenclature[A]{\(D_e^M\)}{Axial diffusion coefficient \nomunit{m$^2$/s}}
-\nomenclature[A]{\(r_e\)}{Mass transfer kinetic term \nomunit{kg/m$^3$/s}}
-\nomenclature[A]{\(L\)}{Length of the fixed bed \nomunit{m}}
-\nomenclature[A]{\(S\)}{Sensitivity equations}
-\nomenclature[A]{\(\textbf{G}\)}{Augmented system}
-\nomenclature[A]{\(\dot{S}\)}{Time derivative of the sensitivity equations}
-\nomenclature[A]{\(\bar{S}\)}{Sensitivity matrix}
-\nomenclature[A]{\(\bar{J}_x\)}{Jacobian matrix with respect to the state variables}
-\nomenclature[A]{\(\bar{J}_\Theta\)}{Jacobian matrix with respect to the parameters}
-%\nomenclature[A]{\(\mathcal{L}\)}{Log-likelihood function}
-\nomenclature[A]{\(l\)}{Characteristic dimension of particles \nomunit{m}}
-\nomenclature[A]{\(D_i\)}{Internal diffusion coefficient \nomunit{m$^2$/s}}
-\nomenclature[A]{\(D_i^R\)}{Reference value of internal diffusion coefficient \nomunit{m$^2$/s}}
-\nomenclature[A]{\(r\)}{Particle radius \nomunit{m}}
-\nomenclature[A]{\(k_p\)}{Volumetric partition coefficient \nomunit{-}}
-\nomenclature[A]{\(k_m\)}{Mass partition coefficient \nomunit{-}}
-\nomenclature[A]{\(y\)}{Extraction yield \nomunit{g}}
-%\nomenclature[A]{\(Y\)}{Yield measurement \nomunit{g}}
-\nomenclature[A]{\(x\)}{State vector}
-\nomenclature[A]{\(G\)}{Vector of discretized differential equations}
-\nomenclature[A]{\(p\)}{Probability distribution model \nomunit{-}}
-\nomenclature[A]{\(R_e\)}{Reynolds number \nomunit{-}}
-
-\nomenclature[B]{\(\rho_f\)}{Fluid density \nomunit{kg/m$^3$}}
-\nomenclature[B]{\(\Phi\)}{Bed porosity \nomunit{-}}
-\nomenclature[B]{\(\rho_s\)}{Bulk density of the solid \nomunit{kg/m$^3$}}
-\nomenclature[B]{\(\mu\)}{Sphericity coefficient \nomunit{-}}
-\nomenclature[B]{\(\gamma\)}{Decay function \nomunit{-}}
-\nomenclature[B]{\(\Upsilon\)}{Decay coefficient \nomunit{-}}
-\nomenclature[B]{\(\Theta\)}{Parameter space}
-\nomenclature[B]{\(\theta\)}{Vector of unknown parameters}
-\nomenclature[B]{\(\epsilon\)}{Unobservable error \nomunit{g}}
-\nomenclature[B]{\(\sigma\)}{Standard deviation \nomunit{g}}
-
-\nomenclature[C]{BIC}{Broke-and-Intact Cell model}
-%\nomenclature[C]{MLE}{Maximum Likelihood Estimation}
-\nomenclature[C]{SFE}{Supercritical Fluid Extraction}
-\nomenclature[C]{HBD}{Hot Ball Diffusion}
-\nomenclature[C]{SC}{Shrinking Core}
-
-\printnomenclature
+	%  --------------------------------------------------------------------
+	
+	% ===================================================
+	% METADATA
+	% ===================================================
+	\title[mode=title]{Local Sensitivity Analysis of a Supercritical Extraction Model}                      
+	\shorttitle{Sensitivity Analysis}
+	
+	\shortauthors{OS, PO}
+	
+	\author[1]{Oliwer Sliczniuk}[orcid=0000-0003-2593-5956]
+	\ead{oliwer.sliczniuk@aalto.fi}
+	\cormark[1]
+	\credit{a}
+	
+	\author[1]{Pekka Oinas}[orcid=0000-0002-0183-5558]
+	\credit{b}
+	
+	%\author[1]{Francesco Corona}[orcid=0000-0002-3615-1359]
+	%\credit{c}
+	
+	\address[1]{Aalto University, School of Chemical Engineering, Espoo, 02150, Finland}
+	%\address[2]{2}
+	
+	\cortext[cor1]{Corresponding author}
+	
+	% ===================================================
+	% ABSTRACT
+	% ===================================================
+	\begin{abstract}
+		This study investigates the process of chamomile oil extraction from chamomile flowers. A parameter-distributed model, consisting of a set of partial differential equations, was used to describe the governing mass transfer phenomena between solid and fluid phases under supercritical conditions using carbon dioxide as the solvent. The concept of quasi-one-dimensional flow was applied to reduce the number of spatial dimensions. The flow of carbon dioxide is assumed to be uniform across any cross-section, although the area available for the fluid phase can vary along the extractor. The physical properties of the solvent were estimated using the Peng-Robinson equation of state. Laboratory experiments were conducted under various, but constant operating conditions of $30 - 40~^\circ C$, $100 - 200$ bar and $3.33-6.67 \cdot 10^{-5}$ kg/s. The local sensitivity analysis method was applied to evaluate the robustness of the model parameters by investigating the impact of infinitesimally small changes in the model parameters and controls on the model outputs. This study focuses on analysing the effect of pressure on the model state space and extraction yield.
+		
+	\end{abstract}
+	
+	\begin{keywords}
+		Supercritical extraction \sep Sensitivity analysis \sep Mathematical modelling
+	\end{keywords}
+	
+	% ===================================================
+	% TITLE
+	% ===================================================
+	\maketitle
+	
+	% ===================================================
+	% Section: Introduction
+	% ===================================================
+	
+	\section{Introduction}
+	
+	%\subfile{Sections/introduction_imp}
+	Supercritical CO$_2$ is defined as carbon dioxide that is pressurized and heated above its critical point (31.1 $^\circ C$, 74 bar). Depending on the operating conditions, the fluid properties such as viscosity and density can vary, which leads to multiple industrial applications of CO$_2$.
+	
+	One of the most popular applications of supercritical CO$_2$ is the extraction of essential oils, as described by many researchers, for example, by \citet{Sodeifian2017}, \citet{Reverchon1993} or \citet{Sovova1994}. Traditional methods, such as distillation and organic solvent extraction, are commonly employed but have drawbacks. Distillation involves high temperatures that can lead to the thermal degradation of heat-sensitive compounds. This limitation has increased the popularity of alternative techniques, such as supercritical fluid extraction. Supercritical CO$_2$ is appealing due to its distinctive properties: it is inflammable, non-toxic and non-corrosive. Supercritical fluids can exhibit both gas- and liquid-like properties, allowing for adjustable dissolving power through changes in operating conditions.
+	
+	The applications of supercritical carbon dioxide are not limited only to an extraction process but can also be used for impregnation, as described by \citet{Weidner2018}, \citet{Machado2022} or \citet{Fathi2022}. Impregnation is defined as modifying the properties of bulk substances by physically or chemically binding/adsorbing impregnates to a bulk material or surface, such as the hydrophobization of surfaces. The main advantage of using supercritical CO$_2$ is that, after depressurization, it desorbs from the surface and evaporates, leaving a solvent-free product. On the other hand, the main disadvantage of using carbon dioxide for impregnation is the low solubility of many drugs of interest.
+	
+	Another application of supercritical CO$_2$ is nanoparticle formation, as investigated by \citet{Padrela2018}, \citet{Franco2021}, \citet{SaadatiArdestani2020} or \citet{Sodeifian2022}. Supercritical carbon-dioxide-assisted technologies enable the production of different morphologies of different sizes, including nanoparticles and nanocrystals, by modulating the operating conditions. Supercritical fluid-based processes have advantages over techniques conventionally employed to produce nanosized particles or crystals, such as reduced use of toxic solvents. Moreover, the CO$_2$ is completely removed from the final product by simple depressurization.
+	
+	This study investigates the extraction of essential oil from chamomile flowers (Matricaria chamomilla L.) via supercritical fluid extraction techniques and the modelling of this process. Chamomile is a medicinal herb widely cultivated in southern and eastern Europe — in countries such as Germany, Hungary, France and Russia. It can also be found outside Europe, for instance in Brazil, as discussed by \citet{Singh2011}. This plant is distinguished by its hollow, bright gold cones, housing disc or tubular florets and surrounded by about fifteen white ray or ligulate florets. Chamomile has been used for its medicinal benefits, serving as an anti-inflammatory, antioxidant, mild astringent, and healing remedy. Extracts of chamomile are widely used to calm nerves and mitigate anxiety, hysteria, nightmares, insomnia and other sleep-related conditions, according to \citet{Srivastava2009}. \citet{Orav2010} reported that oil yields from dried chamomile samples ranged from 0.7 to 6.7 mL/kg. The highest yields of essential oil, between 6.1 and 6.7 mL/kg, were derived from chamomile sourced from Latvia and Ukraine. In comparison, chamomile from Armenia exhibited a lower oil content of 0.7 mL/kg.
+	
+	The literature offers various mathematical models to describe the extraction of valuable compounds from biomass. Selecting a process model is case-dependent and requires analysis of each model's specific assumptions about mass transfer and thermodynamic equilibrium.
+	
+	\citet{Goto1996} presented the shrinking core (SC) model, which describes a process of irreversible desorption that is followed by diffusion through the pores of a porous solid. When the mass transfer rate of the solute in the non-extracted inner region is significantly slower than in the outer region, where most of the solute has already been extracted or when the solute concentration exceeds its solubility in the solvent, a distinct boundary may form between the inner and outer regions. As extraction progresses, the core of the inner region shrinks. The model envisions supercritical CO$_2$ extraction as a sharp, inward-moving front, with a completely non-extracted core ahead of the front and a fully extracted shell behind it.
+	
+	\citet{Sovova1994} proposed the broken-and-intact cell (BIC) model, which assumes that a portion of the solute, initially stored within plant structures and protected by cell walls, is released during the mechanical breakdown of the material. The solute located in the region of broken cells near the particle surface is directly exposed to the solvent, while the core of the particle contains intact cells with undamaged walls. This model describes three extraction phases: a fast extraction phase for accessible oil, a transient phase, and a slow phase controlled by diffusion. The model has been successfully applied to the extraction of grape oil (\citet{Sovova1994b}) and caraway oil (\citet{Sovova1994a}).
+	
+	The supercritical fluid extraction (SFE) process can be treated similarly to heat transfer, considering solid particles as hot balls cooling down in a uniform environment. \citet{Bartle1990} introduced the hot ball diffusion (HBD) model, where spherical particles with a uniformly distributed solute diffuse similarly to heat diffusion. Unlike the BIC model, where the solute is readily available on the particle surface, the HBD model is suited for systems with small quantities of extractable materials and is not limited by solubility. The model is particularly relevant when internal diffusion controls mass transfer, allowing results from single particles to be extended to the entire bed under uniform conditions. \citet{Reverchon1993} have further elaborated on the HBD model and used it to simulate extraction processes for natural materials.
+	
+	\citet{Reverchon1996} proposed a model for extraction of essential oils, which are mainly located inside the vegetable cells in organules called vacuoles. Only a small fraction of essential oil might be near the particle surface due to the breaking up of cells during grinding or in epidermal hairs located on the leaf surface. The fraction of oil freely available on the particle surface should not be significant in the case of SFE from leaves. Consequently, SFE of essential oil from leaves should be mainly controlled by  internal mass-transfer resistance. Therefore, the external mass-transfer coefficient was neglected in the development of the model of \citet{Reverchon1996}. The mass balances were developed with the additional hypotheses that axial dispersion can be neglected and that the solvent density and flow rate are constant along the bed.
+	
+	This work builds upon the linear kinetic model suggested by \citet{Reverchon1996}, deriving fundamental governing equations to develop a comprehensive model for the chamomile oil extraction process. This model aims at control-oriented simplicity, assuming semi-continuous operation within a cylindrical vessel. The process involves a supercritical solvent being pumped through a fixed bed of finely chopped biomass to extract the solute, followed by separation of the solvent and solute in a flush drum to collect the extract. Parameters such as pressure ($P$), feed flow rate ($F$) and inlet temperature ($T_{in}$) are adjustable and measurable, while the outlet temperature ($T_{out}$) and the amount of product at the outlet can only be monitored. Figure \ref{fig: SFE_drawing} presents a simplified process flow diagram.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\columnwidth]{Figures/PFD.drawio.pdf}
+		\caption{Process flow diagram.}
+		\label{fig: SFE_drawing}
+	\end{figure}
+	
+	%\subfile{Sections/Literature_Review}
+	This study aims to analyse the influence of changes in operating conditions on the process model described by \citet{Sliczniuk2024}. For that, a sensitivity analysis is applied to examine the impact of model parameters or controls on the model output. The results of this sensitivity analysis can be used to identify sources of uncertainty, simplify the model or detect errors by revealing unexpected relationships between inputs and outputs. Various sensitivity analysis methods are available, including:
+	
+	\begin{itemize}
+		\item One-at-a-time method
+		\item Derivative-based local methods
+		\item Variance-based methods
+	\end{itemize}
+	
+	Different supercritical extraction models have been analysed using various sensitivity analysis techniques in the literature. For instance, \citet{Fiori_2007} performed sensitivity calculations by varying parameters within their confidence intervals and observing the changes in model results. Their analysis revealed that the particle diameter and internal mass transfer coefficient significantly influence extraction during the diffusion-control regime.
+	
+	\citet{Santos2000} considered the model of \citet{Sovova1994} for semi-continuous isothermal and isobaric extraction processes using carbon dioxide as a solvent. They conducted a parametric sensitivity analysis using a two-level factorial design, disturbing model parameters by 10\% and analysing their main effects. They proposed strategies for high-performance operation based on sensitivities related to superficial velocity, particle diameter, initial solute concentration in the solid phase and solute concentration in the fluid phase at the extractor inlet.
+	
+	\citet{Hatami2024} performed a one-factor-at-a-time sensitivity analysis to assess the response of net present value (NPV) to variations in technical and economic variables. Their study consisted of two parts. The first part examined how net present value is influenced by changes in individual technical and economic parameters, keeping the extractor volume constant at 300 L. The second part investigated the effects of varying the extractor volume (from 1 to 600 L) on the project's overall profitability. The authors found that the raw material price, discount rate and residence time had the biggest impact on NPV (\citet{Hatami2024}).
+	
+	% ===================================================
+	% Section: Main
+	% ===================================================
+	
+	%\subfile{Sections/Model}
+	\section{Materials and methods} \label{CH: Materials and methods}
+	
+	\subsection{Governing equations} \label{CH:Governing_equations_chapter}
+	The governing equations for a quasi-one-dimensional flow were derived following the work of \citet{Anderson1995}. A quasi-one-dimensional flow refers to a fluid flow scenario assuming that the flow properties are uniformly distributed across any cross-section. This simplification is typically applied when the flow channel's cross-sectional area changes, such as through irregular shapes or partial filling of an extractor. According to this assumption, velocity and other flow properties change solely in the flow direction.
+	
+	As discussed by \citet{Anderson2023}, all flows are compressible, but some of them can be treated as incompressible since the velocities are low. This assumption leads to the incompressible condition: $\nabla \cdot u =0$, which is valid for constant density (strict incompressible) or varying density flow. The assumption allows for removing acoustic waves and large perturbations in density and/or temperature. In the 1-D case, the incompressibility condition becomes $\frac{du}{dz} = 0$, so the fluid velocity is constant along the $z-$ direction.
+	
+	The set of quasi-one-dimensional governing equations in Cartesian coordinates is described by Equations \ref{EQ: CompressibleEuler_1} - \ref{EQ: CompressibleEuler_3}:
+	
+	{\footnotesize
+		\begin{align}
+			\label{EQ: CompressibleEuler_1}
+			\cfrac{\partial \left( \rho_f A_f \right) }{\partial t} + \cfrac{\partial \left( \rho_f A_f v \right)}{\partial z} &= 0, \\
+			\cfrac{\partial \left( \rho_f v A_f \right) }{\partial t} + \cfrac{\partial \left( \rho_f A_f v^2 \right)}{\partial z} &= -A_f \cfrac{\partial P}{\partial z} \label{EQ: CompressibleEuler_2}, \\
+			\cfrac{\partial \left( \rho_f e A_f \right) }{\partial t} + \cfrac{\partial \left( \rho_f A_f v e\right)}{\partial z} &= -P\cfrac{\left( A_f v \right)}{\partial z} + \cfrac{\partial}{\partial z} \left( k \cfrac{\partial T}{\partial z} \right),   
+			\label{EQ: CompressibleEuler_3}
+		\end{align}  
+	}
+	
+	where $\rho_f$ is the density of the fluid, $A_f$ is the function which describes a change in the cross-section, $v$ is the velocity, $P$ is the total pressure, $e$ is the internal energy of the fluid, $t$ is time and $z$ is the spatial direction.
+	
+	\subsection{Extraction model} \label{CH: Extraction_model}
+	\subsubsection{Continuity equation} \label{CH: Continuity}
+	
+	The previously derived quasi-one-dimensional continuity equation (Equation \ref{EQ: CompressibleEuler_1}) is redefined by incorporating the function $A_f = A\phi$. This modification distinguishes constant and varying terms, where the varying term accounts for changes in the cross-sectional area available for the fluid. Equation \ref{EQ: Continuity_differential} shows the modified continuity equation:
+	
+	{\footnotesize
+		\begin{equation} \label{EQ: Continuity_differential}
+			\frac{\partial (\rho_f \phi)}{\partial t} + \frac{\partial (\rho_f v A\phi)}{\partial z} = 0,
+		\end{equation}
+	}
+	where $A$ is the total cross-section of the extractor and $\phi$ describes porosity along the extractor.
+	
+	Assuming that the mass flow rate is constant in time, the temporal derivative becomes the mass flux F, and the spatial derivative can be integrated along $z$ as
+	
+	{\footnotesize
+		\begin{equation}
+			\int \frac{\partial (\rho_f v A \phi )}{\partial z} dz = F \rightarrow F=\rho_f v A\phi
+		\end{equation}
+	}
+	
+	To simplify the system dynamics, it is assumed that $F$ is a control variable and affects the whole system instantaneously (due to $\nabla \cdot u = 0$), which allows finding the velocity profile that satisfies mass continuity based on $F$, $\phi$ and $\rho_f$:
+	
+	{\footnotesize
+		\begin{equation} \label{EQ:Velocity_1}
+			v = \cfrac{F}{\rho_f A\phi} 
+		\end{equation}
+	}
+	
+	Similarly, superficial velocity may be introduced:
+	
+	{\footnotesize
+		\begin{equation} \label{EQ:Velocity_2}
+			u = v \phi = \cfrac{F}{\rho_f A }
+		\end{equation}
+	}
+	
+	The fluid density $\rho_f$ can be obtained from the Peng-Robinson equation of state if the temperature and thermodynamic pressure are known along $z$. Variation in fluid density may occur due to pressure or inlet temperature changes. In a non-isothermal case, in Equations \ref{EQ:Velocity_1} and \ref{EQ:Velocity_2}, $\rho_f$ is considered the average fluid density along the extraction column.
+	
+	\subsubsection{Mass balance for the fluid phase} \label{CH: Mass_balance_fluid}
+	
+	Equation \ref{Model_fluid} describes the movement of the solute in the system, which is constrained to the axial direction due to the quasi-one-dimensional assumption. Given that the solute concentration in the solvent is negligible, the fluid phase is described as pseudo-homogeneous, with properties identical to those of the solvent itself. It is also assumed that the thermodynamic pressure remains constant throughout the device. The analysis further simplifies the flow dynamics by disregarding the boundary layer near the extractor's inner wall. This leads to a uniform velocity profile across any cross-section perpendicular to the axial direction. Thus, the mass balance equation includes convection, diffusion and kinetic terms representing the fluid phase behaviour:
+	
+	{\footnotesize
+		\begin{equation}
+			\label{Model_fluid}
+			\frac{\partial c_f}{\partial t}
+			+ \frac{1}{\phi} \frac{\partial \left( c_f u\right)}{\partial z}
+			= \frac{1-\phi}{\phi} r_e
+			+ \frac{1}{\phi} \frac{\partial}{\partial z} \left( D^M_e \frac{\partial c_f}{\partial z} \right),
+		\end{equation}
+	}
+	
+	where $c_f$ represents the solute concentration in the fluid phase, $r_e$ is the mass transfer kinetic term and $D^M_e$ is the axial diffusion coefficient.
+	
+	\subsubsection{Mass balance for the solid phase} \label{Mass_balance_solid}
+	
+	As given by Equation \ref{Model_solid}, the solid phase is considered stationary, without convection and diffusion terms in the mass balance equation. Therefore, the only significant term in this equation is the kinetic term of Equation \ref{Model_kinetic_basic}, which connects the solid and fluid phases. For simplicity, the extract is represented by a single pseudo-component: 
+	
+	{\footnotesize
+		\begin{equation} 
+			\label{Model_solid}
+			\cfrac{\partial c_s}{\partial t} = \underbrace{ r_e }_{\text{Kinetics}}
+	\end{equation} }
+	
+	\subsubsection{Kinetic term} \label{CH: Kinetic}
+	
+	As the solvent flows through the fixed bed, CO$_2$ molecules diffuse into the pores, adsorb on the inner surface and form a film due to solvent-solid matrix interactions. The dissolved solute diffuses into the bulk from the particle's core through the solid-fluid interface, the pore and the film. Figure \ref{fig: SFE_Mechanism} shows the mass transfer mechanism, where the mean solute concentration in the solid phase is denoted by $c_s$, and the equilibrium concentrations at the solid-fluid interface are denoted by $c_s^*$ and $c_p^*$ for the solid and fluid phases, respectively. The concentration of the solutes in the fluid phase in the centre of the pore is denoted by $c_p$. As the solute diffuses through the pore, its concentration changes, reaching $c_{pf}$ at the opening. Then, the solute diffuses through the film around the particle and reaches bulk concentration $c_f$. The two-film theory describes the solid-fluid interface inside the pore. The overall mass transfer coefficient can be determined from the relationship between the solute concentration in one phase and its equilibrium concentration.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[trim = 45cm 0cm 60cm 20cm,clip,width=0.85\columnwidth]{Figures/SFE_PFD.drawio.png}	
+		\caption{Mass transfer mechanism.}
+		\label{fig: SFE_Mechanism}
+	\end{figure}
+	
+	\citet{Bulley1984} suggest a process where the driving force for extraction is given by the difference between the concentration of the solute in the bulk, $c_f$, and in the centre of the pore, $c_p^*$. The concentration $c_p^*$ is in equilibrium with $c_s$ according to the equilibrium relationship. The rate of extraction is thus $r_e\left(c_f - c^*_p(c_s)\right)$. In contrast, \citet{Reverchon1996} proposes a driving force given by the difference between $c_s$ and $c_p^*$. As given in Equation \ref{Model_kinetic_basic}, the concentration $c_p^*$ is determined by the equilibrium relationship with $c_f$:
+	
+	{\footnotesize
+		\begin{equation} \label{Model_kinetic_basic}
+			r_e = \cfrac{D_i}{\mu l^2 }\left(c_s - c_p^* \right),
+	\end{equation} }
+	
+	where $\mu$ is sphericity, $l$ a characteristic dimension of particles that can be defined as $l = r/3$, $r$ is the mean particle radius, $\rho_s$ is the solid density, $D_i$ corresponds to the overall diffusion coefficient and $c_P^*$ is the concentration at the solid-fluid interface (which, according to the internal resistance model, is supposed to be at equilibrium with the fluid phase). 
+	
+	According to \citet{Bulley1984}, a linear equilibrium relationship (Equation \ref{Linear_equilibirum}) can be used to find the equilibrium concentration of the solute in the fluid phase $c_f^*$ based on the concentration of the solute in the solid phase $c_s$:
+	
+	{\footnotesize
+		\begin{align} \label{Linear_equilibirum}
+			c_f^* &= k_p c_s
+	\end{align} }
+	
+	The volumetric partition coefficient $k_p$ acts as an equilibrium constant between the solute concentration in one phase and the corresponding equilibrium concentration at the solid-fluid interphase. \citet{Spiro2007} propose defining the mass partition coefficient $k_m$ as 
+	
+	{\footnotesize
+		\begin{align}
+			k_m = \cfrac{k_p \rho_s}{\rho_f}
+	\end{align} }
+	
+	According to \citet{Reverchon1996}, the kinetic term becomes
+	
+	{\footnotesize
+		\begin{equation}
+			\label{Model_kinetic_no_sat}
+			r_e = -\cfrac{D_i}{ \mu l^2 } \left(c_s - \cfrac{\rho_s c_f}{k_m \rho_f} \right)
+	\end{equation} }
+	
+	\subsubsection{Uneven distribution of solute in the solid phase} \label{CH: Gamma_Function}
+	
+	Following the idea of the broken-and-intact cell (BIC) model (\citet{Sovova2017}), the internal diffusion coefficient $D_i$ is considered to be a product of the reference value of $D_i^R$ and the exponential decay function $\gamma$, as given by Equation \ref{EQ: C_sat_function}:
+	
+	{\footnotesize
+		\begin{equation}
+			D_i = D_i^R \gamma(c_s) = D_i^R \exp \left( \Upsilon \left( 1-\cfrac{ c_s }{c_{s0}} \right) \right), \label{EQ: C_sat_function}
+	\end{equation} }
+	
+	where  ${\color{black}\Upsilon}$ describes the curvature of the decay function. Equation \ref{Model_kinetic} describes the final form of the kinetic term:
+	
+	{\footnotesize
+		\begin{equation}
+			\label{Model_kinetic}
+			r_e = -\cfrac{D_i^R \gamma }{ \mu l^2 } \left( c_s  - \cfrac{\rho_s c_f }{ k_m \rho_f }  \right)
+	\end{equation} }
+	
+	The $\gamma$ function limits the solute's availability in the solid phase. Similarly to the BIC model, the solute is assumed to be contained in the cells, some of which are open because the cell walls were broken by grinding, with the rest remaining intact. The diffusion of the solute from a particle's core takes more time than the diffusion of the solute close to the outer surface. The same idea can be represented by the decaying internal diffusion coefficient, where the decreasing term is a function of the solute concentration in the solid. 
+	
+	An alternative interpretation of the decay function $\gamma$ involves considering the porous structure of the solid particles, where the pores are initially saturated with the solute. During extraction, the solute within these pores gradually dissolves into the surrounding fluid. Initially, the solute molecules near the pore openings dissolve and diffuse rapidly due to the short diffusion paths. As the extraction progresses, the dissolution front moves deeper into the pore structure, and solute from the inner regions of the pores begins to dissolve. The diffusion of solute molecules from the interior of the pores to the external fluid becomes progressively slower because the effective diffusion path length increases. This lengthening of the diffusion path enhances the mass transfer resistance, reducing the overall diffusion rate. 
+	
+	In an extreme case, this model could be compared with the shrinking core model presented by \citet{Goto1996}, where the particle radius decreases as the solute content in the solid phase diminishes. In the SC model, the reduction in particle size leads to significant changes in both the diffusion path length and the surface area available for mass transfer. The diminishing particle size increases the diffusion path within the remaining solid core and decreases the external surface area, both of which contribute to a slower extraction rate. When comparing this to the varying diffusion coefficient in our model, some conceptual similarities can be noticed.
+	
+	\subsubsection{Empirical correlations}
+	
+	The empirical correlations for $D_i$ and $\Upsilon$ were derived by \citet{Sliczniuk2024} and validated for temperatures of $30 - 40~^\circ C$, pressures of $100 - 200$ bar, and mass flow rates of $3.33-6.67 \cdot 10^{-5}$ kg/s. Figures \ref{fig:Correlation_Di} and \ref{fig:Correlation_Gamma} show the results of multiple linear regression applied to solutions of parameter estimation and selected independent variables. The region marked with the white dashed line represents the confidence region, where the model has been tested. Both correlations should be equal or greater than zero to avoid unphysical behaviour such as  reverse mass transfer. The multiple linear regression functions are combined with the rectifier function to ensure non-negativity.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[trim = 0.0cm 0.0cm 0.0cm 0.0cm,clip,width=\columnwidth]{/Di.png}
+		\caption{Multiple linear regression $D_i^R = f(Re, F).$}
+		\label{fig:Correlation_Di}
+	\end{figure}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[trim = 0.0cm 0.0cm 0.0cm 0.0cm,clip,width=\columnwidth]{/Gamma.png}
+		\caption{Multiple linear regression $\Upsilon = f(Re, F).$}
+		\label{fig:Correlation_Gamma}
+	\end{figure}
+	
+	\subsubsection{Heat balance} \label{CH: heat_balance}
+	
+	The heat balance equation describes the evolution of the enthalpy in the system and is given by Equation \ref{EQ:Enthalpy_equation}:
+	
+	{\footnotesize
+		\begin{equation} \label{EQ:Enthalpy_equation}
+			\cfrac{\partial \left(\rho_f {\color{black}h} A_f\right)}{\partial t} = - \cfrac{\partial \left( \rho_f {\color{black}h} A_f v \right)}{\partial z} + \cfrac{\partial \left(P A_f\right)}{\partial t} + \cfrac{\partial}{\partial z} \left( k \cfrac{\partial T}{\partial z} \right)
+		\end{equation}
+	}
+	
+	If the value of enthalpy $h$ is known from the time evolution of the energy equation, and pressure $P$ is known from measurement, then temperature $T$ can be reconstructed based on the departure function. The departure function is a mathematical function that characterizes the deviation of a thermodynamic property (enthalpy, entropy or internal energy) of a real substance from that of an ideal gas at the same temperature and pressure. The enthalpy departure function, as presented by \citet{Gmehling2019} for the Peng-Robinson equation of state,  is defined by Equation \ref{EQ:Enthalpy_PR}:
+	
+	{\scriptsize
+		\begin{equation}
+			{\color{black}h}-{\color{black}h}^{id}={\color{black}R}T \left[{\color{black}T_r}({\color{black}Z}-1) -2.078(1+{\color{black}\kappa} ){\sqrt { {\color{black}\alpha}\left(T\right) } } \ln \left(\cfrac{{\color{black}Z}+\left( 1+\sqrt{2} \right){\color{black}B}}{{\color{black}Z}+\left( 1-\sqrt{2} \right){\color{black}B}}\right)\right],
+			\label{EQ:Enthalpy_PR}
+		\end{equation}				
+	}
+	
+	where $\alpha$ is defined as $\left( 1+\kappa \left( 1 - \sqrt{T_r} \right) \right)^2$, $T_r$ is the reduced temperature, $P_r$ is the reduced pressure, $Z$ is the compressibility factor, $\kappa$ is a quadratic function of the acentric factor and $B$ is calculated as $0.07780\frac{P_r}{T_r}$.
+	
+	Equation \ref{EQ:Enthalpy_PR} requires a reference state, which is assumed to be $T_{ref}=298.15$ K and $P_{ref}=1.01325$ bar.
+	
+	A root finder can be used to find a temperature value which minimizes the difference between the value of enthalpy coming from the heat balance and the departure functions. The root-finding procedure has to be repeated at every time step to find a temperature profile along spatial direction $z$.
+	
+	{\footnotesize
+		\begin{equation}
+			\min_T \left( \underbrace{h\left(t,x\right)}_{\text{Heat balance}} - \underbrace{h\left(T,P,\rho_f\left(T,P\right)\right)}_{\text{Departure function}} \right)^2
+			\label{EQ:Enthalpy_root}
+		\end{equation}
+	}
+	
+	\subsubsection{Pressure term} \label{CH: Pressure}
+	
+	As explained in Section \ref{CH:Governing_equations_chapter}, this low velocity region pressure is nearly constant due to the small pressure wave propagation that occurs at the speed of sound. Under such conditions, the term $\partial P/\partial t$ can be approximated by a difference equation, {\color{blue}describing} the pressure change in the whole system. The pressure $P$ in the system is considered a state variable, while the pressure in the new time-step $P_{in}$ is considered a control variable.
+	
+	{\footnotesize
+		\begin{equation}
+			\frac{\partial {\color{black}P}}{\partial t} \approx \frac{{\color{black}P_{in}} - {\color{black}P} }{\Delta t}
+	\end{equation}}
+	
+	Such a simplified equation allows for instantaneous pressure change in the system but does not consider a gradual pressure build-up and the effects of pressure losses. In a real system, the dynamics of pressure change would depend on a pump and a back-pressure regulator.
+	
+	\subsubsection{Extraction yield} \label{CH: Yield}
+	
+	The process yield is calculated according to Equation \ref{Model_measurment_1}, as presented by \citet{Sovova1994a}. The measurement equation evaluates the solute's mass at the extraction unit outlet and sums it up. The integral form of the measurement (Equation \ref{Model_measurment_1}) can be transformed into the differential form (Equation \ref{Model_measurment_2}) and augmented with the process model.
+	
+	{\footnotesize
+		\begin{align} 
+			\label{Model_measurment_1}
+			y &= \int_{t_0}^{t_f} \cfrac{F}{\rho_f} c_f \biggr\rvert_{z=L} dt \\
+			\cfrac{dy}{dt} &= \qquad \cfrac{F}{\rho_f} c_f \biggr\rvert_{z=L} 
+			\label{Model_measurment_2}
+	\end{align}	}
+	
+	\subsubsection{Initial and boundary conditions} 
+	It is assumed that the solvent is free of solute at the beginning of the process $c_{f0}=0$, that all the solid particles have the same initial solute content $c_{s0}$ and that the system is isothermal, hence the initial state is $h_0$. The fluid at the inlet is considered not to contain any solute. The initial and boundary conditions are defined as follows:
+	
+	{\footnotesize
+		\begin{align*}
+			&c_f(t = 0, z) = 0  && c_s(t = 0, z) = c_{s0} && h(t = 0, z) = h_0 \\
+			&c_f(t,   z=0) = 0  && h(t, z=0) = h_{in}  && \frac{\partial c_f(t,z=L)}{\partial x} = 0 \\
+			&\frac{\partial h(t,z=L)}{\partial x} = 0   && c_s(t, z=\{0,L\}) = 0 && y(0) = 0 \quad P(0) = P_0 \\
+	\end{align*} }
+	
+	\subsubsection{Discretization methods}
+	
+	The method of lines is used to transform the process model equations into a set of ODEs denoted by $G(x;\Theta)$. The backward finite difference is used to approximate the first-order derivative, while the central difference scheme approximates the second-order derivative $z$ direction. The length of the fixed bed is divided into $N_z$, i.e. equally distributed points in the $z$ direction. The state-space model after discretization is denoted by $x$ and defined as follows:
+	
+	{\footnotesize
+		\begin{align*} \label{discretization}
+			\dot{x} &= \cfrac{d x}{d t} = 
+			\begin{bmatrix}
+				\cfrac{d c_{f,1}}{d t} 	  \\
+				\vdots					  \\
+				\cfrac{d c_{f,N_z}}{d t} \\
+				\\ \hline \\
+				\cfrac{d c_{s,1}}{d t} 	  \\
+				\vdots					  \\
+				\cfrac{d c_{s,N_z}}{d t} \\
+				\\ \hline \\
+				\cfrac{d h_1}{d t} 	  \\
+				\vdots 					  \\
+				\cfrac{d h_{N_z}}{d t} \\
+				\\ \hline \\
+				\cfrac{d P}{d t} \\
+				\\ \hline \\
+				\cfrac{d y}{d t}
+			\end{bmatrix}
+			=
+			\underbrace{\begin{bmatrix}
+					G_1 \left( c_f,c_s,h; \Theta \right)\\ 
+					\vdots\\ 
+					G_{N_z} \left( c_f,c_s,h; \Theta \right)\\ 
+					\\ \hline \\ \\
+					G_{N_z+1} \left( c_f,c_s,h; \Theta \right)\\ 
+					\vdots\\
+					G_{2N_z} \left( c_f,c_s,h; \Theta \right)\\ 
+					\\ \\ \hline \\ 
+					G_{2N_z+1} \left( c_f,c_s,h; \Theta \right) \\
+					\vdots\\
+					G_{3N_z} \left( c_f,c_s,h; \Theta \right) \\ 
+					\\ \\ \hline \\
+					G_{3N_z+1} \left( c_f,c_s,h; \Theta \right) \\
+					\\ \\ \hline \\
+					G_{3N_z+2} \left( c_f,c_s,h; \Theta \right) 
+			\end{bmatrix}}_{G \left( x; \Theta \right),} 
+	\end{align*} }
+	where ${\color{black}x} \in \mathbb{R}^{N_x = 3N_z+2} $ and $\Theta \in \mathbb{R}^{N_\Theta =  N_{\theta} + N_u } $, $N_{\theta}$ is the number of parameters and $N_{u}$ is the number of control variables.
+	
+	For a derivative to be conservative, it must form a telescoping series. In other words, only the boundary terms should remain after adding all terms coming from the discretization over a grid, and the artificial interior points should be cancelled out. Discretization is applied to the conservative form of the model to ensure mass conservation.
+	
+	\subsection{Local sensitivity analysis} \label{CH: Sensitivity_Analysis}
+	
+	Local derivative-based methods involve taking the total derivative of the state vector $x$ with respect to the parameter space $\Theta$. A set of derivatives, known as sensitivity equations, is integrated simultaneously with the process model. Sensitivity analysis shows how responsive the solution is to changes in the parameter $\Theta$. As discussed by \citet{Dickinson1976}, sensitivity analysis can be used to determine the influence of uncertainty on the solution of the original system. Another application of sensitivity analysis is to distinguish sensitive parameters from insensitive ones, which might be helpful for model reduction. Finally, from a control engineering point of view, sensitivity analysis allows sorting the control variables with respect to the level of effort required to change the model's output.
+	
+	Following the work of \citet{Maly1996}, sensitivity equations can be defined as follows:
+	
+	{\footnotesize
+		\begin{equation}
+			\label{SA_def}
+			S(x;\Theta) = \cfrac{dx}{d\Theta}
+	\end{equation} }
+	
+	The new system of equations can be obtained by taking the total derivative of $S$ with respect to time $t$:
+	
+	{\footnotesize
+		\begin{equation} \label{SA_dt} 
+			{\dot{S}}(x;\Theta)  = \cfrac{dS(x;\Theta)}{d t} = \cfrac{d}{d t} \left( \cfrac{dx}{d\Theta} \right) = \cfrac{d }{d\Theta} \left( \cfrac{dx}{d t} \right) = \cfrac{d G(x;\Theta)}{d\Theta} 
+	\end{equation} }
+	
+	Sensitivity Equation \ref{SA_eq_full} can be obtained by applying the definition of the total derivative to Equation \ref{SA_dt}:
+	
+	{\footnotesize
+		\begin{equation} \label{SA_eq_full}
+			\cfrac{d G(x;\Theta)}{d \Theta} = \underbrace{ \cfrac{\partial G(x;\Theta)}{\partial x} }_{{\bar{J}_x}(x;\Theta)} \underbrace{\cfrac{\partial x}{\partial \Theta} }_{\bar{S}(x;\Theta)} + \underbrace{ \cfrac{\partial G(x;\Theta)}{\partial \Theta} }_{{\bar{J}_\Theta}(x;\Theta)}
+	\end{equation} }
+	
+	The Jacobian ${\bar{J}_x}(x;\Theta)$ represents the matrix of equations of size $N_x \times N_x$, where each equation ${\bar{J}_x}(n_x,n_x)$ is the derivative of $G_{n_x}(x;\Theta)$ with respect to the state variable $x_{n_\Theta}$:
+	
+	{\footnotesize
+		\begin{align}
+			\begingroup % keep the change local
+			\setlength\arraycolsep{2pt}
+			{\bar{J}_x}(x;\Theta)=\begin{pmatrix}
+				\cfrac{\partial {G_{1}}(x;\Theta)}{\partial {x_{1}}} & \cfrac{\partial {G_{1}}(x;\Theta)}{\partial {x_{2}}} & \cdots & \cfrac{\partial {G_{1}}(x;\Theta)}{\partial {x_{N_x}}}\\
+				\cfrac{\partial {G_{2}}(x;\Theta)}{\partial {x_{1}}} & \cfrac{\partial {G_{2}}(x;\Theta)}{\partial {x_{2}}} & \cdots & \cfrac{\partial {G_{2}}(x;\Theta)}{\partial {x_{N_x}}}\\
+				\vdots & \vdots & \ddots & \vdots\\ 
+				\cfrac{\partial {G_{N_x}}(x;\Theta)}{\partial {x_{1}}} & \cfrac{\partial {G_{N_x}}(x;\Theta)}{\partial {x_{2}}} & \cdots & \cfrac{\partial {G_{N_x}}(x;\Theta)}{\partial {x_{N_x}}}\\
+			\end{pmatrix}
+			\endgroup
+	\end{align} }
+	
+	The sensitivity matrix $\bar{S}(x;\Theta)$ represents the matrix of equations of size $N_x \times N_\Theta$, where each entry $\bar{S}(n_x,n_\Theta)$ is the derivative of state variable $x_{n_x}$ with respect to parameter $\Theta_{n_\Theta}$. Matrix ${\bar{J}_x}(x;\Theta)$ and $\bar{S}(x;\Theta)$ describe the indirect influence of $\Theta_{n_\Theta}$ on the state space.
+	
+	{\footnotesize
+		\begin{equation}
+			\begin{split}
+				\bar{S}(x;\Theta) & = 
+				\begingroup % keep the change local
+				\setlength\arraycolsep{2pt}
+				\begin{pmatrix}
+					\cfrac{\partial {x_{1}}}{\partial {\Theta_{1}}} 	& \cfrac{\partial {x_{1}}}{d {\Theta_{2}}}     & \cdots & \cfrac{d {x_{1}}}{\partial {\Theta_{N_\Theta}}}\\
+					\cfrac{\partial {x_{2}}}{\partial {\Theta_{1}}} 	& \cfrac{\partial {x_{2}}}{d {\Theta_{2}}}     & \cdots & \cfrac{d {x_{2}}}{\partial {\Theta_{N_\Theta}}}\\
+					\vdots					 	    & \vdots 					   	  & \ddots & \vdots\\
+					\cfrac{\partial {x_{N_x}}}{\partial {\Theta_{1}}} 	& \cfrac{\partial {x_{N_x}}}{d {\Theta_{2}}}     & \cdots & \cfrac{\partial {x_{N_x}}}{d {\Theta_{N_\Theta}}}
+				\end{pmatrix} 
+				\endgroup
+			\end{split}
+	\end{equation} }
+	
+	The Jacobian ${\bar{J}_\Theta}(x;\Theta)$ represents the matrix of equations of size $N_x \times N_\Theta$, where each sub-equation ${\bar{J}_\Theta}(n_x,n_\Theta)$ is the partial derivative of process model equation $G_{n_x}$ with respect to parameter $\Theta_{n_\Theta}$. ${\bar{J}_\Theta}(n_x,n_\Theta)$ defines the direct effect of $\Theta_{n_\Theta}$ on the state space:
+	
+	{\footnotesize
+		\begin{align}
+			{\bar{J}_\Theta}(x;\Theta) & =
+			\begingroup % keep the change local
+			\setlength\arraycolsep{2pt}
+			\begin{pmatrix}
+				\cfrac{\partial {G_{1}}(x;\Theta)}{\partial {\Theta_{1}}} & \cfrac{\partial {G_{1}}(x;\Theta)}{\partial {\Theta_{2}}} & \cdots & \cfrac{\partial {G_{1}}(x;\Theta)}{\partial {\Theta_{N_\Theta}}}\\
+				\cfrac{\partial {G_{2}}(x;\Theta)}{\partial {\Theta_{1}}} & \cfrac{\partial {G_{2}}(x;\Theta)}{\partial {\Theta_{2}}} & \cdots & \cfrac{\partial {G_{2}}(x;\Theta)}{\partial {\Theta_{N_\Theta}}}\\
+				\vdots & \vdots & \ddots & \vdots\\
+				\cfrac{\partial {G_{N_x}}(x;\Theta)}{\partial {\Theta_{1}}} & \cfrac{\partial {G_{N_x}}(x;\Theta)}{\partial {\Theta_{2}}} & \cdots & \cfrac{\partial {G_{N_x}}(x;\Theta)}{\partial {\Theta_{N_\Theta}}}
+			\end{pmatrix}
+			\endgroup
+	\end{align}}
+	
+	The augmented system containing the original set of equations $G(x;\Theta)$ and sensitivity equations is called ${\textbf{G}}\left(x;\Theta\right)$. The size of ${\textbf{G}}\left(x;\Theta\right)$ is equal to $N_s = N_x(N_\Theta + 1)$.
+	
+	{\footnotesize
+		\begin{align}
+			{\textbf{G}}\left(x;\Theta\right) = 
+			\begin{bmatrix}
+				G(x;\Theta)\\
+				{\bar{J}_x}(x;\Theta)\bar{S}(x;\Theta) + {\bar{J}_\Theta}(x;\Theta)
+			\end{bmatrix}
+	\end{align} }
+	
+	The initial conditions are described as
+	
+	{\footnotesize
+		\begin{align}
+			{\textbf{G}}\left(x(t_0);\Theta\right)  &= 
+			\begin{bmatrix}
+				x(t_0),						               &
+				\cfrac{ \text{d}x(t_0) }{ d{\Theta_1} },		   &
+				\cdots,					 				   &
+				\cfrac{ dx(t_0) }{ d{\Theta_{N_\Theta}} }            
+			\end{bmatrix}^\top = \\ &=
+			\begin{bmatrix} 
+				\quad x_0,	                               &
+				\quad ~0,		                           &
+				\quad \cdots,			                   &
+				\quad 0 \quad~~
+			\end{bmatrix}^\top \nonumber
+	\end{align} }
+	
+	% ===================================================
+	% Section: Summary
+	% ===================================================
+	
+	%\subfile{Sections/Results_Sensitivity}
+	\section{Results} \label{CH: Results}
+	The details of the process model and parameters are provided in \citet{Sliczniuk2024}. The process model was validated in the following range of operating conditions: temperatures between $30 - 40 ^\circ C$, pressures between $100 - 200$ bar, and mass flow rates between $3.33-6.67 \cdot 10^{-5}$ kg/s. The sensitivity analysis is performed at the midpoint of the validated range: $35 ^\circ C$, 150 bar and 5 $\cdot 10^{-5}$ kg/s. This study examines the impact of pressure change on the state space and extraction yield through local sensitivity analysis. The local sensitivity analysis results can be interpreted as the system's response to an infinitesimal deviation in pressure.
+	
+	As discussed in Section \ref{CH:Governing_equations_chapter}, at low velocity, the fluid can be treated as incompressible, which results in the instant propagation of pressure throughout the system, enabling a single pressure value to be considered for the entire system. In response to a pressure change, the energy equation experiences a simultaneous deviation across the entire spatial domain. This pressure change impacts the fluid temperature within the computational domain, while boundary values are constrained by conditions specified at the domain's extremes. Dirichlet boundary conditions impose a fixed temperature value at the inlet, creating a thermal gradient that propagates through the system. Alternatively,  Neumann boundary conditions specify a heat flux at the extremes. The zero Neumann boundary conditions are applied to ensure a uniform response to the pressure change of temperatures at the inlet, outlet, and within the extractor.
+	
+	Figure \ref{fig:Sensitivty_P_CS} illustrates the sensitivity of the solute concentration in the solid phase to pressure changes. As discussed in Section \ref{CH: Continuity}, the velocity of a fluid is inversely proportional to its density, indicating that increased pressure reduces the fluid velocity. This results in an extended residence time, allowing for longer interaction between the solute and solvent.	Initially, the extraction process operates in the kinetic-controlled regime, where the concentration gradient is high, and solute solubility is the limiting factor. As noted by \citet{Sliczniuk2024}, the system is considered far from saturation, which explains the low initial system response. This low initial response was also observed in the sensitivity analysis by \citet{Fiori_2007}. The system's response becomes more pronounced as the concentration gradient decreases and the extraction shifts from the kinetic-controlled to the diffusion-controlled regime. In Figure \ref{fig:Sensitivty_P_CS}, all $\frac{dc_s}{dP}$ values are negative, which indicates a faster mass transfer from the solid phase, corresponding to enhanced mass transfer.  Over time, as the amount of solute decreases, it becomes a limiting factor, reducing the effect of pressure changes on the system. Eventually, the sensitivities approach zero asymptotically as the solute is washed out of the bed.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[trim = 0.0cm 0.0cm 0.0cm 0.0cm,clip,width=\columnwidth]{/Results_sensitivity/CS_P.png}
+		\caption{The effect of $P_{in}$ change on $C_s$.}
+		\label{fig:Sensitivty_P_CS}
+	\end{figure}
+	
+	Figure \ref{fig:Sensitivty_P_CF} illustrates the sensitivity of solute concentration in the fluid phase to pressure changes. Compared to Figure \ref{fig:Sensitivty_P_CS}, the dynamic behaviour of fluid phase sensitivities is more apparent. Due to advection, the sensitivities related to the fluid phase move across the system in the direction of flow. Initially, the system response is low despite the pressure increase improving mass transfer, reflecting the previously discussed idle period. As the process continues, the sensitivities increase, indicating faster mass transfer from the solid phase. The corresponding improvement in the mass transfer from the solid particles to the fluid is represented by the positive values in Figure \ref{fig:Sensitivty_P_CF}. When the solute in the solid phase becomes a limiting factor, the extraction rate slows, and sensitivities eventually approach zero asymptotically.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[trim = 0.0cm 0.0cm 0.0cm 0.0cm,clip,width=\columnwidth]{/Results_sensitivity/CF_P.png}
+		\caption{The effect of $P_{in}$ change on $C_f$.}
+		\label{fig:Sensitivty_P_CF}
+	\end{figure}
+	
+	Figure \ref{fig:Sensitivty_P_y} shows how sensitive the extraction yield is to pressure changes over an extended period for various pressure values. Initially, all sensitivity curves remain nearly flat, indicating a delayed response in the system. Due to the reduced fluid velocity, the solute reaches the extractor's outlet later, causing minor negative sensitivities to appear. Once the solute exits the extractor, the sensitivity curves rise. Positive yield sensitivities indicate improved process efficiency and enhanced mass transfer. The peak in $\frac{dy}{dP_{in}}$ represents the point of greatest deviation from the original system. Eventually, the sensitivities decline and converge towards zero as the concentration gradient becomes a limiting factor, reducing the impact of enhanced mass transfer.
+	
+	As presented in Figure \ref{fig:Sensitivty_P_y}, higher sensitivities are observed for a low-pressure system. At lower pressures, the supercritical fluid has lower density and solvating power, which results in less efficient extraction, as shown by data given by \citet{Sliczniuk2024}. Small changes in pressure at low pressures can significantly impact the solute's solubility and, consequently, the extraction yield. Moreover, near the critical point, small changes in pressure can lead to significant changes in the physical properties of the supercritical fluid, such as density and viscosity, and therefore to higher sensitivity of the system state-space.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[trim = 0.1cm 0.0cm 1.0cm 0.0cm,clip,width=\columnwidth]{/Results_sensitivity/Yield_Multiple.png}
+		\caption{The effect of $P_{in}$ change on $y(t)$.}
+		\label{fig:Sensitivty_P_y}
+	\end{figure}
+	
+	\section{Conclusions} \label{CH: Conclusion}
+	
+	Sensitivity analysis is a tool used to understand how the parameters of the model affect its output. The presented formulation involves derivative-based local sensitivity analysis of the model solution with respect to selected parameters and controls. This work implemented automatic differentiation to derive the sensitivity equations. Local sensitivity analysis techniques consider only a small region of parameter space, and the conclusions derived from such an analysis are limited to local conditions. In the case of dynamic systems, the outcome of local sensitivity analysis quantifies how the state of the system or its output varies over time with respect to small perturbations in parameters.
+	
+	Although local sensitivity analysis can be performed with respect to any model parameter, this study focuses specifically on the effect of pressure. Under the selected operating conditions, it was observed for all the cases that a pressure increment enhances mass transfer, leading to a faster mass transfer of solute from the particles. Consequently, negative sensitivities can be observed in the diagram for the solid phase. The corresponding response in the fluid phase is characterized by positive-valued sensitivities, indicating that a greater amount of solute is transported into the fluid phase. As a result, the extraction yield is improved and characterized by positive sensitivities. Given that the results of the local sensitivity analysis depend on the operating point, the analysis was repeated at different pressures. It was observed that the system responses at low pressures were stronger than those at higher pressures. This behaviour can be explained by the rapid changes in solvent properties occurring near the critical point of CO$_2$.
+	
+	Local sensitivity analysis results provide valuable information by identifying which parameters are influential and how these influences change over time. One application of sensitivity analysis is to spot discrepancies between model predictions and actual experimental results. Identifying unexpected system responses prompts further investigation and refinement of the process model.  The sensitivity analysis results can be used to design future experiments by indicating which parameters should be varied and monitored. Moreover, the parameters which are characterized by low sensitivity can be the subject of model refinement. 
+	
+	\section*{Acknowledgements} 
+	This work was supported by: NovelBaltic, CEForestry (IBC), BIO4P (BF).
+	
+	% ===================================================
+	% Bibliography
+	% ===================================================
+	%% Loading bibliography style file
+	%\clearpage
+	%\newpage
+	%\bibliographystyle{model1-num-names}
+	\bibliographystyle{unsrtnat}
+	\bibliography{mybibfile}
+	
+	\newpage
+	
+	\nomenclature[A]{\(P\)}{Pressure \nomunit{bar}}
+	\nomenclature[A]{\(T\)}{Temperature \nomunit{K}}
+	\nomenclature[A]{\(T_{in}\)}{Inlet temperature \nomunit{K}}
+	\nomenclature[A]{\(T_{out}\)}{Outlet temperature \nomunit{K}}
+	\nomenclature[A]{\(F\)}{Mass flow rate \nomunit{kg/s}}
+	\nomenclature[A]{\(u\)}{Superficial velocity \nomunit{m/s}}
+	\nomenclature[A]{\(v\)}{Linear velocity \nomunit{m/s}}
+	\nomenclature[A]{\(z\)}{Spatial direction \nomunit{m}}
+	\nomenclature[A]{\(e\)}{Internal energy \nomunit{J/kg}}
+	\nomenclature[A]{\(h\)}{Enthalpy \nomunit{J}}
+	\nomenclature[A]{\(t\)}{Time \nomunit{s}}
+	\nomenclature[A]{\(t_f\)}{Total extraction time \nomunit{s}}
+	\nomenclature[A]{\(t_0\)}{Initial extraction time \nomunit{s}}
+	\nomenclature[A]{\(A\)}{Total cross-section of the bed \nomunit{m$^2$}}
+	\nomenclature[A]{\(A_f\)}{Cross-section of the bed occupied by the fluid \nomunit{m$^2$}}
+	\nomenclature[A]{\(c_f\)}{Concentration of solute in the fluid phase \nomunit{kg/m$^3$}}
+	\nomenclature[A]{\(c_{f0}\)}{Initial concentration of solute in the fluid phase \nomunit{kg/m$^3$}}
+	\nomenclature[A]{\(c_f^*\)}{Concentration of solute at the solid-fluid interface \nomunit{kg/m$^3$}}
+	\nomenclature[A]{\(c_s\)}{Concentration of solute in the solid phase \nomunit{kg/m$^3$}}
+	\nomenclature[A]{\(c_{s0}\)}{Initial concentration of solute in the solid phase \nomunit{kg/m$^3$}}
+	\nomenclature[A]{\(c_s^*\)}{Concentration of solute at the solid-fluid interface \nomunit{kg$^3$}}
+	\nomenclature[A]{\(c_p\)}{Concentration of solute in the core of a pore \nomunit{kg/m$^3$}}
+	\nomenclature[A]{\(c_{pf}\)}{Concentration of solute at the pore opening \nomunit{kg/m$^3$}}
+	\nomenclature[A]{\(D_e^M\)}{Axial diffusion coefficient \nomunit{m$^2$/s}}
+	\nomenclature[A]{\(r_e\)}{Mass transfer kinetic term \nomunit{kg/m$^3$/s}}
+	\nomenclature[A]{\(L\)}{Length of the fixed bed \nomunit{m}}
+	\nomenclature[A]{\(S\)}{Sensitivity equations}
+	\nomenclature[A]{\(\textbf{G}\)}{Augmented system}
+	\nomenclature[A]{\(\dot{S}\)}{Time derivative of the sensitivity equations}
+	\nomenclature[A]{\(\bar{S}\)}{Sensitivity matrix}
+	\nomenclature[A]{\(\bar{J}_x\)}{Jacobian matrix with respect to the state variables}
+	\nomenclature[A]{\(\bar{J}_\Theta\)}{Jacobian matrix with respect to the parameters}
+	%\nomenclature[A]{\(\mathcal{L}\)}{Log-likelihood function}
+	\nomenclature[A]{\(l\)}{Characteristic dimension of particles \nomunit{m}}
+	\nomenclature[A]{\(D_i\)}{Internal diffusion coefficient \nomunit{m$^2$/s}}
+	\nomenclature[A]{\(D_i^R\)}{Reference value of internal diffusion coefficient \nomunit{m$^2$/s}}
+	\nomenclature[A]{\(r\)}{Particle radius \nomunit{m}}
+	\nomenclature[A]{\(k_p\)}{Volumetric partition coefficient \nomunit{-}}
+	\nomenclature[A]{\(k_m\)}{Mass partition coefficient \nomunit{-}}
+	\nomenclature[A]{\(y\)}{Extraction yield \nomunit{g}}
+	%\nomenclature[A]{\(Y\)}{Yield measurement \nomunit{g}}
+	\nomenclature[A]{\(x\)}{State vector}
+	\nomenclature[A]{\(G\)}{Vector of discretized differential equations}
+	\nomenclature[A]{\(p\)}{Probability distribution model \nomunit{-}}
+	\nomenclature[A]{\(R_e\)}{Reynolds number \nomunit{-}}
+	
+	\nomenclature[B]{\(\rho_f\)}{Fluid density \nomunit{kg/m$^3$}}
+	\nomenclature[B]{\(\Phi\)}{Bed porosity \nomunit{-}}
+	\nomenclature[B]{\(\rho_s\)}{Bulk density of the solid \nomunit{kg/m$^3$}}
+	\nomenclature[B]{\(\mu\)}{Sphericity coefficient \nomunit{-}}
+	\nomenclature[B]{\(\gamma\)}{Decay function \nomunit{-}}
+	\nomenclature[B]{\(\Upsilon\)}{Decay coefficient \nomunit{-}}
+	\nomenclature[B]{\(\Theta\)}{Parameter space}
+	\nomenclature[B]{\(\theta\)}{Vector of unknown parameters}
+	\nomenclature[B]{\(\epsilon\)}{Unobservable error \nomunit{g}}
+	\nomenclature[B]{\(\sigma\)}{Standard deviation \nomunit{g}}
+	
+	\nomenclature[C]{BIC}{Broke-and-Intact Cell model}
+	%\nomenclature[C]{MLE}{Maximum Likelihood Estimation}
+	\nomenclature[C]{SFE}{Supercritical Fluid Extraction}
+	\nomenclature[C]{HBD}{Hot Ball Diffusion}
+	\nomenclature[C]{SC}{Shrinking Core}
+	
+	\printnomenclature
 
 \end{document}
