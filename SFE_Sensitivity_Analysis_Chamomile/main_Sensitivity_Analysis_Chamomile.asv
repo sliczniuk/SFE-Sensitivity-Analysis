@@ -279,27 +279,25 @@ RES_short   = RES;
 load sensitivity.mat
 %%
 Time_long  = [Time_short, Time(8:end)];
-Yield_long = [Yield_short, Yield(:,8:end)];
-RES_long   = [RES_short, RES(:,8:end)];
+Yield_long = round([Yield_short, Yield(:,8:end)],15);
+RES_long   = round([RES_short, RES(:,8:end)],15);
 RES_norm_long = (RES_long ./ Yield_long .* Pressure_range');
-%RES_norm_long = round(RES_norm_long,8);
-RES_norm_long(isinf(RES_norm_long)|isnan(RES_norm_long))=0;
+RES_norm_long(isnan(RES_norm_long))=0;
 %%
 figure()
 hold on
-plot(Time_long, RES_norm_long,'LineWidth',2)
+plot(Time_long, RES_norm_long','LineWidth',2)
 xlabel('Time min'); 
-ylabel(['$\frac{dy}{dP_{in}}$'])
+ylabel(['$\frac{d y}{dP_{in}} \frac{P_{in}}{y} $'])
 hold off
 xticks([1e-4 1e-3 1e-2 1e-1, 1e0, 1e1, 1e2, 1e3, 1e4, 1e5])
-set(gca,'FontSize',My_Font)
-xscale log
+set(gca,'FontSize',My_Font, 'Xscale','log')
 legend('100 bar', '125 bar', '150 bar', '175 bar', '200 bar', 'Location','northwest')
 legend box off
 xlim([1e-4, 1e5])
                 
-%exportgraphics(figure(1),['Yield.png'], "Resolution",300);
-%close all;
+exportgraphics(figure(1),['Yield_Multiple_normalized.png'], "Resolution",300);
+close all;
 
 
 
