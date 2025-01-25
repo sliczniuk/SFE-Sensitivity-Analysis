@@ -5,6 +5,15 @@ delete(gcp('nocreate'));
 %addpath('C:\Dev\casadi-3.6.3-windows64-matlab2018b');
 addpath('\\home.org.aalto.fi\sliczno1\data\Documents\casadi-3.6.3-windows64-matlab2018b');
 import casadi.*
+%%
+Parameters_table        = readtable('Parameters.csv') ;                     % Table with prameters
+Parameters              = num2cell(Parameters_table{:,3});                  % Parameters within the model + (m_max), m_ratio, sigma
+
+LabResults              = xlsread('wpd_datasets.xlsx');
+which_dataset           = 4;
+
+SAMPLE                  = LabResults(21:34,1);
+data_org                = LabResults(21:34,which_dataset+1)';
 
 %% Load paramters
 m_total                 = 3.0;
@@ -15,8 +24,8 @@ bed                     = 0.92;                                             % Pe
 
 % Set time of the simulation
 PreparationTime         = 0;
-ExtractionTime          = 0.6;
-timeStep                = 0.0001;                                                % Minutes
+ExtractionTime          = 6e4;
+timeStep                = 0.1;                                                % Minutes
 
 simulationTime          = PreparationTime + ExtractionTime;
 
@@ -25,29 +34,6 @@ Time_in_sec             = (timeStep:timeStep:simulationTime)*60;            % Se
 Time                    = [0 Time_in_sec/60];                               % Minutes
 
 N_Time                  = length(Time_in_sec);
-
-name_v = {'T_{in}', 'P'     , 'F'                                   };
-name_s = {'c_f'   , 'c_s'   , '(h\times\rho)' , 'P_{t-1}'     , 'y' };
-name_p = {'CF'    , 'CS'    , 'H'             , 'P_{in}'      , 'Y' };
-    
-My_Font = 14;
-Pressure_range          = 100:25:200;
-RES                     = nan(length(Pressure_range), N_Time+1);
-STATE                   = nan(length(Pressure_range), 152, N_Time+1);
-SENSE                   = nan(length(Pressure_range), 152, N_Time+1);
-Yield                   = nan(length(Pressure_range), N_Time+1);
-
-parfor PP = 1:length(Pressure_range)
-
-%%
-Parameters_table        = readtable('Parameters.csv') ;                     % Table with prameters
-Parameters              = num2cell(Parameters_table{:,3});                  % Parameters within the model + (m_max), m_ratio, sigma
-
-LabResults              = xlsread('wpd_datasets.xlsx');
-which_dataset           = 4;
-
-SAMPLE                  = LabResults(21:34,1);
-data_org                = LabResults(21:34,which_dataset+1)';
 
 %% Specify parameters to estimate
 nstages                 = Parameters{1};
@@ -125,9 +111,13 @@ m_fluid                 = G(L_bed_after_nstages)*( L_bed_after_nstages(2) ); % L
 m_fluid                 = [zeros(1,numel(nstagesbefore)) m_fluid];
 C0fluid                 = m_fluid * 1e-3 ./ V_fluid';
 
+RES                     = [];
+Yield                   = [];
+Pressure_range          = 100:25:200;
+for PP = Pressure_range
     %% Set operating conditions
     T0homog                 = 35+273;                    % K
-    feedPress               = Pressure_range(PP);                        % bar
+    feedPress               = PP;                        % bar
     Flow                    = 5 * 1e-5 ;                 % kg/s
     
     Z                       = Compressibility( T0homog, feedPress,         Parameters );
@@ -166,30 +156,30 @@ C0fluid                 = m_fluid * 1e-3 ./ V_fluid';
     
     %% Set sensitivity analysis
     
-   
-    %num_levels = 100;
+    name_v = {'T_{in}', 'P'     , 'F'                                   };
+    name_s = {'c_f'   , 'c_s'   , '(h\times\rho)' , 'P_{t-1}'     , 'y' };
+    name_p = {'CF'    , 'CS'    , 'H'             , 'P_{in}'      , 'Y' };
     
-    ii = 2;
+    My_Font = 14;
+    num_levels = 100;
     
-    %% Sensitivities calculations
-    Parameters{8} = ii;
-    Parameters_init_time   = [uu repmat(cell2mat(Parameters),1,N_Time)'];
-    [S,p,Sdot]              = Sensitivity(x, xdot, u, ii );
+    for ii = 2     
     
-    % Initial conditions
-    x0_SA                   = [ x0; zeros(length(S)-length(xdot),1) ];
+            %% Sensitivities calculations
+            Parameters{8} = ii;
+            Parameters_init_time   = [uu repmat(cell2mat(Parameters),1,N_Time)'];
+            [S,p,Sdot]              = Sensitivity(x, xdot, u, ii );
     
-    f_SA = @(S, p) Sdot(S, p, bed_mask);
-    Results = Integrator_SS(Time*60, x0_SA, S, p, Sdot, Parameters_init_time);
-    Y   = Results(Nx,:);
-    Res = Results(Nx+1:end,:);
+            % Initial conditions
+            x0_SA                   = [ x0; zeros(length(S)-length(xdot),1) ];
+    
+            f_SA = @(S, p) Sdot(S, p, bed_mask);
+            Results = Integrator_SS(Time*60, x0_SA, S, p, Sdot, Parameters_init_time);
+            Y   = Results(Nx,:);
+            Res = Results(Nx+1:end,:);
 
-    %Yield  = [Yield; Y];
-    Yield(PP,:) = Y;
-    %RES    = [RES  ; Res(end,:)];
-    RES(PP,:)    = Res(end,:);
-    STATE(PP, :, :) = Results(1:Nx,:);
-    SENSE(PP, :, :) = Res;
+            Yield  = [Yield; Y];
+            RES    = [RES  ; Res(end,:)];
     
             %% Sensitivities plot 
             %{
@@ -235,11 +225,9 @@ C0fluid                 = m_fluid * 1e-3 ./ V_fluid';
                 indx = indx + 1;
             end     
             %}   
-    %end
+    end
 end
-save sensitivity_2.mat
 %%
-
 %{\
 RES_norm = (RES ./ Yield .* Pressure_range');
 RES_norm(:,1) = 0;
@@ -271,35 +259,8 @@ legend box off
 %close all;
 
 %}
-%%
-load sensitivity_2.mat
-Yield_short = Yield;
-Time_short  = Time;
-RES_short   = RES;
-load sensitivity.mat
-%%
-Time_long  = [Time_short, Time(8:end)];
-Yield_long = [Yield_short, Yield(:,8:end)];
-RES_long   = [RES_short, RES(:,8:end)];
-RES_norm_long = (RES_long ./ Yield_long .* Pressure_range');
-%RES_norm_long = round(RES_norm_long,8);
-RES_norm_long(isinf(RES_norm_long)|isnan(RES_norm_long))=0;
-%%
-figure()
-hold on
-plot(Time_long, RES_norm_long,'LineWidth',2)
-xlabel('Time min'); 
-ylabel(['$\frac{dy}{dP_{in}}$'])
-hold off
-xticks([1e-4 1e-3 1e-2 1e-1, 1e0, 1e1, 1e2, 1e3, 1e4, 1e5])
-set(gca,'FontSize',My_Font)
-xscale log
-legend('100 bar', '125 bar', '150 bar', '175 bar', '200 bar', 'Location','northwest')
-legend box off
-xlim([1e-4, 1e5])
-                
-%exportgraphics(figure(1),['Yield.png'], "Resolution",300);
-%close all;
+
+
 
 
 
