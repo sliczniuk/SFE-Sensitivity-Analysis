@@ -1,8 +1,8 @@
 clc, close all
 clear all
 
-addpath('C:\Dev\casadi-3.6.3-windows64-matlab2018b');
-%addpath('\\home.org.aalto.fi\sliczno1\data\Documents\casadi-windows-matlabR2016a-v3.5.1');
+%addpath('C:\Dev\casadi-3.6.3-windows64-matlab2018b');
+addpath('\\home.org.aalto.fi\sliczno1\data\Documents\casadi-3.6.3-windows64-matlab2018b');
 import casadi.*
 
 Parameters_table        = readtable('Parameters.csv') ;        % Table with prameters
@@ -22,7 +22,7 @@ g = Function('g',{[T, P]},{h});
 
 %% 2) Generate a grid of (T,P) and compute H.
 Tmin = 30+273;  Tmax = 50+273;
-Pmin = 80;      Pmax = 300;
+Pmin = 74;      Pmax = 300;
 nT   = 100;     nP   = 200;
 
 Tvec = linspace(Tmin, Tmax, nT);
@@ -53,34 +53,41 @@ gof
 figure('Name','Two Surfaces','Units','normalized','Position',[0.1 0.1 0.8 0.4]);
 
 % --- (a) Left plot: original surface H=f(T,P)
-subplot(1,3,1);
-surf(HH, PP, TT-273, 'EdgeColor','none');
-xlabel('H'); ylabel('P'); zlabel('T');
-title('Surface 1: H = f(T,P)');
-view(2);
-colormap jet; colorbar
+subplot(3,1,1);
+pcolor(HH, PP, TT-273, 'EdgeColor','none');
+xlabel('H [kJ/kg]'); ylabel('P [bar]');
+title('Solution of the enthalpy departure function');
+colormap jet; hcb=colorbar;
+hcb.Title.String = '$T~[^\circ C]$';
+hcb.Title.Interpreter = 'latex';
+hcb.TickLabelInterpreter = "latex";
 axis tight; grid off
 
 % --- (b) Right plot: fitted surface T ~ g(H,P)
-subplot(1,3,2);
+subplot(3,1,2);
 
 % Evaluate the fitted polynomial
-TTplot = surfaceFit(HH, PP);
+[TTplot] = reconstruct_T_polynomial_approximation(HH, PP);
+%TTplot = surfaceFit(HH, PP);
 
-surf(HH, PP, TTplot-273, 'EdgeColor','none');
-view(2)
-xlabel('H'); ylabel('P'); zlabel('T');
-title('Surface 2: T ~ g(H,P) from polynomial fit');
-colormap jet; colorbar
+pcolor(HH, PP, TTplot-273, 'EdgeColor','none');
+xlabel('H [kJ/kg]'); ylabel('P [bar]');
+title('Polynomial approximation of the enthalpy derparture functin');
+colormap jet; hcb=colorbar;
+hcb.Title.String = '$T~[^\circ C]$';
+hcb.Title.Interpreter = 'latex';
+hcb.TickLabelInterpreter = "latex";
 axis tight; grid off
 
 % Show difference between dataset and predictions
-subplot(1,3,3)
-surf(HH, PP, TTplot - TT, 'EdgeColor','none');
-view(2)
-xlabel('H'); ylabel('P'); zlabel('T');
-title('Surface 3: Difference f and g functions');
-colormap jet; colorbar
+subplot(3,1,3)
+pcolor(HH, PP, (TTplot - TT)./(TT-273) .* 100, 'EdgeColor','none');
+xlabel('H [kJ/kg]'); ylabel('P [bar]');
+title('Relative difference between the orginal function and it polunomial approximation');
+colormap jet; hcb=colorbar;
+hcb.Title.String = "Relative difference [\%]";
+hcb.Title.Interpreter = 'latex';
+hcb.TickLabelInterpreter = "latex";
 axis tight; grid off
 
 %% 5) (Optional) Check the fit or display results
