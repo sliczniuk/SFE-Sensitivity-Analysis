@@ -16,7 +16,7 @@ bed                     = 0.92;                                             % Pe
 % Set time of the simulation
 PreparationTime         = 0;
 ExtractionTime          = 6e4;
-timeStep                = 1e-1;                                                % Minutes
+timeStep                = 1e-2;                                                % Minutes
 
 simulationTime          = PreparationTime + ExtractionTime;
 
@@ -242,7 +242,7 @@ C0fluid                 = m_fluid * 1e-3 ./ V_fluid';
     end
 end
 %%
-
+%{\
 RES_norm = (RES ./ Yield .* Pressure_range');
 RES_norm(:,1) = 0;
 
@@ -266,7 +266,6 @@ xscale log
 xlabel('Time min'); 
 ylabel(['$\frac{d ',name_s{5},'}{d',name_v{2},'} \frac{P}{y} $'])
 set(gca,'FontSize',My_Font)
-%}
 
 legend('100 bar', '125 bar', '150 bar', '175 bar', '200 bar', 'Location','best')
 legend box off
@@ -274,6 +273,22 @@ legend box off
 %close all;
 
 %}
+
+%%
+plot(Time, RES,'LineWidth',2)
+hold on
+for ii=1:Press
+xscale log
+xlabel('Time min'); 
+ylabel(['$\frac{d ',name_s{5},'}{d',name_v{2},'}$'])
+set(gca,'FontSize',My_Font)
+
+
+
+
+
+
+
 
 
 

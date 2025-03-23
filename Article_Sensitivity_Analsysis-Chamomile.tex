@@ -38,7 +38,6 @@
 \newcommand{\nomunit}[1]{%
 	\renewcommand{\nomentryend}{\hspace*{\fill}#1}}
 
-\usepackage{csvsimple}
 
 % TODO package
 \usepackage[bordercolor=gray!20,backgroundcolor=blue!10,linecolor=black,textsize=footnotesize,textwidth=1in]{todonotes}
@@ -205,8 +204,8 @@
 	\citet{Fishtik1997} applied local sensitivity analysis to a complex chemical reaction system involving multiple pure condensed phases and one ideal gas phase. The study demonstrated that the system's response could be expressed as a sum of contributions from equilibrium states defined by gas-phase species. The impact of temperature, pressure, and initial species amounts was specifically analyzed in the context of coal gasification.
 		
 	In their comprehensive review, \citet{Saltelli2005} examined sensitivity analysis methods applicable to chemical reaction modeling. They discussed both local and global techniques, emphasizing the role of global sensitivity analysis in understanding complex chemical systems. The authors highlighted the importance of variance-based methods in quantifying the influence of input parameters on model outputs by discussing results of a few simulation analysis.
-		
-	Unlike previous studies, this work focuses on derivative-based local sensitivity analysis to evaluate the robustness and predictive accuracy of a mathematical model for chamomile oil extraction under varying operational conditions. The analysis specifically investigates the effects of changes in operating conditions, offering novel insights into model development and the optimization of extraction performance.
+	
+	{\color{blue}A key novelty of this work lies in its rigorous application of derivative-based local sensitivity analysis to a first-principles model of supercritical fluid extraction, specifically targeting the extraction of chamomile oil. While numerous studies have developed empirical or semi-empirical models for supercritical extraction, many of these either omit local sensitivity analyses altogether or provide only basic parametric comparisons (\citet{Santos2000}, \citet{Fiori_2007} or \citet{Zahedi2010}). In contrast, the present approach integrates a quasi-1D partial-differential-equation model with automatic differentiation of the mass and energy balances, enabling a detailed exploration of how infinitesimal changes in operating parameters propagate through the system to influence solute concentrations and overall extraction yield. Although this work focus on the influence of pressure, the same methodology can be analysed any other parameter of control. Notably, this level of detail is crucial near the critical region of CO$_2$, where small deviations in process conditions can trigger large changes in solvent properties (such as density and solubility). This approach thus provides a systematic and quantitative measure of the system’s sensitivity to parameter fluctuations across different extraction regimes, from kinetic- to diffusion-controlled.}
 	
 	% ===================================================
 	% Section: Main
@@ -295,7 +294,7 @@
 	{\footnotesize
 		\begin{equation} 
 			\label{Model_solid}
-			\cfrac{\partial c_s}{\partial t} = \underbrace{ r_e }_{\text{Kinetics}}
+			\cfrac{\partial c_s}{\partial t} = \underbrace{-r_e}_{\text{Kinetics}}
 	\end{equation} }
 	
 	\subsubsection{Kinetic term} \label{CH: Kinetic}
@@ -337,7 +336,7 @@
 	{\footnotesize
 		\begin{equation}
 			\label{Model_kinetic_no_sat}
-			r_e = -\cfrac{D_i}{ \mu l^2 } \left(c_s - \cfrac{\rho_s c_f}{k_m \rho_f} \right)
+			r_e = \cfrac{D_i}{ \mu l^2 } \left(c_s - \cfrac{\rho_s c_f}{k_m \rho_f} \right)
 	\end{equation} }
 
 	The choice between the two formulations should consider the system's properties and the underlying mass transfer assumptions. In systems where external mass transfer dominates, the resistance to solute transport primarily occurs at the fluid-solid interface, typically governed by the diffusion of solute across the fluid boundary layer. Under these conditions, the Bulley formulation is more appropriate, as it explicitly emphasizes the fluid-phase concentration ($c_f$) as the driving force for mass transfer through the term $c_f - c_p^*(c_s)$. Conversely, when internal mass transfer dominates, the resistance to solute transport is controlled by diffusion or adsorption processes within the solid phase. In such cases, the Reverchon formulation is more suitable, as it accounts for deviations in the equilibrium through the term $c_s - c_s^*(c_f)$.
@@ -348,7 +347,7 @@
 	
 	{\footnotesize
 		\begin{equation}
-			D_i = D_i^R \gamma(c_s) = D_i^R \exp \left( \Upsilon \left( 1-\cfrac{ c_s }{c_{s0}} \right) \right), \label{EQ: C_sat_function}
+			D_i = D_i^R \gamma(c_s) = D_i^R \exp \left( - \Upsilon \left( 1-\cfrac{ c_s }{c_{s0}} \right) \right), \label{EQ: C_sat_function}
 	\end{equation} }
 	
 	where  ${\color{black}\Upsilon}$ describes the curvature of the decay function. Equation \ref{Model_kinetic} describes the final form of the kinetic term:
@@ -417,14 +416,14 @@
 	
 	\subsubsection{Pressure term} \label{CH: Pressure}
 	
-	As explained in Section \ref{CH:Governing_equations_chapter}, this low velocity region pressure is nearly constant due to the small pressure wave propagation that occurs at the speed of sound. Under such conditions, the term $\partial P/\partial t$ can be approximated by a difference equation, describing the pressure change in the whole system. The pressure $P$ in the system is considered a state variable, while the pressure in the new time-step $P_{in}$ is considered a control variable.
+	{\color{blue}As explained in Section \ref{CH:Governing_equations_chapter}, the pressure in the low-velocity region remains nearly constant due to the small pressure wave propagation occurring at the speed of sound. Under such conditions, the term $\partial P/\partial t$ can be approximated by a forward difference equation, describing the pressure change over a small time step $\Delta t$. The pressure $P$ in the system is treated as a state variable, while the incoming pressure at the new time-step $P_{in}$ is treated as a control:}
 	
 	{\footnotesize
 		\begin{equation}
 			\frac{\partial {\color{black}P}}{\partial t} \approx \frac{{\color{black}P_{in}} - {\color{black}P} }{\Delta t}
 	\end{equation}}
 	
-	Such a simplified equation allows for instantaneous pressure change in the system but does not consider a gradual pressure build-up and the effects of pressure losses. In a real system, the dynamics of pressure change would depend on a pump and a back-pressure regulator.
+	{\color{blue}Such a simplified equation allows for instantaneous pressure. In a real system, the pressure dynamics would depend on the behaviour of the pump and the back-pressure regulator, which introduce additional inertia and resistance to pressure changes, leading to pressure gradual build-up.}
 	
 	\subsubsection{Extraction yield} \label{CH: Yield}
 	
@@ -499,7 +498,7 @@
 	
 	\subsection{Local sensitivity analysis} \label{CH: Sensitivity_Analysis}
 	
-	Local derivative-based methods involve taking the total derivative of the state vector $x$ with respect to the parameter space $\Theta$. A set of derivatives, known as sensitivity equations, is integrated simultaneously with the process model. Sensitivity analysis shows how responsive the solution is to changes in the parameter $\Theta$. As discussed by \citet{Dickinson1976}, sensitivity analysis can be used to determine the influence of uncertainty on the solution of the original system. Another application of sensitivity analysis is to distinguish sensitive parameters from insensitive ones, which might be helpful for model reduction. Finally, from a control engineering point of view, sensitivity analysis allows sorting the control variables with respect to the level of effort required to change the model's output.
+	Local derivative-based methods involve taking the total derivative of the state vector $x$ with respect to the parameter space $\Theta$. A set of derivatives, known as sensitivity equations, is integrated simultaneously with the process model. Sensitivity analysis shows how responsive the solution is to changes in the parameter $\Theta$. As discussed by \citet{Dickinson1976}, sensitivity analysis can be used to evaluate the influence of uncertainty on the solution of the original system. Another application of sensitivity analysis is to distinguish sensitive parameters from insensitive ones, which might be helpful for model reduction. Finally, from a control engineering point of view, sensitivity analysis allows sorting the control variables with respect to the level of effort required to change the model's output.
 	
 	Following the work of \citet{Maly1996}, sensitivity equations can be defined as follows:
 	
@@ -509,21 +508,23 @@
 			S(x;\Theta) = \cfrac{dx}{d\Theta}
 	\end{equation} }
 	
-	The new system of equations can be obtained by taking the total derivative of $S$ with respect to time $t$:
+	{\color{blue}The sensitivity matrix $S(x;\Theta)$ represents how the state vector $x$ changes in response to variations in the model parameters $\Theta$. In physical terms, this means it measures how sensitive the system is to changes in the underlying parameters that define its behavior.} The new system of equations can be obtained by taking the total derivative of $S$ with respect to time $t$:
 	
 	{\footnotesize
 		\begin{equation} \label{SA_dt} 
 			{\dot{S}}(x;\Theta)  = \cfrac{dS(x;\Theta)}{d t} = \cfrac{d}{d t} \left( \cfrac{dx}{d\Theta} \right) = \cfrac{d }{d\Theta} \left( \cfrac{dx}{d t} \right) = \cfrac{d G(x;\Theta)}{d\Theta} 
 	\end{equation} }
 	
-	Sensitivity Equation \ref{SA_eq_full} can be obtained by applying the definition of the total derivative to Equation \ref{SA_dt}:
+	{\color{blue}This equation describes how the sensitivity of the system evolves over time. It shows that the time derivative of the sensitivity matrix depends on how the system dynamics (represented by $G(x; \Theta)$ change with respect to the parameters.} Sensitivity Equation \ref{SA_eq_full} can be obtained by applying the definition of the total derivative to Equation \ref{SA_dt}:
 	
 	{\footnotesize
 		\begin{equation} \label{SA_eq_full}
 			\cfrac{d G(x;\Theta)}{d \Theta} = \underbrace{ \cfrac{\partial G(x;\Theta)}{\partial x} }_{{\bar{J}_x}(x;\Theta)} \underbrace{\cfrac{\partial x}{\partial \Theta} }_{\bar{S}(x;\Theta)} + \underbrace{ \cfrac{\partial G(x;\Theta)}{\partial \Theta} }_{{\bar{J}_\Theta}(x;\Theta)}
 	\end{equation} }
+
+	{\color{blue}This equation decomposes the total effect of parameter changes on the system dynamics into two parts. The indirect effect represented by the term involving $\bar{J}_x (x; \Theta)$ This term shows how changes in the parameters influence the system through their effect on the state variables. This is an indirect feedback effect where parameter changes alter the state, which in turn affects the system response. The direct effect given by $\bar{J}_x (x; \Theta)$ reflects the immediate sensitivity of the system to parameter variations.}
 	
-	The Jacobian ${\bar{J}_x}(x;\Theta)$ represents the matrix of equations of size $N_x \times N_x$, where each equation ${\bar{J}_x}(n_x,n_x)$ is the derivative of $G_{n_x}(x;\Theta)$ with respect to the state variable $x_{n_\Theta}$:
+	Matrix ${\bar{J}_x}(x;\Theta)$ and $\bar{S}(x;\Theta)$ describe the indirect influence of $\Theta_{n_\Theta}$ on the state space. The Jacobian ${\bar{J}_x}(x;\Theta)$ represents the matrix of equations of size $N_x \times N_x$, where each equation ${\bar{J}_x}(n_x,n_x)$ is the derivative of $G_{n_x}(x;\Theta)$ with respect to the state variable $x_{n_\Theta}$. {\color{blue}This is the Jacobian matrix with respect to the state vector, which measures how the system’s dynamics change with changes in the state itself.}
 	
 	{\footnotesize
 		\begin{align}
@@ -538,7 +539,7 @@
 			\endgroup
 	\end{align} }
 	
-	The sensitivity matrix $\bar{S}(x;\Theta)$ represents the matrix of equations of size $N_x \times N_\Theta$, where each entry $\bar{S}(n_x,n_\Theta)$ is the derivative of state variable $x_{n_x}$ with respect to parameter $\Theta_{n_\Theta}$. Matrix ${\bar{J}_x}(x;\Theta)$ and $\bar{S}(x;\Theta)$ describe the indirect influence of $\Theta_{n_\Theta}$ on the state space.
+	The sensitivity matrix $\bar{S}(x;\Theta)$ represents the matrix of equations of size $N_x \times N_\Theta$, where each entry $\bar{S}(n_x,n_\Theta)$ is the derivative of state variable $x_{n_x}$ with respect to parameter $\Theta_{n_\Theta}$. {\color{blue}The sensitivity matrix $\bar{S}(x;\Theta)$ measures how the state variables respond to parameter changes.}
 	
 	{\footnotesize
 		\begin{equation}
@@ -571,6 +572,8 @@
 			\end{pmatrix}
 			\endgroup
 	\end{align}}
+
+	{\color{blue}}
 	
 	The augmented system containing the original set of equations $G(x;\Theta)$ and sensitivity equations is called ${\textbf{G}}\left(x;\Theta\right)$. The size of ${\textbf{G}}\left(x;\Theta\right)$ is equal to $N_s = N_x(N_\Theta + 1)$.
 	
@@ -582,18 +585,20 @@
 				{\bar{J}_x}(x;\Theta)\bar{S}(x;\Theta) + {\bar{J}_\Theta}(x;\Theta)
 			\end{bmatrix}
 	\end{align} }
+
+	{\color{blue}The augmented system combines both the state equations and sensitivity equations into a unified system. This allows the simultaneous computation of both the system behavior and its sensitivity to parameter changes.}
 	
 	The initial conditions are described as
 	
 	{\footnotesize
 		\begin{align}
-			{\textbf{G}}\left(x(t_0);\Theta\right)  &= 
+			{\textbf{G}}\left(x(t_0);\Theta\right)  	   &= 
 			\begin{bmatrix}
 				x(t_0),						               &
-				\cfrac{ \text{d}x(t_0) }{ d{\Theta_1} },		   &
+				\cfrac{ \text{d}x(t_0) }{ d{\Theta_1} },   &
 				\cdots,					 				   &
 				\cfrac{ dx(t_0) }{ d{\Theta_{N_\Theta}} }            
-			\end{bmatrix}^\top = \\ &=
+			\end{bmatrix}^\top = \\ 					   &=
 			\begin{bmatrix} 
 				\quad x_0,	                               &
 				\quad ~0,		                           &
@@ -601,6 +606,8 @@
 				\quad 0 \quad~~
 			\end{bmatrix}^\top \nonumber
 	\end{align} }
+
+	{\color{blue} The sensitivity starts at zero because the system initially has no variation with respect to the parameters.}
 	
 	% ===================================================
 	% Section: Summary
@@ -608,23 +615,37 @@
 	
 	%\subfile{Sections/Results_Sensitivity}
 	\section{Results} \label{CH: Results}
-	The details of the process model and parameters are provided in \citet{Sliczniuk2024}. The process model was validated in the following range of operating conditions: temperatures between $30 - 40 ^\circ C$, pressures between $100 - 200$ bar, and mass flow rates between $3.33-6.67 \cdot 10^{-5}$ kg/s. The sensitivity analysis is performed at the midpoint of the validated range: $35 ^\circ C$, 150 bar and 5 $\cdot 10^{-5}$ kg/s. This study examines the impact of pressure change on the state space and extraction yield through local sensitivity analysis. The local sensitivity analysis results can be interpreted as the system's response to an infinitesimal deviation in pressure.
+	The details of the process model and parameters are provided in \citet{Sliczniuk2024}. The process model was validated in the following range of operating conditions: temperatures between $30 - 40 ^\circ C$, pressures between $100 - 200$ bar, and mass flow rates between $3.33-6.67 \cdot 10^{-5}$ kg/s. This study examines the impact of parameter change on the state space and extraction yield through local sensitivity analysis. The local sensitivity analysis results can be interpreted as the system's response to an infinitesimal deviation in parameters. {\color{blue}This work focus on two selected cases, but the same analysis can be extended to any other model parameter. The first case corresponds to the analysis of empirical correlations on the process model. The zero'th order term (denoted as $\Upsilon(0)$) of the multiple linear regression for $\Upsilon$ was selected. The second case corresponds to the investigation of the operating condition on the state-space. Particularly, on the influence of pressure variations on the model output. The first analysis is performed at the midpoint of the validated range: $35 ^\circ C$, 150 bar and 5 $\cdot 10^{-5}$ kg/s. The second analysis is splitted into two sub-analysis. The influence of the pressure change on the state-variables (concnetration of the solute in the sold and fluid phases) are considered at the midpoint of the validated range. The yield analysis is conducted at the same tempature and mass flow-rate conditions but at different values of pressure (100, 125, 150, 175 and 200 bar).}
 	
+	\subsection{$\Upsilon$ case}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[trim = 0.0cm 0.0cm 0.0cm 0.0cm,clip,width=\columnwidth]{/Results_sensitivity/CS_gamma.png}
+		\caption{The effect of $P_{in}$ change on $C_s$}
+		\label{fig:Sensitivty_Gamma_CS}
+	\end{figure}
+	
+	The $\Upsilon$ term corresponds to the curvature of decay function $\gamma$, and can be associated with uneven distribution of the solute in the solid particle. As the zero'th order term is not directly affect by independent variables, it physical interpretation becomes straight forward. The increment of the term makes the exponential decay more steep, which means that the $D_i^R$ is multiplied by a smaller number, hence it is expected to observe slower extraction rate.
+	
+	Figure \ref{fig:Sensitivty_P_CS} illustrates the sensitivity of the solute concentration in the solid phase to change into zero'th order term in the equation for $\Upsilon$. As discussed by \citet{Sliczniuk2024}, the system is far from the saturation point, which indicates that the concentration gradient is controlled mainly by $c_s$. Considering that, the extraction kinetic term act as independent on $c_f$, which explain why Figure \ref{fig:Sensitivty_P_CS} shows a uniform response in solid phase. The positive value of $\frac{dc_s}{d\Upsilon(0)}$ can be interpreted as an slower loss of the solute from particles and is observed when the extraction slows down. 
+	
+	\subsection{Pressure case}
 	As discussed in Section \ref{CH:Governing_equations_chapter}, at low velocity, the fluid can be treated as incompressible, which results in the instant propagation of pressure throughout the system, enabling a single pressure value to be considered for the entire system. In response to a pressure change, the energy equation experiences a simultaneous deviation across the entire spatial domain. This pressure change impacts the fluid temperature within the computational domain, while boundary values are constrained by conditions specified at the domain's extremes. Dirichlet boundary conditions impose a fixed temperature value at the inlet, creating a thermal gradient that propagates through the system. Alternatively,  Neumann boundary conditions specify a heat flux at the extremes. The zero Neumann boundary conditions are applied to ensure a uniform response to the pressure change of temperatures at the inlet, outlet, and within the extractor.
 		
 	\begin{figure}[!ht]
 		\centering
 		\includegraphics[trim = 0.0cm 0.0cm 0.0cm 0.0cm,clip,width=\columnwidth]{/Results_sensitivity/CS_P.png}
-		\caption{The effect of $P_{in}$ change on $C_s$.}
+		\caption{The effect of $P_{in}$ change on $C_s$}
 		\label{fig:Sensitivty_P_CS}
 	\end{figure}
 	
-	Figure \ref{fig:Sensitivty_P_CS} illustrates the sensitivity of the solute concentration in the solid phase to pressure changes. As discussed in Section \ref{CH: Continuity}, the velocity of a fluid is inversely proportional to its density, indicating that increased pressure reduces the fluid velocity. This results in an extended residence time, allowing for longer interaction between the solute and solvent.	Initially, the extraction process operates in the kinetic-controlled regime, where the concentration gradient is high, and solute solubility is the limiting factor. As noted by \citet{Sliczniuk2024}, the system is considered far from saturation, which explains the low initial system response. This low initial response was also observed in the sensitivity analysis by \citet{Fiori_2007}. The system's response becomes more pronounced as the concentration gradient decreases and the extraction shifts from the kinetic-controlled to the diffusion-controlled regime. In Figure \ref{fig:Sensitivty_P_CS}, all $\frac{dc_s}{dP}$ values are negative, which indicates a faster mass transfer from the solid phase, corresponding to enhanced mass transfer.  Over time, as the amount of solute decreases, it becomes a limiting factor, reducing the effect of pressure changes on the system. Eventually, the sensitivities approach zero asymptotically as the solute is washed out of the bed.
+	Figure \ref{fig:Sensitivty_P_CS} illustrates the sensitivity of the solute concentration in the solid phase to pressure changes. As discussed in Section \ref{CH: Continuity}, the velocity of a fluid is inversely proportional to its density, indicating that increased pressure reduces the fluid velocity. This results in an extended residence time, allowing for longer interaction between the solute and solvent. Initially, the extraction process operates in the kinetic-controlled regime, where the concentration gradient is high, and solute solubility is the limiting factor. As noted by \citet{Sliczniuk2024}, the system is considered far from saturation, which explains the low initial system response. This low initial response was also observed in the sensitivity analysis by \citet{Fiori_2007}. The system's response becomes more pronounced as the concentration gradient decreases and the extraction shifts from the kinetic-controlled to the diffusion-controlled regime. In Figure \ref{fig:Sensitivty_P_CS}, all $\frac{dc_s}{dP}$ values are negative, which indicates a faster mass transfer from the solid phase, corresponding to enhanced mass transfer.  Over time, as the amount of solute decreases, it becomes a limiting factor, reducing the effect of pressure changes on the system. Eventually, the sensitivities approach zero asymptotically as the solute is washed out of the bed.
 	
 	\begin{figure}[!ht]
 		\centering
 		\includegraphics[trim = 0.0cm 0.0cm 0.0cm 0.0cm,clip,width=\columnwidth]{/Results_sensitivity/CF_P.png}
-		\caption{The effect of $P_{in}$ change on $C_f$.}
+		\caption{The effect of $P_{in}$ change on $C_f$}
 		\label{fig:Sensitivty_P_CF}
 	\end{figure}
 	
@@ -636,7 +657,7 @@
 	\begin{figure}[!ht]
 		\centering
 		\includegraphics[trim = 0.0cm 0.0cm 0.0cm 0.0cm,clip,width=\columnwidth]{/Results_sensitivity/Yield.png}
-		\caption{The effect of $P_{in}$ change on $y(t)$.}
+		\caption{The effect of $P_{in}$ change on $y(t)$}
 		\label{fig:Sensitivty_P_y}
 	\end{figure}
 	
@@ -645,7 +666,7 @@
 	\begin{figure}[!hb]
 		\centering
 		\includegraphics[trim = 0.0cm 0.0cm 0.0cm 0.0cm,clip,width=\columnwidth]{/Results_sensitivity/Yield_Multiple_normalized.png}
-		\caption{The effect of $P_{in}$ change on $y(t)$ after normalization.}
+		\caption{The effect of $P_{in}$ change on $y(t)$ after normalization}
 		\label{fig:Sensitivty_P_y_norm}
 	\end{figure}
 	
@@ -659,7 +680,25 @@
 	
 	Sensitivity analysis is a tool used to understand how the parameters of the model affect its output. The presented formulation involves derivative-based local sensitivity analysis of the model solution with respect to selected parameters and controls. This work implemented automatic differentiation to derive the sensitivity equations. The results of the local sensitivity analysis and model specific and consider only a small region of parameter space, and the conclusions derived from such an analysis are limited to local conditions.
 	
-	Although local sensitivity analysis can be performed with respect to any model parameter, this study focuses specifically on the effect of pressure. Under the selected operating conditions, it was observed for all the cases that a pressure increment enhances mass transfer, leading to a faster mass transfer of solute from the particles. Consequently, negative sensitivities can be observed in the diagram for the solid phase. The corresponding response in the fluid phase is characterized by positive-valued sensitivities, indicating that a greater amount of solute is transported into the fluid phase. As a result, the extraction yield is improved and characterized by positive sensitivities. Given that the results of the local sensitivity analysis depend on the operating point, the analysis was repeated at different pressures. The normalized sensitivity coefficients provide a basis for generalizing the discussion of the results and comparing the influence of various parameters. The normalized sensitivity results were found to vary within the range of -0.17 to 0.6. The overall effect of each parameter can be evaluated by integrating the sensitivity curves. Similar to the analysis of yield sensitivity, the integration was performed over extended simulation time (until all sensitivities approached zero). The cumulative integral values at pressures of 100, 125, 150, 175, and 200 bars are 31487, 8548, 4462, 2825, and 1939, respectively. The positive sign of these values indicates that increased pressure enhances the extraction yield under all investigated operating conditions. The order of magnitude of the integrals allows to identify at which operating condtions the pressure increase is the most influential.
+	Although local sensitivity analysis can be performed with respect to any model parameter, this study focuses specifically on the effect of pressure. Under the selected operating conditions, it was observed for all the cases that a pressure increment enhances mass transfer, leading to a faster mass transfer of solute from the particles. Consequently, negative sensitivities can be observed in the diagram for the solid phase. The corresponding response in the fluid phase is characterized by positive-valued sensitivities, indicating that a greater amount of solute is transported into the fluid phase. As a result, the extraction yield is improved and characterized by positive sensitivities. Given that the results of the local sensitivity analysis depend on the operating point, the analysis was repeated at different pressures. The normalized sensitivity coefficients provide a basis for generalizing the discussion of the results and comparing the influence of various parameters. The normalized sensitivity results were found to vary within the range of -0.17 to 0.6. The overall effect of each parameter can be evaluated by integrating the sensitivity curves. Similar to the analysis of yield sensitivity, the integration was performed over extended simulation time (until all sensitivities approached zero). The values of cumulative integral are presented in Table \ref{table:Cumulative_integral}. The positive sign of these values indicates that increased pressure enhances the extraction yield under all investigated operating conditions. The order of magnitude of the integrals allows to identify at which operating condtions the pressure increase is the most influential.
+	
+	\begin{table}[h!]
+		\adjustbox{max width=\columnwidth}{%
+		\centering
+		\begin{tabular}{|l| c c c c c|} 
+			\hline
+			Pressure case & 100 & 125 & 150 & 175 & 200 \\ 
+			\hline
+			Initial normalized sensitivity & 0.25 & -0.08 & -0.13 & -0.15 & -0.17 \\ 
+			Max normalized sensitivity & 0.52 & 0.28 & 0.18 & 0.15 & 0.13 \\ 
+			Cumulative integral & 31487 & 8548 & 4462 & 2825 & 1939 \\ 
+			\hline
+		\end{tabular} }
+		\caption{Values of the cumulative integral of the yield sensitivity}
+		\label{table:Cumulative_integral}
+	\end{table}
+	
+	{\color{blue}The findings of this work are particularly valuable for industrial-scale supercritical extraction processes, where achieving both operational efficiency and product quality can be challenging. The local sensitivity analysis demonstrates that even small adjustments in operating parameters can yield disproportionately large improvements in extraction rates, especially near the fluid’s critical point. By quantifying how parameter variations affect the model states, the high-efficiency operating setpoints can be identified. Moreover, linking local sensitivity analysis to numerical optimization establishes a systematic framework for industrial process design and scale-up. Rather than relying heavily on trial-and-error or resource-intensive pilot studies, the model-based approach can be used to pre-identify the region of interests. This approach reduces both the time and material costs needed to reach profitable extraction rates, moving industrial operations toward cost-effective production.}
 	
 	It can be concluded that the system responses at low pressures were stronger than those at higher pressures. This behaviour can be explained by the rapid changes in solvent properties occurring near the critical point of CO$_2$.
 	

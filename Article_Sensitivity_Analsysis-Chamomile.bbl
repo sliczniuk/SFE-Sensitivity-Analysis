@@ -1,4 +1,4 @@
-\begin{thebibliography}{38}
+\begin{thebibliography}{39}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -162,7 +162,9 @@ G.~Sodeifian, S.A Sajadian, and B.~Honarvar.
 \bibitem[Sodeifian et~al.(2017{\natexlab{b}})Sodeifian, Sajadian, and
   Saadati~Ardestani]{Sodeifian2017b}
 G.~Sodeifian, S.A Sajadian, and N.~Saadati~Ardestani.
-\newblock Experimental optimization and mathematical modeling of the supercritical fluid extraction of essential oil from eryngium billardieri: Application of simulated annealing algorithm.
+\newblock Experimental optimization and mathematical modeling of the
+  supercritical fluid extraction of essential oil from eryngium billardieri,
+  application of simulated annealing algorithm.
 \newblock \emph{The Journal of Supercritical Fluids}, 12, 2017{\natexlab{b}}.
 \newblock ISSN 0896-8446.
 \newblock \doi{10.1016/j.supflu.2017.04.007}.
@@ -268,14 +270,24 @@ A.~Saltelli, M.~Ratto, S.~Tarantola, and F.~Campolongo.
 \newblock \emph{Chemical Reviews}, 2005.
 \newblock \doi{10.1021/cr040659d}.
 
-\bibitem[Jr.(1995)]{Anderson1995}
-J.~D.~Anderson Jr.
+\bibitem[Zahedi et~al.(2010)Zahedi, Elkamel, and Biglari]{Zahedi2010}
+G.~Zahedi, A.~Elkamel, and M.~Biglari.
+\newblock Optimization and sensitivity analysis of an extended ditributed
+  dynamic model of supercritical carbon dioxide extraction of nimbin from neem
+  seeds.
+\newblock \emph{Journal of Food Process Engineering}, 34\penalty0 (6):\penalty0
+  2156--2176, October 2010.
+\newblock ISSN 1745-4530.
+\newblock \doi{10.1111/j.1745-4530.2010.00576.x}.
+
+\bibitem[Anderson.(1995)]{Anderson1995}
+J.~D. Anderson.
 \newblock \emph{Computational fluid dynamics: The basics with applications}.
 \newblock McGraw-Hill, 1995.
 \newblock ISBN 9780071132107.
 
-\bibitem[Jr.(2023)]{Anderson2023}
-J.~D.~Anderson Jr.
+\bibitem[Anderson.(2023)]{Anderson2023}
+J.~D. Anderson.
 \newblock \emph{Fundamentals of Aerodynamics}.
 \newblock McGraw-Hill Education, 2023.
 \newblock ISBN 9781264151929.
