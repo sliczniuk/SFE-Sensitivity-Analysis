@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.3.8)  23 MAR 2025 17:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.3.8)  29 MAR 2025 19:53
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1748,75 +1748,96 @@ Underfull \hbox (badness 1701) in paragraph at lines 578--579
 []\T1/stix/m/n/10 The aug-mented sys-tem con-tain-ing the orig-i-nal set
  []
 
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 620.
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 620.
+[8]
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 622.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Upsilon' on input line 620.
+(hyperref)                removing `math shift' on input line 622.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 620.
+(hyperref)                removing `\Upsilon' on input line 622.
 
-<Figures///Results_sensitivity/CS_gamma.png, id=314, 388.95714pt x 310.32738pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 622.
+
+<Figures///Results_sensitivity/CS_gamma.png, id=325, 388.95714pt x 310.32738pt>
 
 File: Figures///Results_sensitivity/CS_gamma.png Graphic file (type png)
 <use Figures///Results_sensitivity/CS_gamma.png>
 Package pdftex.def Info: Figures///Results_sensitivity/CS_gamma.png  used on in
-put line 624.
+put line 628.
 (pdftex.def)             Requested size: 238.25444pt x 190.09018pt.
-[8]
-<Figures///Results_sensitivity/CS_P.png, id=331, 408.03642pt x 307.43658pt>
+<Figures///Results_sensitivity/CF_gamma.png, id=330, 394.30511pt x 310.32738pt>
+
+File: Figures///Results_sensitivity/CF_gamma.png Graphic file (type png)
+<use Figures///Results_sensitivity/CF_gamma.png>
+Package pdftex.def Info: Figures///Results_sensitivity/CF_gamma.png  used on in
+put line 637.
+(pdftex.def)             Requested size: 238.25444pt x 187.51424pt.
+<Figures///Results_sensitivity/Y_gamma.png, id=333, 392.71518pt x 298.4751pt>
+File: Figures///Results_sensitivity/Y_gamma.png Graphic file (type png)
+<use Figures///Results_sensitivity/Y_gamma.png>
+Package pdftex.def Info: Figures///Results_sensitivity/Y_gamma.png  used on inp
+ut line 646.
+(pdftex.def)             Requested size: 238.25444pt x 181.08124pt.
+[9 <./Figures///Results_sensitivity/CS_gamma.png (PNG copy)> <./Figures///Resul
+ts_sensitivity/CF_gamma.png (PNG copy)> <./Figures///Results_sensitivity/Y_gamm
+a.png (PNG copy)>]
+<Figures///Results_sensitivity/CS_P.png, id=348, 408.03642pt x 307.43658pt>
 File: Figures///Results_sensitivity/CS_P.png Graphic file (type png)
 <use Figures///Results_sensitivity/CS_P.png>
 Package pdftex.def Info: Figures///Results_sensitivity/CS_P.png  used on input 
-line 638.
+line 658.
 (pdftex.def)             Requested size: 238.25444pt x 179.51427pt.
-<Figures///Results_sensitivity/CF_P.png, id=338, 408.03642pt x 309.02652pt>
+<Figures///Results_sensitivity/CF_P.png, id=355, 408.03642pt x 309.02652pt>
 File: Figures///Results_sensitivity/CF_P.png Graphic file (type png)
 <use Figures///Results_sensitivity/CF_P.png>
 Package pdftex.def Info: Figures///Results_sensitivity/CF_P.png  used on input 
-line 647.
+line 667.
 (pdftex.def)             Requested size: 238.25444pt x 180.44263pt.
- [9 <./Figures///Results_sensitivity/CS_gamma.png (PNG copy)> <./Figures///Resu
-lts_sensitivity/CS_P.png (PNG copy)>]
-<Figures///Results_sensitivity/Yield.png, id=354, 371.7087pt x 305.2203pt>
+ [10 <./Figures///Results_sensitivity/CS_P.png (PNG copy)> <./Figures///Results
+_sensitivity/CF_P.png>]
+<Figures///Results_sensitivity/Yield.png, id=370, 371.7087pt x 305.2203pt>
 File: Figures///Results_sensitivity/Yield.png Graphic file (type png)
 <use Figures///Results_sensitivity/Yield.png>
 Package pdftex.def Info: Figures///Results_sensitivity/Yield.png  used on input
- line 659.
+ line 679.
 (pdftex.def)             Requested size: 238.25444pt x 195.6384pt.
-<Figures///Results_sensitivity/Yield_Multiple_normalized.png, id=358, 383.031pt
+<Figures///Results_sensitivity/Yield_Multiple_normalized.png, id=374, 383.031pt
  x 294.3798pt>
 File: Figures///Results_sensitivity/Yield_Multiple_normalized.png Graphic file 
 (type png)
 <use Figures///Results_sensitivity/Yield_Multiple_normalized.png>
 Package pdftex.def Info: Figures///Results_sensitivity/Yield_Multiple_normalize
-d.png  used on input line 668.
+d.png  used on input line 688.
 (pdftex.def)             Requested size: 238.25444pt x 183.1155pt.
- [10 <./Figures///Results_sensitivity/CF_P.png> <./Figures///Results_sensitivit
-y/Yield.png (PNG copy)> <./Figures///Results_sensitivity/Yield_Multiple_normali
-zed.png (PNG copy)>]
+
+Underfull \hbox (badness 1281) in paragraph at lines 701--702
+[]\T1/stix/m/n/10 The mo-ti-va-tion be-hind per-form sen-si-tiv-ity anal-y-sis
+ []
+
+[11 <./Figures///Results_sensitivity/Yield.png (PNG copy)> <./Figures///Results
+_sensitivity/Yield_Multiple_normalized.png (PNG copy)>]
 (Article_Sensitivity_Analsysis-Chamomile.bbl
 Underfull \hbox (badness 1325) in paragraph at lines 52--59
 \T1/stix/m/n/8 Lan-so-pra-zole load-ing of poly-mers by su-per-crit-i-cal car-b
 on diox-
  []
 
-[11]
+[12]
 Underfull \hbox (badness 1859) in paragraph at lines 319--323
 []\T1/stix/m/n/8 J. Gmehling, M. Kleiber, B. Kolbe, and J. Rarey.  |   []
  []
 
-) [12] (Article_Sensitivity_Analsysis-Chamomile.nls
+) [13] (Article_Sensitivity_Analsysis-Chamomile.nls
 Underfull \hbox (badness 1264) in paragraph at lines 21--22
 []\T1/stix/m/n/10 Reference value of in-ter-nal dif-fu-sion co-ef-fi-cient
  []
 
-) [13
+) [14
 
 ] (Article_Sensitivity_Analsysis-Chamomile.aux)
 Package rerunfilecheck Info: File `Article_Sensitivity_Analsysis-Chamomile.out'
@@ -1824,13 +1845,13 @@ Package rerunfilecheck Info: File `Article_Sensitivity_Analsysis-Chamomile.out'
 (rerunfilecheck)             Checksum: 3077360FFEADFAA2E43181B062AF7564;3257.
  ) 
 Here is how much of TeX's memory you used:
- 42868 strings out of 478841
- 925769 string characters out of 2848322
- 1396055 words of memory out of 3000000
- 59824 multiletter control sequences out of 15000+600000
+ 42892 strings out of 478841
+ 926554 string characters out of 2848322
+ 1391055 words of memory out of 3000000
+ 59843 multiletter control sequences out of 15000+600000
  559534 words of font info for 227 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 110i,28n,131p,1761b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 110i,28n,131p,1639b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 <C:/Users/sliczno1/AppData/Local/Programs/MiKTeX/fonts/type1/public/inconsola
 ta/Inconsolata-zi4r.pfb><C:/Users/sliczno1/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/stix/STIXGeneral-Bold.pfb><C:/Users/sliczno1/AppData/Local/Program
@@ -1848,10 +1869,10 @@ x/stix-mathit.pfb><C:/Users/sliczno1/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/stix/stix-mathrm.pfb><C:/Users/sliczno1/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/stix/stix-mathscr.pfb><C:/Users/sliczno1/AppData/Local/Program
 s/MiKTeX/fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on Article_Sensitivity_Analsysis-Chamomile.pdf (13 pages, 196973
-9 bytes).
+Output written on Article_Sensitivity_Analsysis-Chamomile.pdf (14 pages, 224904
+6 bytes).
 PDF statistics:
- 483 PDF objects out of 1000 (max. 8388607)
- 116 named destinations out of 1000 (max. 500000)
- 271 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 498 PDF objects out of 1000 (max. 8388607)
+ 119 named destinations out of 1000 (max. 500000)
+ 293 words of extra memory for PDF output out of 10000 (max. 10000000)
 
