@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.3.8)  29 MAR 2025 19:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.3.8)  30 MAR 2025 16:45
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1781,7 +1781,7 @@ put line 637.
 File: Figures///Results_sensitivity/Y_gamma.png Graphic file (type png)
 <use Figures///Results_sensitivity/Y_gamma.png>
 Package pdftex.def Info: Figures///Results_sensitivity/Y_gamma.png  used on inp
-ut line 646.
+ut line 647.
 (pdftex.def)             Requested size: 238.25444pt x 181.08124pt.
 [9 <./Figures///Results_sensitivity/CS_gamma.png (PNG copy)> <./Figures///Resul
 ts_sensitivity/CF_gamma.png (PNG copy)> <./Figures///Results_sensitivity/Y_gamm
@@ -1790,38 +1790,33 @@ a.png (PNG copy)>]
 File: Figures///Results_sensitivity/CS_P.png Graphic file (type png)
 <use Figures///Results_sensitivity/CS_P.png>
 Package pdftex.def Info: Figures///Results_sensitivity/CS_P.png  used on input 
-line 658.
+line 659.
 (pdftex.def)             Requested size: 238.25444pt x 179.51427pt.
 <Figures///Results_sensitivity/CF_P.png, id=355, 408.03642pt x 309.02652pt>
 File: Figures///Results_sensitivity/CF_P.png Graphic file (type png)
 <use Figures///Results_sensitivity/CF_P.png>
 Package pdftex.def Info: Figures///Results_sensitivity/CF_P.png  used on input 
-line 667.
+line 668.
 (pdftex.def)             Requested size: 238.25444pt x 180.44263pt.
- [10 <./Figures///Results_sensitivity/CS_P.png (PNG copy)> <./Figures///Results
-_sensitivity/CF_P.png>]
-<Figures///Results_sensitivity/Yield.png, id=370, 371.7087pt x 305.2203pt>
+<Figures///Results_sensitivity/Yield.png, id=361, 371.7087pt x 305.2203pt>
 File: Figures///Results_sensitivity/Yield.png Graphic file (type png)
 <use Figures///Results_sensitivity/Yield.png>
 Package pdftex.def Info: Figures///Results_sensitivity/Yield.png  used on input
- line 679.
+ line 680.
 (pdftex.def)             Requested size: 238.25444pt x 195.6384pt.
+ [10 <./Figures///Results_sensitivity/CS_P.png (PNG copy)> <./Figures///Results
+_sensitivity/CF_P.png>]
 <Figures///Results_sensitivity/Yield_Multiple_normalized.png, id=374, 383.031pt
  x 294.3798pt>
 File: Figures///Results_sensitivity/Yield_Multiple_normalized.png Graphic file 
 (type png)
 <use Figures///Results_sensitivity/Yield_Multiple_normalized.png>
 Package pdftex.def Info: Figures///Results_sensitivity/Yield_Multiple_normalize
-d.png  used on input line 688.
+d.png  used on input line 689.
 (pdftex.def)             Requested size: 238.25444pt x 183.1155pt.
-
-Underfull \hbox (badness 1281) in paragraph at lines 701--702
-[]\T1/stix/m/n/10 The mo-ti-va-tion be-hind per-form sen-si-tiv-ity anal-y-sis
- []
-
-[11 <./Figures///Results_sensitivity/Yield.png (PNG copy)> <./Figures///Results
-_sensitivity/Yield_Multiple_normalized.png (PNG copy)>]
-(Article_Sensitivity_Analsysis-Chamomile.bbl
+ [11 <./Figures///Results_sensitivity/Yield.png (PNG copy)> <./Figures///Result
+s_sensitivity/Yield_Multiple_normalized.png (PNG copy)>] (Article_Sensitivity_A
+nalsysis-Chamomile.bbl
 Underfull \hbox (badness 1325) in paragraph at lines 52--59
 \T1/stix/m/n/8 Lan-so-pra-zole load-ing of poly-mers by su-per-crit-i-cal car-b
 on diox-
@@ -1851,7 +1846,7 @@ Here is how much of TeX's memory you used:
  59843 multiletter control sequences out of 15000+600000
  559534 words of font info for 227 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 110i,28n,131p,1639b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 110i,28n,131p,1634b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 <C:/Users/sliczno1/AppData/Local/Programs/MiKTeX/fonts/type1/public/inconsola
 ta/Inconsolata-zi4r.pfb><C:/Users/sliczno1/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/stix/STIXGeneral-Bold.pfb><C:/Users/sliczno1/AppData/Local/Program
@@ -1869,8 +1864,8 @@ x/stix-mathit.pfb><C:/Users/sliczno1/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/stix/stix-mathrm.pfb><C:/Users/sliczno1/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/stix/stix-mathscr.pfb><C:/Users/sliczno1/AppData/Local/Program
 s/MiKTeX/fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on Article_Sensitivity_Analsysis-Chamomile.pdf (14 pages, 224904
-6 bytes).
+Output written on Article_Sensitivity_Analsysis-Chamomile.pdf (14 pages, 224852
+5 bytes).
 PDF statistics:
  498 PDF objects out of 1000 (max. 8388607)
  119 named destinations out of 1000 (max. 500000)
