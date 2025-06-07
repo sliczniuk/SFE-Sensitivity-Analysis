@@ -1,0 +1,57 @@
+\nomenclatureentry{A\(P\)@[{\(P\)}]\begingroup pressure \nomunit{bar}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(T\)@[{\(T\)}]\begingroup temperature \nomunit{K}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(T_{in}\)@[{\(T_{in}\)}]\begingroup inlet temperature \nomunit{K}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(T_{out}\)@[{\(T_{out}\)}]\begingroup outlet temperature \nomunit{K}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(F\)@[{\(F\)}]\begingroup mass flow rate \nomunit{kg/s}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(u\)@[{\(u\)}]\begingroup superficial velocity \nomunit{m/s}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(v\)@[{\(v\)}]\begingroup linear velocity \nomunit{m/s}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(z\)@[{\(z\)}]\begingroup spatial direction \nomunit{m}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(e\)@[{\(e\)}]\begingroup internal energy \nomunit{J/kg}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(h\)@[{\(h\)}]\begingroup enthalpy \nomunit{J}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(t\)@[{\(t\)}]\begingroup time \nomunit{s}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(t_f\)@[{\(t_f\)}]\begingroup total extraction time \nomunit{s}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(t_0\)@[{\(t_0\)}]\begingroup initial extraction time \nomunit{s}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(A\)@[{\(A\)}]\begingroup total cross-section of the bed \nomunit{m$^2$}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(A_f\)@[{\(A_f\)}]\begingroup cross-section of the bed occupied by the fluid \nomunit{m$^2$}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(c_f\)@[{\(c_f\)}]\begingroup concentration of solute in the fluid phase \nomunit{kg/m$^3$}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(c_{f0}\)@[{\(c_{f0}\)}]\begingroup initial concentration of solute in the fluid phase \nomunit{kg/m$^3$}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(c_f^*\)@[{\(c_f^*\)}]\begingroup concentration of solute at the solid-fluid interface \nomunit{kg/m$^3$}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(c_s\)@[{\(c_s\)}]\begingroup concentration of solute in the solid phase \nomunit{kg/m$^3$}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(c_{s0}\)@[{\(c_{s0}\)}]\begingroup initial concentration of solute in the solid phase \nomunit{kg/m$^3$}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(c_s^*\)@[{\(c_s^*\)}]\begingroup concentration of solute at the solid-fluid interface \nomunit{kg$^3$}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(c_p\)@[{\(c_p\)}]\begingroup concentration of solute in the core of a pore \nomunit{kg/m$^3$}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(c_{pf}\)@[{\(c_{pf}\)}]\begingroup concentration of solute at the pore opening \nomunit{kg/m$^3$}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(D_e^M\)@[{\(D_e^M\)}]\begingroup axial diffusion coefficient \nomunit{m$^2$/s}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(r_e\)@[{\(r_e\)}]\begingroup mass transfer kinetic term \nomunit{kg/m$^3$/s}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(L\)@[{\(L\)}]\begingroup length of the fixed bed \nomunit{m}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(S\)@[{\(S\)}]\begingroup sensitivity equations\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(\textbf{G}\)@[{\(\textbf{G}\)}]\begingroup augmented system\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(\dot{S}\)@[{\(\dot{S}\)}]\begingroup time derivative of the sensitivity equations\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(\bar{S}\)@[{\(\bar{S}\)}]\begingroup sensitivity matrix\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(\bar{J}_x\)@[{\(\bar{J}_x\)}]\begingroup Jacobian matrix with respect to the state variables\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(\bar{J}_\Theta\)@[{\(\bar{J}_\Theta\)}]\begingroup Jacobian matrix with respect to the parameters\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(l\)@[{\(l\)}]\begingroup characteristic dimension of particles \nomunit{m}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(D_i\)@[{\(D_i\)}]\begingroup internal diffusion coefficient \nomunit{m$^2$/s}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(D_i^R\)@[{\(D_i^R\)}]\begingroup reference value of internal diffusion coefficient \nomunit{m$^2$/s}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(r\)@[{\(r\)}]\begingroup particle radius \nomunit{m}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(k_p\)@[{\(k_p\)}]\begingroup volumetric partition coefficient \nomunit{-}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(k_m\)@[{\(k_m\)}]\begingroup mass partition coefficient \nomunit{-}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(y\)@[{\(y\)}]\begingroup extraction yield \nomunit{g}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(x\)@[{\(x\)}]\begingroup state vector\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(G\)@[{\(G\)}]\begingroup vector of discretized differential equations\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(p\)@[{\(p\)}]\begingroup probability distribution model \nomunit{-}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{A\(R_e\)@[{\(R_e\)}]\begingroup Reynolds number \nomunit{-}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{B\(\rho_f\)@[{\(\rho_f\)}]\begingroup fluid density \nomunit{kg/m$^3$}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{B\(\Phi\)@[{\(\Phi\)}]\begingroup bed porosity \nomunit{-}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{B\(\rho_s\)@[{\(\rho_s\)}]\begingroup bulk density of the solid \nomunit{kg/m$^3$}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{B\(\mu\)@[{\(\mu\)}]\begingroup sphericity coefficient \nomunit{-}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{B\(\gamma\)@[{\(\gamma\)}]\begingroup decay function \nomunit{-}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{B\(\Upsilon\)@[{\(\Upsilon\)}]\begingroup decay coefficient \nomunit{-}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{B\(\Theta\)@[{\(\Theta\)}]\begingroup parameter space\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{B\(\theta\)@[{\(\theta\)}]\begingroup vector of unknown parameters\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{B\(\epsilon\)@[{\(\epsilon\)}]\begingroup unobservable error \nomunit{g}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{B\(\sigma\)@[{\(\sigma\)}]\begingroup standard deviation \nomunit{g}\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{CBIC@[{BIC}]\begingroup broken-and-intact cell model\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{CSFE@[{SFE}]\begingroup supercritical fluid extraction\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{CHBD@[{HBD}]\begingroup hot ball diffusion\nomeqref {29}|nompageref}{14}
+\nomenclatureentry{CSC@[{SC}]\begingroup shrinking core\nomeqref {29}|nompageref}{14}

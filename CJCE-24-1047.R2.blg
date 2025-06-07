@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: CJCE-24-1047.R2.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: unsrtnat.bst
+Reallocating 'name_of_file' (item size: 1) to 10 items.
+Database file #1: mybibfile.bib
+Warning--I didn't find a database entry for "Fiori_2007"
+You've used 39 entries,
+            2481 wiz_defined-function locations,
+            883 strings with 13234 characters,
+and the built_in function-call counts, 15435 in all, are:
+= -- 1421
+> -- 725
+< -- 18
++ -- 287
+- -- 208
+* -- 1297
+:= -- 2536
+add.period$ -- 183
+call.type$ -- 39
+change.case$ -- 76
+chr.to.int$ -- 38
+cite$ -- 39
+duplicate$ -- 733
+empty$ -- 1356
+format.name$ -- 267
+if$ -- 3234
+int.to.chr$ -- 2
+int.to.str$ -- 40
+missing$ -- 42
+newline$ -- 269
+num.names$ -- 117
+pop$ -- 234
+preamble$ -- 1
+purify$ -- 39
+quote$ -- 0
+skip$ -- 389
+stack$ -- 0
+substring$ -- 711
+swap$ -- 105
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 264
+warning$ -- 0
+while$ -- 127
+width$ -- 0
+write$ -- 638
+(There was 1 warning)

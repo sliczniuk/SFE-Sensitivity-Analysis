@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.3.8)  7 JUN 2025 14:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.3.8)  7 JUN 2025 14:32
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
-**./Article_Sensitivity_Analsysis-Chamomile.tex
-(Article_Sensitivity_Analsysis-Chamomile.tex
+**./CJCE-24-1047.R2.tex
+(CJCE-24-1047.R2.tex
 LaTeX2e <2021-06-01> patch level 1
 L3 programming layer <2021-10-18>
 (C:\Program Files\MiKTeX\tex/latex/els-cas-templates\cas-dc.cls
@@ -822,10 +822,10 @@ Package tocbasic Info: omitting babel extension for `nls'
 \nomitemsep=\skip70
 )
 \@nomenclaturefile=\write3
-\openout3 = `Article_Sensitivity_Analsysis-Chamomile.nlo'.
+\openout3 = `CJCE-24-1047.R2.nlo'.
 
-Package nomencl Info: Writing nomenclature file Article_Sensitivity_Analsysis-C
-hamomile.nlo on input line 28.
+Package nomencl Info: Writing nomenclature file CJCE-24-1047.R2.nlo on input li
+ne 28.
 
 (C:\Program Files\MiKTeX\tex/latex/todonotes\todonotes.sty
 Package: todonotes 2024/01/05 v1.1.7 Todonotes source and documentation.
@@ -1426,9 +1426,8 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \enit@inbox=\box89
 \enit@count@id=\count379
 \enitdp@description=\count380
-)
-(Article_Sensitivity_Analsysis-Chamomile.aux)
-\openout1 = `Article_Sensitivity_Analsysis-Chamomile.aux'.
+) (CJCE-24-1047.R2.aux)
+\openout1 = `CJCE-24-1047.R2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 95.
 LaTeX Font Info:    ... okay on input line 95.
@@ -1451,7 +1450,6 @@ LaTeX Font Info:    ... okay on input line 95.
 LaTeX Font Info:    Checking defaults for LS1/stix/m/n on input line 95.
 LaTeX Font Info:    Trying to load font information for LS1+stix on input line 
 95.
-
 (C:\Users\sliczno1\AppData\Local\Programs\MiKTeX\tex/latex/stix\ls1stix.fd
 File: ls1stix.fd 2015/04/17 v1.1.2-latex STIX LS1 font definitions
 )
@@ -1508,10 +1506,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 95.
 LaTeX Info: Redefining \pageref on input line 95.
 LaTeX Info: Redefining \nameref on input line 95.
- (Article_Sensitivity_Analsysis-Chamomile.out)
-(Article_Sensitivity_Analsysis-Chamomile.out)
+ (CJCE-24-1047.R2.out) (CJCE-24-1047.R2.out)
 \@outlinefile=\write5
-\openout5 = `Article_Sensitivity_Analsysis-Chamomile.out'.
+\openout5 = `CJCE-24-1047.R2.out'.
 
 
 (C:\Users\sliczno1\AppData\Local\Programs\MiKTeX\tex/latex/upquote\upquote.sty
@@ -1573,7 +1570,7 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
 \verbatim@out=\write6
-\openout6 = `Article_Sensitivity_Analsysis-Chamomile.abs'.
+\openout6 = `CJCE-24-1047.R2.abs'.
 
 LaTeX Font Info:    Trying to load font information for LS1+stixscr on input li
 ne 137.
@@ -1637,7 +1634,7 @@ Overfull \hbox (123.62721pt too wide) detected at line 137
 []
  []
 
-(Article_Sensitivity_Analsysis-Chamomile.abs)
+(CJCE-24-1047.R2.abs)
 <thumbnails/cas-email.jpeg, id=86, 225.84375pt x 225.84375pt>
 File: thumbnails/cas-email.jpeg Graphic file (type jpg)
 <use thumbnails/cas-email.jpeg>
@@ -1656,25 +1653,6 @@ LaTeX Font Info:    Trying to load font information for T1+cmss on input line 1
  (C:\Users\sliczno1\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmss.fd
 File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-Underfull \hbox (badness 2073) in paragraph at lines 153--157
-\T1/stix/m/n/10 carbon-dioxide-assisted tech-nolo-gies en-able the pro-duc-
- []
-
-
-Underfull \hbox (badness 1796) in paragraph at lines 153--157
-\T1/stix/m/n/10 ad-van-tages over tech-niques con-ven-tion-ally em-ployed to
- []
-
-
-Underfull \hbox (badness 1048) in paragraph at lines 153--157
-\T1/stix/m/n/10 The re-searchers em-ployed the gas an-ti-sol-vent tech-nique
- []
-
-
-Underfull \hbox (badness 2165) in paragraph at lines 153--157
-\T1/stix/m/n/10 hy-drochlo-ride nanopar-ti-cles us-ing an ultrasonic-assisted
- []
-
 [1{C:/Users/sliczno1/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users
 /sliczno1/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/stix/stix-t1.enc}
 
@@ -1698,6 +1676,11 @@ Underfull \hbox (badness 1281) in paragraph at lines 175--176
 \T1/stix/m/n/10 oriented sim-plic-ity, as-sum-ing semi-continuous op-er-a-tion
  []
 
+
+Underfull \hbox (badness 1325) in paragraph at lines 175--176
+\T1/stix/m/n/10 within a cylin-dri-cal ves-sel. The pro-cess in-volves a su-
+ []
+
 [2]
 
 pdfTeX warning: pdflatex (file ./Figures/PFD.drawio.pdf): PDF inclusion: found 
@@ -1712,9 +1695,9 @@ LaTeX Font Info:    Trying to load font information for TS1+stix on input line
 (C:\Users\sliczno1\AppData\Local\Programs\MiKTeX\tex/latex/stix\ts1stix.fd
 File: ts1stix.fd 2015/04/17 v1.1.2-latex STIX TS1 font definitions
 )
-Underfull \hbox (badness 1189) in paragraph at lines 194--195
-[]\T1/stix/m/n/10 Different su-per-crit-i-cal ex-trac-tion mod-els have been
- []
+
+Package natbib Warning: Citation `Fiori_2007' on page 3 undefined on input line
+ 208.
 
 [3{C:/Users/sliczno1/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/stix/stix-ts
 1.enc} <./Figures/PFD.drawio.pdf>] [4]
@@ -1723,18 +1706,18 @@ Overfull \hbox (8.60632pt too wide) in paragraph at lines 302--303
 
  []
 
-<Figures/SFE_PFD.drawio.png, id=235, 8222.72pt x 4626.28375pt>
+<Figures/SFE_PFD.drawio.png, id=234, 8222.72pt x 4626.28375pt>
 File: Figures/SFE_PFD.drawio.png Graphic file (type png)
 <use Figures/SFE_PFD.drawio.png>
 Package pdftex.def Info: Figures/SFE_PFD.drawio.png  used on input line 306.
 (pdftex.def)             Requested size: 202.51772pt x 156.9374pt.
 [5 <./Figures/SFE_PFD.drawio.png>]
-<Figures///Di.png, id=269, 386.1627pt x 311.0019pt>
+<Figures///Di.png, id=268, 386.1627pt x 311.0019pt>
 File: Figures///Di.png Graphic file (type png)
 <use Figures///Di.png>
 Package pdftex.def Info: Figures///Di.png  used on input line 373.
 (pdftex.def)             Requested size: 238.25444pt x 191.88432pt.
-<Figures///Gamma.png, id=271, 384.9582pt x 309.7974pt>
+<Figures///Gamma.png, id=270, 384.9582pt x 309.7974pt>
 File: Figures///Gamma.png Graphic file (type png)
 <use Figures///Gamma.png>
 Package pdftex.def Info: Figures///Gamma.png  used on input line 380.
@@ -1763,21 +1746,21 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 621.
 
-<Figures///Results_sensitivity/CS_gamma.png, id=325, 388.95714pt x 310.32738pt>
+<Figures///Results_sensitivity/CS_gamma.png, id=324, 388.95714pt x 310.32738pt>
 
 File: Figures///Results_sensitivity/CS_gamma.png Graphic file (type png)
 <use Figures///Results_sensitivity/CS_gamma.png>
 Package pdftex.def Info: Figures///Results_sensitivity/CS_gamma.png  used on in
 put line 627.
 (pdftex.def)             Requested size: 238.25444pt x 190.09018pt.
-<Figures///Results_sensitivity/CF_gamma.png, id=330, 394.30511pt x 310.32738pt>
+<Figures///Results_sensitivity/CF_gamma.png, id=329, 394.30511pt x 310.32738pt>
 
 File: Figures///Results_sensitivity/CF_gamma.png Graphic file (type png)
 <use Figures///Results_sensitivity/CF_gamma.png>
 Package pdftex.def Info: Figures///Results_sensitivity/CF_gamma.png  used on in
 put line 636.
 (pdftex.def)             Requested size: 238.25444pt x 187.51424pt.
-<Figures///Results_sensitivity/Y_gamma.png, id=333, 392.71518pt x 298.4751pt>
+<Figures///Results_sensitivity/Y_gamma.png, id=332, 392.71518pt x 298.4751pt>
 File: Figures///Results_sensitivity/Y_gamma.png Graphic file (type png)
 <use Figures///Results_sensitivity/Y_gamma.png>
 Package pdftex.def Info: Figures///Results_sensitivity/Y_gamma.png  used on inp
@@ -1786,27 +1769,32 @@ ut line 646.
 [9 <./Figures///Results_sensitivity/CS_gamma.png (PNG copy)> <./Figures///Resul
 ts_sensitivity/CF_gamma.png (PNG copy)> <./Figures///Results_sensitivity/Y_gamm
 a.png (PNG copy)>]
-<Figures///Results_sensitivity/CS_P.png, id=348, 408.03642pt x 307.43658pt>
+<Figures///Results_sensitivity/CS_P.png, id=347, 408.03642pt x 307.43658pt>
 File: Figures///Results_sensitivity/CS_P.png Graphic file (type png)
 <use Figures///Results_sensitivity/CS_P.png>
 Package pdftex.def Info: Figures///Results_sensitivity/CS_P.png  used on input 
 line 658.
 (pdftex.def)             Requested size: 238.25444pt x 179.51427pt.
-<Figures///Results_sensitivity/CF_P.png, id=355, 408.03642pt x 309.02652pt>
+
+
+Package natbib Warning: Citation `Fiori_2007' on page 10 undefined on input lin
+e 663.
+
+<Figures///Results_sensitivity/CF_P.png, id=353, 408.03642pt x 309.02652pt>
 File: Figures///Results_sensitivity/CF_P.png Graphic file (type png)
 <use Figures///Results_sensitivity/CF_P.png>
 Package pdftex.def Info: Figures///Results_sensitivity/CF_P.png  used on input 
 line 667.
 (pdftex.def)             Requested size: 238.25444pt x 180.44263pt.
-<Figures///Results_sensitivity/Yield.png, id=361, 371.7087pt x 305.2203pt>
+<Figures///Results_sensitivity/Yield.png, id=359, 371.7087pt x 305.2203pt>
 File: Figures///Results_sensitivity/Yield.png Graphic file (type png)
 <use Figures///Results_sensitivity/Yield.png>
 Package pdftex.def Info: Figures///Results_sensitivity/Yield.png  used on input
  line 679.
 (pdftex.def)             Requested size: 238.25444pt x 195.6384pt.
- [10 <./Figures///Results_sensitivity/CS_P.png (PNG copy)> <./Figures///Results
-_sensitivity/CF_P.png>]
-<Figures///Results_sensitivity/Yield_Multiple_normalized.png, id=374, 383.031pt
+[10 <./Figures///Results_sensitivity/CS_P.png (PNG copy)> <./Figures///Results_
+sensitivity/CF_P.png>]
+<Figures///Results_sensitivity/Yield_Multiple_normalized.png, id=372, 383.031pt
  x 294.3798pt>
 File: Figures///Results_sensitivity/Yield_Multiple_normalized.png Graphic file 
 (type png)
@@ -1815,9 +1803,10 @@ Package pdftex.def Info: Figures///Results_sensitivity/Yield_Multiple_normalize
 d.png  used on input line 688.
 (pdftex.def)             Requested size: 238.25444pt x 183.1155pt.
  [11 <./Figures///Results_sensitivity/Yield.png (PNG copy)> <./Figures///Result
-s_sensitivity/Yield_Multiple_normalized.png (PNG copy)>] [12
+s_sensitivity/Yield_Multiple_normalized.png (PNG copy)>]
+[12
 
-] (Article_Sensitivity_Analsysis-Chamomile.bbl
+] (CJCE-24-1047.R2.bbl
 Underfull \hbox (badness 1325) in paragraph at lines 52--59
 \T1/stix/m/n/8 Lan-so-pra-zole load-ing of poly-mers by su-per-crit-i-cal car-b
 on diox-
@@ -1825,29 +1814,22 @@ on diox-
 
 [13
 
-]
-Underfull \hbox (badness 1859) in paragraph at lines 319--323
-[]\T1/stix/m/n/8 J. Gmehling, M. Kleiber, B. Kolbe, and J. Rarey.  |   []
- []
+]) (CJCE-24-1047.R2.nls)
 
-) (Article_Sensitivity_Analsysis-Chamomile.nls
-Underfull \hbox (badness 1264) in paragraph at lines 21--22
-[]\T1/stix/m/n/10 Reference value of in-ter-nal dif-fu-sion co-ef-fi-cient
- []
+Package natbib Warning: There were undefined citations.
 
-) [14] (Article_Sensitivity_Analsysis-Chamomile.aux)
-Package rerunfilecheck Info: File `Article_Sensitivity_Analsysis-Chamomile.out'
- has not changed.
+[14] (CJCE-24-1047.R2.aux)
+Package rerunfilecheck Info: File `CJCE-24-1047.R2.out' has not changed.
 (rerunfilecheck)             Checksum: 3077360FFEADFAA2E43181B062AF7564;3257.
  ) 
 Here is how much of TeX's memory you used:
  42891 strings out of 478841
- 926546 string characters out of 2848322
- 1412055 words of memory out of 3000000
+ 925846 string characters out of 2848322
+ 1411031 words of memory out of 3000000
  59842 multiletter control sequences out of 15000+600000
  559534 words of font info for 227 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 110i,28n,131p,1761b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 110i,28n,131p,1738b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 <C:/Users/sliczno1/AppData/Local/Programs/MiKTeX/fonts/type1/public/inconsola
 ta/Inconsolata-zi4r.pfb><C:/Users/sliczno1/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/stix/STIXGeneral-Bold.pfb><C:/Users/sliczno1/AppData/Local/Program
@@ -1865,10 +1847,9 @@ x/stix-mathit.pfb><C:/Users/sliczno1/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/stix/stix-mathrm.pfb><C:/Users/sliczno1/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/stix/stix-mathscr.pfb><C:/Users/sliczno1/AppData/Local/Program
 s/MiKTeX/fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on Article_Sensitivity_Analsysis-Chamomile.pdf (14 pages, 224817
-2 bytes).
+Output written on CJCE-24-1047.R2.pdf (14 pages, 2248735 bytes).
 PDF statistics:
- 499 PDF objects out of 1000 (max. 8388607)
+ 497 PDF objects out of 1000 (max. 8388607)
  119 named destinations out of 1000 (max. 500000)
  293 words of extra memory for PDF output out of 10000 (max. 10000000)
 

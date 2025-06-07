@@ -1,0 +1,64 @@
+
+\begin{thenomenclature} 
+\nomgroup{A}
+  \item [{\(\bar{J}_\Theta\)}]\begingroup Jacobian matrix with respect to the parameters\nomeqref {29}\nompageref{14}
+  \item [{\(\bar{J}_x\)}]\begingroup Jacobian matrix with respect to the state variables\nomeqref {29}\nompageref{14}
+  \item [{\(\bar{S}\)}]\begingroup sensitivity matrix\nomeqref {29}\nompageref{14}
+  \item [{\(\dot{S}\)}]\begingroup time derivative of the sensitivity equations\nomeqref {29}\nompageref{14}
+  \item [{\(\textbf{G}\)}]\begingroup augmented system\nomeqref {29}\nompageref{14}
+  \item [{\(A\)}]\begingroup total cross-section of the bed \nomunit{m$^2$}\nomeqref {29}\nompageref{14}
+  \item [{\(A_f\)}]\begingroup cross-section of the bed occupied by the fluid \nomunit{m$^2$}\nomeqref {29}\nompageref{14}
+  \item [{\(c_f\)}]\begingroup concentration of solute in the fluid phase \nomunit{kg/m$^3$}\nomeqref {29}\nompageref{14}
+  \item [{\(c_f^*\)}]\begingroup concentration of solute at the solid-fluid interface \nomunit{kg/m$^3$}\nomeqref {29}\nompageref{14}
+  \item [{\(c_p\)}]\begingroup concentration of solute in the core of a pore \nomunit{kg/m$^3$}\nomeqref {29}\nompageref{14}
+  \item [{\(c_s\)}]\begingroup concentration of solute in the solid phase \nomunit{kg/m$^3$}\nomeqref {29}\nompageref{14}
+  \item [{\(c_s^*\)}]\begingroup concentration of solute at the solid-fluid interface \nomunit{kg$^3$}\nomeqref {29}\nompageref{14}
+  \item [{\(c_{f0}\)}]\begingroup initial concentration of solute in the fluid phase \nomunit{kg/m$^3$}\nomeqref {29}\nompageref{14}
+  \item [{\(c_{pf}\)}]\begingroup concentration of solute at the pore opening \nomunit{kg/m$^3$}\nomeqref {29}\nompageref{14}
+  \item [{\(c_{s0}\)}]\begingroup initial concentration of solute in the solid phase \nomunit{kg/m$^3$}\nomeqref {29}\nompageref{14}
+  \item [{\(D_e^M\)}]\begingroup axial diffusion coefficient \nomunit{m$^2$/s}\nomeqref {29}\nompageref{14}
+  \item [{\(D_i\)}]\begingroup internal diffusion coefficient \nomunit{m$^2$/s}\nomeqref {29}\nompageref{14}
+  \item [{\(D_i^R\)}]\begingroup reference value of internal diffusion coefficient \nomunit{m$^2$/s}\nomeqref {29}\nompageref{14}
+  \item [{\(e\)}]\begingroup internal energy \nomunit{J/kg}\nomeqref {29}\nompageref{14}
+  \item [{\(F\)}]\begingroup mass flow rate \nomunit{kg/s}\nomeqref {29}\nompageref{14}
+  \item [{\(G\)}]\begingroup vector of discretized differential equations\nomeqref {29}\nompageref{14}
+  \item [{\(h\)}]\begingroup enthalpy \nomunit{J}\nomeqref {29}\nompageref{14}
+  \item [{\(k_m\)}]\begingroup mass partition coefficient \nomunit{-}\nomeqref {29}\nompageref{14}
+  \item [{\(k_p\)}]\begingroup volumetric partition coefficient \nomunit{-}\nomeqref {29}\nompageref{14}
+  \item [{\(L\)}]\begingroup length of the fixed bed \nomunit{m}\nomeqref {29}\nompageref{14}
+  \item [{\(l\)}]\begingroup characteristic dimension of particles \nomunit{m}\nomeqref {29}\nompageref{14}
+  \item [{\(P\)}]\begingroup pressure \nomunit{bar}\nomeqref {29}\nompageref{14}
+  \item [{\(p\)}]\begingroup probability distribution model \nomunit{-}\nomeqref {29}\nompageref{14}
+  \item [{\(r\)}]\begingroup particle radius \nomunit{m}\nomeqref {29}\nompageref{14}
+  \item [{\(R_e\)}]\begingroup Reynolds number \nomunit{-}\nomeqref {29}\nompageref{14}
+  \item [{\(r_e\)}]\begingroup mass transfer kinetic term \nomunit{kg/m$^3$/s}\nomeqref {29}\nompageref{14}
+  \item [{\(S\)}]\begingroup sensitivity equations\nomeqref {29}\nompageref{14}
+  \item [{\(T\)}]\begingroup temperature \nomunit{K}\nomeqref {29}\nompageref{14}
+  \item [{\(t\)}]\begingroup time \nomunit{s}\nomeqref {29}\nompageref{14}
+  \item [{\(t_0\)}]\begingroup initial extraction time \nomunit{s}\nomeqref {29}\nompageref{14}
+  \item [{\(t_f\)}]\begingroup total extraction time \nomunit{s}\nomeqref {29}\nompageref{14}
+  \item [{\(T_{in}\)}]\begingroup inlet temperature \nomunit{K}\nomeqref {29}\nompageref{14}
+  \item [{\(T_{out}\)}]\begingroup outlet temperature \nomunit{K}\nomeqref {29}\nompageref{14}
+  \item [{\(u\)}]\begingroup superficial velocity \nomunit{m/s}\nomeqref {29}\nompageref{14}
+  \item [{\(v\)}]\begingroup linear velocity \nomunit{m/s}\nomeqref {29}\nompageref{14}
+  \item [{\(x\)}]\begingroup state vector\nomeqref {29}\nompageref{14}
+  \item [{\(y\)}]\begingroup extraction yield \nomunit{g}\nomeqref {29}\nompageref{14}
+  \item [{\(z\)}]\begingroup spatial direction \nomunit{m}\nomeqref {29}\nompageref{14}
+\nomgroup{B}
+  \item [{\(\epsilon\)}]\begingroup unobservable error \nomunit{g}\nomeqref {29}\nompageref{14}
+  \item [{\(\gamma\)}]\begingroup decay function \nomunit{-}\nomeqref {29}\nompageref{14}
+  \item [{\(\mu\)}]\begingroup sphericity coefficient \nomunit{-}\nomeqref {29}\nompageref{14}
+  \item [{\(\Phi\)}]\begingroup bed porosity \nomunit{-}\nomeqref {29}\nompageref{14}
+  \item [{\(\rho_f\)}]\begingroup fluid density \nomunit{kg/m$^3$}\nomeqref {29}\nompageref{14}
+  \item [{\(\rho_s\)}]\begingroup bulk density of the solid \nomunit{kg/m$^3$}\nomeqref {29}\nompageref{14}
+  \item [{\(\sigma\)}]\begingroup standard deviation \nomunit{g}\nomeqref {29}\nompageref{14}
+  \item [{\(\Theta\)}]\begingroup parameter space\nomeqref {29}\nompageref{14}
+  \item [{\(\theta\)}]\begingroup vector of unknown parameters\nomeqref {29}\nompageref{14}
+  \item [{\(\Upsilon\)}]\begingroup decay coefficient \nomunit{-}\nomeqref {29}\nompageref{14}
+\nomgroup{C}
+  \item [{BIC}]\begingroup broken-and-intact cell model\nomeqref {29}\nompageref{14}
+  \item [{HBD}]\begingroup hot ball diffusion\nomeqref {29}\nompageref{14}
+  \item [{SC}]\begingroup shrinking core\nomeqref {29}\nompageref{14}
+  \item [{SFE}]\begingroup supercritical fluid extraction\nomeqref {29}\nompageref{14}
+
+\end{thenomenclature}
